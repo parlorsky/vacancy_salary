@@ -1,9 +1,4 @@
 
-import catboost_install
-
-catboost_install.install('catboost')
-
-
 
 import streamlit as st
 from catboost import CatBoostRegressor
