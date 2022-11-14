@@ -1,9 +1,3 @@
-import zipfile
-with zipfile.ZipFile("model_1_code_experience.zip","r") as zip_ref:
-    zip_ref.extractall("")
-
-
-
 import streamlit as st
 from catboost import CatBoostRegressor
 import numpy as np
@@ -11,15 +5,12 @@ import json
 
 
 
-cols  = [
+cols = [
     'НАКС',
     'Развитие персонала (СУП)',
  'Разборка, ремонт, сборка, регулирование и испытание простых и средней сложности узлов, механизмов, оборудования',
- 'Турецкий язык',
- 'Оформление учетно-отчетной документации',
- 'Условия работы',
  'Сварка трением',
-'Экструзионная сварка',
+ 'Экструзионная сварка',
  'Разборка, ремонт, сборка, испытание и наладка сложных узлов, механизмов, оборудования',
  'Врезка в трубопроводы',
  'Пользоваться компьютерными и телекоммуникационными средствами в профессиональной деятельности',
@@ -45,21 +36,16 @@ cols  = [
  'Газовая резка',
  'Ручная резка',
  'Знание  устройств и правил эксплуатации сварочных аппаратов, машин',
- 'Работа в 1С',
  'Сборка и монтаж',
  'Соблюдение охраны труда, техники безопасности и пожарной безопасности',
  'Ручная сварка',
- 'Другие виды работ (помимо сварки)',
  'Контроль  сварки/резки, измерение',
  'Плазменная сварка',
- 'Неспецифичные виды работ',
  'Сварка в среде защитного газа',
  'Дуговая сварка',
  'Чтение чертежей, документации',
  'Знание техник, технологии сварки, наплавки',
  'Пайка',
- 'Административные функции',
- 'Зарплата и другие выплаты, официальное трудоустройство',
  'Знание документации, проектов, чертежей, схем',
  'Наплавка',
  'Автоматическая сварка',
@@ -68,15 +54,11 @@ cols  = [
  'Газовая сварка',
  'Обучение/профподготовка в компании',
  'Сварка в среде аргона (РАД)\u200b',
- 'График работы',
- 'Личные установки и ценности, мировоззрение',
  'Знание правил безопасности',
- 'Условия работы/проживания/отдыха',
  'Требования к образованию',
  'Удостоверения',
  'Обязательная сертификация',
- 'Дополнительные льготы',
- 'v3_region_index',
+ 'Дополнительные льготы'
  'is_vahta']
 
 
@@ -162,40 +144,38 @@ a49 = 1 if st.checkbox(cols[49]) else 0
 a50 = 1 if st.checkbox(cols[50]) else 0
 a51 = 1 if st.checkbox(cols[51]) else 0
 a52 = 1 if st.checkbox(cols[52]) else 0
-a53 = 1 if st.checkbox(cols[53]) else 0
-a54 = 1 if st.checkbox(cols[54]) else 0
-a55 = 1 if st.checkbox(cols[55]) else 0
-a56 = 1 if st.checkbox(cols[56]) else 0
-a57 = 1 if st.checkbox(cols[57]) else 0
-a58 = 1 if st.checkbox(cols[58]) else 0
-a59 = 1 if st.checkbox(cols[59]) else 0
-a60 = 1 if st.checkbox(cols[60]) else 0
-a61 = 1 if st.checkbox(cols[61]) else 0
-a62 = 1 if st.checkbox(cols[62]) else 0
-a63 = 1 if st.checkbox(cols[63]) else 0
-a64 = 1 if st.checkbox(cols[64]) else 0
-a65 = 1 if st.checkbox(cols[65]) else 0
+a54 = 1 if st.checkbox('Вахта') else 0
 
 
-f = open('regions_.json')
+
+f = open('regions_final.json')
 data = json.load(f)
 
 option = st.selectbox(
-    'Напишите город вакансии',
+    'Напишите регион вакансии',
     (list(data.keys())))
 region_ = data[str(option)]
 
 if st.button('Предсказать зарплату'):
-    inputs = [a0, a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15, a16, a17, a18, a19, a20, a21, a22, a23, a24, a25, a26, a27, a28, a29, a30, a31, a32, a33, a34, a35, a36, a37, a38, a39, a40, a41, a42, a43, a44, a45, a46, a47, a48, a49, a50, a51, a52, a53, a54, a55, a56, a57, a58, a59, a60, a61, a62, a63, a64,region_ ,a65]
+    inputs = [a0, a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15, a16, a17, a18, a19, a20, a21, a22, a23, a24, a25, a26, a27, a28, a29, a30, a31, a32, a33, a34, a35, a36, a37, a38, a39, a40, a41, a42, a43, a44, a45, a46, a47, a48, a49, a50, a51, a52,region_ , a53]
     
     if experience == 'Без опыта':
-        prediction = model_0_code_experience.predict(inputs)
+        if a53:
+            prediction = model_0_code_experience_is_vahta.predict(inputs)
+        else:
+            prediction = model_0_code_experience_isnt_vahta.predict(inputs)
+
     if experience == 'От 1 до 3 лет':
-        prediction = model_1_code_experience.predict(inputs)
-    if experience == 'от 3 до 6 лет':
-        prediction = model_2_code_experience.predict(inputs)
+        if a53:
+            prediction = model_1_code_experience_is_vahta.predict(inputs)
+        else:
+            prediction = model_1_code_experience_isnt_vahta.predict(inputs)
+    if experience == 'От 3 лет':
+        if a53:
+            prediction = model_2_code_experience_is_vahta.predict(inputs)
+        else:
+            prediction = model_2_code_experience_isnt_vahta.predict(inputs)
         
         
-    print("final pred", np.squeeze(prediction, -1))
-    st.write(f"Предполагаемая ЗП: {np.squeeze(prediction, -1)} рублей")
+    st.write(f"Предполагаемая ЗП:  {'{:.2f}'.format(round(np.squeeze(prediction, -1),2))}  рублей")
     
