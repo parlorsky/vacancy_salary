@@ -110,7 +110,7 @@ left_column1, right_column1 = st.columns(2)
 with left_column1:
     experience = st.radio(
         'опыт работы:',
-        np.unique(['Нет опыта','От 1 года до 3 лет','От 3 до 6 лет','Более 6 лет']))
+        np.unique(['От 1 года до 3 лет','От 3 до 6 лет','Более 6 лет']))
 
 
 a0 = 1 if st.checkbox(cols[0]) else 0
