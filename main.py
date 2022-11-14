@@ -58,7 +58,7 @@ cols = [
  'Требования к образованию',
  'Удостоверения',
  'Обязательная сертификация',
- 'Дополнительные льготы'
+ 'Дополнительные льготы',
  'is_vahta']
 
 
@@ -150,7 +150,7 @@ a49 = 1 if st.checkbox(cols[49]) else 0
 a50 = 1 if st.checkbox(cols[50]) else 0
 a51 = 1 if st.checkbox(cols[51]) else 0
 a52 = 1 if st.checkbox(cols[52]) else 0
-a54 = 1 if st.checkbox('Вахта') else 0
+a53 = 1 if st.checkbox('Вахта') else 0
 
 
 
