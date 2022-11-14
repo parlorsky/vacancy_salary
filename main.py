@@ -1,3 +1,16 @@
+import subprocess
+import sys
+
+def install(package):
+    subprocess.check_call([sys.executable, "-m", "pip", "install", package])
+    
+
+install('catboost')
+
+
+
+
+
 import streamlit as st
 import pandas as pd
 from catboost import CatBoostRegressor
