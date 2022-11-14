@@ -65,12 +65,18 @@ cols = [
 st.header("Предсказание зарплаты по вакансии сварщика исходя из навыков")
 # data = pd.read_csv("fish.csv")
 
-model_0_code_experience = CatBoostRegressor()
-model_0_code_experience.load_model('model_0_code_experience')
-model_1_code_experience = CatBoostRegressor()
-model_1_code_experience.load_model('model_1_code_experience')
-model_2_code_experience = CatBoostRegressor()
-model_2_code_experience.load_model('model_2_code_experience')
+model_0_code_experience_is_vahta = CatBoostRegressor()
+model_0_code_experience_is_vahta.load_model('model_0_code_experience_is_vahta')
+model_0_code_experience_isnt_vahta = CatBoostRegressor()
+model_0_code_experience_isnt_vahta.load_model('model_0_code_experience_isnt_vahta')
+model_1_code_experience_is_vahta = CatBoostRegressor()
+model_1_code_experience_is_vahta.load_model('model_1_code_experience_is_vahta')
+model_1_code_experience_isnt_vahta = CatBoostRegressor()
+model_1_code_experience_isnt_vahta.load_model('model_1_code_experience_isnt_vahta')
+model_2_code_experience_is_vahta = CatBoostRegressor()
+model_2_code_experience_is_vahta.load_model('model_2_code_experience_is_vahta')
+model_2_code_experience_isnt_vahta = CatBoostRegressor()
+model_2_code_experience_isnt_vahta.load_model('model_2_code_experience_isnt_vahta')
 
 
 
