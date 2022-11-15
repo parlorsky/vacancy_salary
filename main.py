@@ -185,7 +185,10 @@ if st.button('Предсказать зарплату'):
             prediction = model_2_code_experience_is_vahta.predict(inputs)
         else:
             prediction = model_2_code_experience_isnt_vahta.predict(inputs)
-        
+    
+    prediction = abs(prediction)
+    if prediction < 10000:
+        prediction += 28541.867543
         
     st.write(f"Предполагаемая ЗП:  {'{:.2f}'.format(round(np.squeeze(prediction, -1),2))}  рублей")
     
