@@ -158,6 +158,9 @@ a53 = 1 if st.checkbox('Вахта') else 0
 f = open('regions_final.json')
 data = json.load(f)
 
+st.subheader("Выберите регион вакансии")
+
+
 option = st.selectbox(
     'Напишите регион вакансии',
     (list(data.keys())))
