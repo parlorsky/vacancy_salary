@@ -23,7 +23,7 @@ model_0_code_experience_is_vahta_sorted_mask = [model_0_code_experience_is_vahta
 model_0_code_experience_isnt_vahta_sorted_mask = [model_0_code_experience_isnt_vahta_sorted.index(m01_order[i]) for i in range(36)]
 model_1_code_experience_is_vahta_sorted_mask = [model_1_code_experience_is_vahta_sorted.index(m01_order[i]) for i in range(36)]
 model_1_code_experience_isnt_vahta_sorted_mask = [model_1_code_experience_isnt_vahta_sorted.index(m01_order[i]) for i in range(36)]
-model_2_code_experience_is_vahta_sorted_maSsk = [model_2_code_experience_is_vahta_sorted.index(m2_order[i]) for i in range(34)]
+model_2_code_experience_is_vahta_sorted_mask = [model_2_code_experience_is_vahta_sorted.index(m2_order[i]) for i in range(34)]
 model_2_code_experience_isnt_vahta_sorted_mask = [model_2_code_experience_isnt_vahta_sorted.index(m2_order[i]) for i in range(34)]
 
 st.header("Предсказание зарплаты по вакансии сварщика исходя из навыков")
