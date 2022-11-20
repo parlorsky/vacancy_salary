@@ -11,19 +11,19 @@ m2_order = ['Сварка в среде аргона (РАД)\u200b', 'Обяз�
 m01_order = ['Сварка в среде аргона (РАД)\u200b', 'НАКС', 'Обязательная сертификация', 'Обучение/профподготовка в компании', 'Требования к образованию', 'Плазменная сварка', 'Плазменная резка', 'Знания предметных областей для сварщика', 'Сборка и монтаж', 'Знание документации, проектов, чертежей, схем', 'Наплавка', 'Газовая сварка', 'Сварка в среде защитного газа', 'Знание правил безопасности', 'Знание техник, технологии сварки, наплавки', 'Газовая резка', 'Дуговая резка', 'Знание  устройств и правил эксплуатации сварочных аппаратов, машин', 'Настройка сварочного оборудования', 'Строгание', 'Строжка', 'Ручная резка', 'Бензо- и керосино- резание', 'Механизированная сварка', 'Автоматическая сварка', 'Резка', 'Обслуживание и ремонт сварочного оборудования', 'Действия перед/после сварки, резки', 'Контактная сварка', 'Чтение чертежей, документации', 'Соблюдение охраны труда, техники безопасности и пожарной безопасности', 'Контроль  сварки/резки, измерение', 'Пайка', 'Простые и средней сложности инструменты (изготовление, регулировка и ремонт)', 'Изготовление, регулировка и регулировка (простые узлы и средней сложности механизмы)', 'region_name_cat']
 
 
-model_0_code_experience_is_vahta_sorted = json.load('model_0_code_experience_is_vahta_sorted.json').keys()
-model_1_code_experience_is_vahta_sorted = json.load('model_1_code_experience_is_vahta_sorted.json').keys()
-model_2_code_experience_is_vahta_sorted = json.load('model_2_code_experience_is_vahta_sorted.json').keys()
-model_0_code_experience_isnt_vahta_sorted = json.load('model_0_code_experience_isnt_vahta_sorted.json').keys()
-model_1_code_experience_isnt_vahta_sorted = json.load('model_1_code_experience_isnt_vahta_sorted.json').keys()
-model_2_code_experience_isnt_vahta_sorted = json.load('model_2_code_experience_isnt_vahta_sorted.json').keys()
+model_0_code_experience_is_vahta_sorted = json.load(open('model_0_code_experience_is_vahta_sorted.json')).keys()
+model_1_code_experience_is_vahta_sorted = json.load(open('model_1_code_experience_is_vahta_sorted.json')).keys()
+model_2_code_experience_is_vahta_sorted = json.load(open('model_2_code_experience_is_vahta_sorted.json')).keys()
+model_0_code_experience_isnt_vahta_sorted = json.load(open('model_0_code_experience_isnt_vahta_sorted.json')).keys()
+model_1_code_experience_isnt_vahta_sorted = json.load(open('model_1_code_experience_isnt_vahta_sorted.json')).keys()
+model_2_code_experience_isnt_vahta_sorted = json.load(open('model_2_code_experience_isnt_vahta_sorted.json')).keys()
 
 
 model_0_code_experience_is_vahta_sorted_mask = [model_0_code_experience_is_vahta_sorted.index(model_0_code_experience_is_vahta_sorted[i]) for i in range(36)]
 model_0_code_experience_isnt_vahta_sorted_mask = [model_0_code_experience_is_vahta_sorted.index(model_0_code_experience_isnt_vahta_sorted[i]) for i in range(36)]
 model_1_code_experience_is_vahta_sorted_mask = [model_0_code_experience_is_vahta_sorted.index(model_1_code_experience_is_vahta_sorted[i]) for i in range(36)]
 model_1_code_experience_isnt_vahta_sorted_mask = [model_0_code_experience_is_vahta_sorted.index(model_1_code_experience_isnt_vahta_sorted[i]) for i in range(36)]
-model_2_code_experience_is_vahta_sorted_mask = [model_0_code_experience_is_vahta_sorted.index(model_2_code_experience_is_vahta_sorted[i]) for i in range(34)]
+model_2_code_experience_is_vahta_sorted_maSsk = [model_0_code_experience_is_vahta_sorted.index(model_2_code_experience_is_vahta_sorted[i]) for i in range(34)]
 model_2_code_experience_isnt_vahta_sorted_mask = [model_0_code_experience_is_vahta_sorted.index(model_2_code_experience_isnt_vahta_sorted[i]) for i in range(34)]
 
 st.header("Предсказание зарплаты по вакансии сварщика исходя из навыков")
