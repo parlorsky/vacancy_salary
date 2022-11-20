@@ -4,6 +4,7 @@ import numpy as np
 import json
 import plotly.express as px
 import pandas as pd
+import seaborn as sns
 import matplotlib.pyplot as plt
 
 base_skills_1 = ['Дополнительные льготы','Сварка без конкретизации вида/оборудования','Дуговая сварка','Удостоверения','Ручная сварка']
@@ -426,16 +427,11 @@ st.write("Чтобы полность изучить график, расшир�
 if flag == 0:
     prices = json.load(open('model_0_code_experience_is_vahta_sorted.json'))
     dfx = pd.DataFrame([int(x) for x in prices.values()],index = prices.keys(),columns = ['Стоимость навыка'])
-    # fig = px.histogram(dfx,x = dfx['Стоимость навыка'],y = dfx.index,  width=2000, height=2000,labels={'x':'Стоимость', 'y':'Навык'})
-    # st.plotly_chart(fig, use_container_width=False)
-    # st.write("обязательно разверните график, нажав на значок стрелок, чтобы ознакомиться с информацией")
-    # fig1 = px.pie(dfx,values = dfx['Стоимость навыка'],names = dfx.index,  width=1300, height=1300,title = 'Отношение стоимости признаков')
-    # st.plotly_chart(fig1, use_container_width=False)
-    plt.figure(figsize=(15,8))
-
-
-    fig = plt.plot(dfx['Стоимость навыка'],dfx.index)
-    st.pyplot(fig)
+    fig = px.histogram(dfx,x = dfx['Стоимость навыка'],y = dfx.index,  width=2000, height=2000,labels={'x':'Стоимость', 'y':'Навык'})
+    st.plotly_chart(fig, use_container_width=False)
+    st.write("обязательно разверните график, нажав на значок стрелок, чтобы ознакомиться с информацией")
+    fig1 = px.pie(dfx,values = dfx['Стоимость навыка'],names = dfx.index,  width=1300, height=1300,title = 'Отношение стоимости признаков')
+    st.plotly_chart(fig1, use_container_width=False)
 
 
 if flag == 1:
