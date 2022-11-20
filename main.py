@@ -119,7 +119,7 @@ if experience == 'Без опыта':
         prices = json.load(open('model_0_code_experience_is_vahta_sorted.json'))
         dfx = pd.DataFrame(prices.values(),index = prices.keys(),columns = ['Стоимость навыка'])
         fig = px.funnel(dfx,x = dfx['Стоимость навыка'],y = dfx.index,  width=1300, height=1300)
-        st.plotly_chart(fig, use_container_width=True)
+        st.plotly_chart(fig, use_container_width=False)
 
         st.subheader("Выберите регион вакансии")
         option = st.selectbox(
