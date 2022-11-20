@@ -428,7 +428,7 @@ if flag == 0:
     fig = px.histogram(dfx,x = dfx['Стоимость навыка'],y = dfx.index,  width=2000, height=2000,labels={'x':'Стоимость', 'y':'Навык'})
     st.plotly_chart(fig, use_container_width=False)
     fig1 = px.pie(dfx,values = dfx['Стоимость навыка'],names = dfx.index,  width=1300, height=1300,title = 'Отношение стоимости признаков')
-    st.plotly_chart(fig1, use_container_width=False)
+    st.plotly_chart(fig1, use_container_width=True)
 
 
 if flag == 1:
