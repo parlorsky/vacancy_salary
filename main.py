@@ -424,8 +424,8 @@ st.write("Чтобы полность изучить график, расшир�
 
 
 if flag == 0:
-    # prices = json.load(open('model_0_code_experience_is_vahta_sorted.json'))
-    # dfx = pd.DataFrame([int(x) for x in prices.values()],index = prices.keys(),columns = ['Стоимость навыка'])
+    prices = json.load(open('model_0_code_experience_is_vahta_sorted.json'))
+    dfx = pd.DataFrame([int(x) for x in prices.values()],index = prices.keys(),columns = ['Стоимость навыка'])
     # fig = px.histogram(dfx,x = dfx['Стоимость навыка'],y = dfx.index,  width=2000, height=2000,labels={'x':'Стоимость', 'y':'Навык'})
     # st.plotly_chart(fig, use_container_width=False)
     # st.write("обязательно разверните график, нажав на значок стрелок, чтобы ознакомиться с информацией")
