@@ -69,7 +69,7 @@ a36 = 1 if st.checkbox('Вахта') else 0
 if experience == 'Без опыта':
     st.subheader("Базовые навыки Сварщик Без опыта:")
     for number,skill in enumerate(base_skills_1):
-        st.write(f'{number}) {skill}')
+        st.write(f'{number+1}) {skill}')
 
     st.subheader("Отметьте критерии, исходя из которых будет подсчитана зарплата")
 
@@ -158,7 +158,8 @@ if experience == 'Без опыта':
 
 elif experience == 'От 1 до 3 лет':
     st.subheader("Базовые навыки Сварщик От 1 до 3 лет:")
-    st.subheader(base_skills_1)
+    for number,skill in enumerate(base_skills_1):
+        st.write(f'{number+1}) {skill}')
     st.subheader("Отметьте критерии, исходя из которых будет подсчитана зарплата")
 
     if a36:
@@ -250,7 +251,8 @@ elif experience == 'От 1 до 3 лет':
 
 else:
     st.subheader("Базовые навыки Сварщик Более 3 лет опыта:")
-    st.subheader(base_skills_2)
+    for number,skill in enumerate(base_skills_2):
+        st.write(f'{number+1}) {skill}')
     st.subheader("Отметьте критерии, исходя из которых будет подсчитана зарплата")
 
     if a36:
