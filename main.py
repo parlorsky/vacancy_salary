@@ -74,9 +74,7 @@ if experience == 'Без опыта':
         st.write(f'{number+1}) {skill}')
 
     st.subheader("Подсчет стоимости каждого навыка производился по формуле:")
-    st.write("(Зарплата по вакансии с выделенным навыком) - (Средняя зарплата с базовыми навыками)")
-    st.subheader("Отметьте критерии, исходя из которых будет подсчитана зарплата. Расположены в порядке убывания стоимости навыка")
-
+  
     if a36:
         flag = 0
         a0 =   1 if st.checkbox(model_0_code_experience_is_vahta_sorted[0]) else 0
@@ -115,11 +113,6 @@ if experience == 'Без опыта':
         a33 = 1 if st.checkbox(model_0_code_experience_is_vahta_sorted[33]) else 0
         a34 = 1 if st.checkbox(model_0_code_experience_is_vahta_sorted[34]) else 0
         
-
-        prices = json.load(open('model_0_code_experience_is_vahta_sorted.json'))
-        dfx = pd.DataFrame([int(x) for x in prices.values()],index = prices.keys(),columns = ['Стоимость навыка'])
-        fig = px.histogram(dfx,x = dfx['Стоимость навыка'],y = dfx.index,  width=2000, height=2000,labels={'x':'Навык', 'y':'Стоимость'})
-        st.plotly_chart(fig, use_container_width=False)
 
         st.subheader("Выберите регион вакансии")
         option = st.selectbox(
@@ -169,11 +162,7 @@ if experience == 'Без опыта':
         a33 = 1 if st.checkbox(model_0_code_experience_isnt_vahta_sorted[33]) else 0
         a34 = 1 if st.checkbox(model_0_code_experience_isnt_vahta_sorted[34]) else 0
 
-        prices = json.load(open('model_0_code_experience_isnt_vahta_sorted.json'))
-        dfx = pd.DataFrame(prices.values(),index = prices.keys(),columns = ['Стоимость навыка'])
-        fig = px.funnel(dfx,x = dfx['Стоимость навыка'],y = dfx.index,  width=1300, height=1300)
-        st.plotly_chart(fig, use_container_width=True)
-
+       
         st.subheader("Выберите регион вакансии")
         option = st.selectbox(
             'Напишите регион вакансии',
@@ -188,9 +177,7 @@ elif experience == 'От 1 до 3 лет':
     for number,skill in enumerate(base_skills_1):
         st.write(f'{number+1}) {skill}')
     st.subheader("Подсчет стоимости каждого навыка производился по формуле:")
-    st.write("(Зарплата по вакансии с выделенным навыком) - (Средняя зарплата с базовыми навыками)")
-    st.subheader("Отметьте критерии, исходя из которых будет подсчитана зарплата. Расположены в порядке убывания стоимости навыка")
-
+   
     if a36:
         flag = 2
         a0 =   1 if st.checkbox(model_1_code_experience_is_vahta_sorted[0]) else 0
@@ -229,10 +216,7 @@ elif experience == 'От 1 до 3 лет':
         a33 = 1 if st.checkbox(model_1_code_experience_is_vahta_sorted[33]) else 0
         a34 = 1 if st.checkbox(model_1_code_experience_is_vahta_sorted[34]) else 0
 
-        prices = json.load(open('model_1_code_experience_is_vahta_sorted.json'))
-        dfx = pd.DataFrame(prices.values(),index = prices.keys(),columns = ['Стоимость навыка'])
-        fig = px.funnel(dfx,x = dfx['Стоимость навыка'],y = dfx.index,  width=1300, height=1300)
-        st.plotly_chart(fig, use_container_width=True)
+    
 
         st.subheader("Выберите регион вакансии")
         option = st.selectbox(
@@ -280,10 +264,7 @@ elif experience == 'От 1 до 3 лет':
         a33 = 1 if st.checkbox(model_1_code_experience_isnt_vahta_sorted[33]) else 0
         a34 = 1 if st.checkbox(model_1_code_experience_isnt_vahta_sorted[34]) else 0
 
-        prices = json.load(open('model_1_code_experience_isnt_vahta_sorted.json'))
-        dfx = pd.DataFrame(prices.values(),index = prices.keys(),columns = ['Стоимость навыка'])
-        fig = px.funnel(dfx,x = dfx['Стоимость навыка'],y = dfx.index,  width=1300, height=1300)
-        st.plotly_chart(fig, use_container_width=True)
+
         
         st.subheader("Выберите регион вакансии")
         option = st.selectbox(
@@ -297,10 +278,7 @@ else:
     st.subheader("Базовые навыки Сварщик Более 3 лет опыта:")
     for number,skill in enumerate(base_skills_2):
         st.write(f'{number+1}) {skill}')
-    st.subheader("Подсчет стоимости каждого навыка производился по формуле:")
-    st.write("(Зарплата по вакансии с выделенным навыком) - (Средняя зарплата с базовыми навыками)")
     st.subheader("Отметьте критерии, исходя из которых будет подсчитана зарплата. Расположены в порядке убывания стоимости навыка")
-
 
     if a36:
         flag = 4
@@ -338,10 +316,7 @@ else:
         a31 = 1 if st.checkbox(model_2_code_experience_is_vahta_sorted[31]) else 0
         a32 = 1 if st.checkbox(model_2_code_experience_is_vahta_sorted[32]) else 0
 
-        prices = json.load(open('model_2_code_experience_is_vahta_sorted.json'))
-        dfx = pd.DataFrame(prices.values(),index = prices.keys(),columns = ['Стоимость навыка'])
-        fig = px.funnel(dfx,x = dfx['Стоимость навыка'],y = dfx.index,  width=1300, height=1300)
-        st.plotly_chart(fig, use_container_width=True)
+
         st.subheader("Выберите регион вакансии")
         option = st.selectbox(
             'Напишите регион вакансии',
@@ -387,10 +362,6 @@ else:
         a31 = 1 if st.checkbox(model_2_code_experience_isnt_vahta_sorted[31]) else 0
         a32 = 1 if st.checkbox(model_2_code_experience_isnt_vahta_sorted[32]) else 0
 
-        prices = json.load(open('model_2_code_experience_isnt_vahta_sorted.json'))
-        dfx = pd.DataFrame(prices.values(),index = prices.keys(),columns = ['Стоимость навыка'])
-        fig = px.funnel(dfx,x = dfx['Стоимость навыка'],y = dfx.index,  width=1300, height=1300)
-        st.plotly_chart(fig, use_container_width=True)
 
         st.subheader("Выберите регион вакансии")
         option = st.selectbox(
@@ -438,14 +409,51 @@ if st.button('Предсказать зарплату'):
         p1 = pr - model_2_code_experience_isnt_vahta_rmse/2
         p2 = pr + model_2_code_experience_isnt_vahta_rmse/2
     
-    
-        
     st.write(f"Предполагаемая ЗП:  {'{:.2f}'.format(round(np.squeeze(p1, -1),2))} - {'{:.2f}'.format(round(np.squeeze(p2, -1),2))} рублей")
-    
 
 
+st.subheader("Подсчет стоимости каждого навыка производился по формуле:")
+st.write("(Зарплата по вакансии с выделенным навыком) - (Средняя зарплата с базовыми навыками)")
+  
 
 
+if flag == 0:
+    prices = json.load(open('model_0_code_experience_is_vahta_sorted.json'))
+    dfx = pd.DataFrame([int(x) for x in prices.values()],index = prices.keys(),columns = ['Стоимость навыка'])
+    fig = px.histogram(dfx,x = dfx['Стоимость навыка'],y = dfx.index,  width=2000, height=2000,labels={'x':'Стоимость', 'y':'Навык'})
+    st.plotly_chart(fig, use_container_width=False)
+
+
+if flag == 1:
+    prices = json.load(open('model_0_code_experience_isnt_vahta_sorted.json'))
+    dfx = pd.DataFrame([int(x) for x in prices.values()],index = prices.keys(),columns = ['Стоимость навыка'])
+    fig = px.histogram(dfx,x = dfx['Стоимость навыка'],y = dfx.index,  width=2000, height=2000,labels={'x':'Стоимость', 'y':'Навык'})
+    st.plotly_chart(fig, use_container_width=False)
+if flag == 2:
+    prices = json.load(open('model_1_code_experience_is_vahta_sorted.json'))
+    dfx = pd.DataFrame([int(x) for x in prices.values()],index = prices.keys(),columns = ['Стоимость навыка'])
+    fig = px.histogram(dfx,x = dfx['Стоимость навыка'],y = dfx.index,  width=2000, height=2000,labels={'x':'Стоимость', 'y':'Навык'})
+    st.plotly_chart(fig, use_container_width=False)
+
+if flag == 3:
+    prices = json.load(open('model_1_code_experience_isnt_vahta_sorted.json'))
+    dfx = pd.DataFrame([int(x) for x in prices.values()],index = prices.keys(),columns = ['Стоимость навыка'])
+    fig = px.histogram(dfx,x = dfx['Стоимость навыка'],y = dfx.index,  width=2000, height=2000,labels={'x':'Стоимость', 'y':'Навык'})
+    st.plotly_chart(fig, use_container_width=False)
+
+if flag == 4:
+    prices = json.load(open('model_2_code_experience_is_vahta_sorted.json'))
+    dfx = pd.DataFrame([int(x) for x in prices.values()],index = prices.keys(),columns = ['Стоимость навыка'])
+    fig = px.histogram(dfx,x = dfx['Стоимость навыка'],y = dfx.index,  width=2000, height=2000,labels={'x':'Стоимость', 'y':'Навык'})
+    st.plotly_chart(fig, use_container_width=False)
+
+if flag == 5:
+    prices = json.load(open('model_2_code_experience_is_vahta_sorted.json'))
+    dfx = pd.DataFrame([int(x) for x in prices.values()],index = prices.keys(),columns = ['Стоимость навыка'])
+    fig = px.histogram(dfx,x = dfx['Стоимость навыка'],y = dfx.index,  width=2000, height=2000,labels={'x':'Стоимость', 'y':'Навык'})
+    st.plotly_chart(fig, use_container_width=False)
+
+        
     # inputs = [a0, a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15, a16, a17, a18, a19, a20, a21, a22, a23, a24, a25, a26, a27, a28, a29, a30, a31, a32, a33, a34, a35, a36, a37, a38, a39, a40, a41, a42, a43, a44, a45, a46, a47, a48, a49, a50, a51, a52,region_ , a53]
     
     # if experience == 'Без опыта':
