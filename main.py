@@ -19,12 +19,12 @@ model_1_code_experience_isnt_vahta_sorted = list(json.load(open('model_1_code_ex
 model_2_code_experience_isnt_vahta_sorted = list(json.load(open('model_2_code_experience_isnt_vahta_sorted.json')).keys())+['region_name_cat']
 
 
-model_0_code_experience_is_vahta_sorted_mask = [m01_order.index(model_0_code_experience_is_vahta_sorted[i]) for i in range(36)]
-model_0_code_experience_isnt_vahta_sorted_mask = [m01_order.index(model_0_code_experience_isnt_vahta_sorted[i]) for i in range(36)]
-model_1_code_experience_is_vahta_sorted_mask = [m01_order.index(model_1_code_experience_is_vahta_sorted[i]) for i in range(36)]
-model_1_code_experience_isnt_vahta_sorted_mask = [m01_order.index(model_1_code_experience_isnt_vahta_sorted[i]) for i in range(36)]
-model_2_code_experience_is_vahta_sorted_maSsk = [m2_order.index(model_2_code_experience_is_vahta_sorted[i]) for i in range(34)]
-model_2_code_experience_isnt_vahta_sorted_mask = [m2_order.index(model_2_code_experience_isnt_vahta_sorted[i]) for i in range(34)]
+model_0_code_experience_is_vahta_sorted_mask = [model_0_code_experience_is_vahta_sorted.index(m01_order[i]) for i in range(36)]
+model_0_code_experience_isnt_vahta_sorted_mask = [model_0_code_experience_isnt_vahta_sorted.index(m01_order[i]) for i in range(36)]
+model_1_code_experience_is_vahta_sorted_mask = [model_1_code_experience_is_vahta_sorted.index(m01_order[i]) for i in range(36)]
+model_1_code_experience_isnt_vahta_sorted_mask = [model_1_code_experience_isnt_vahta_sorted.index(m01_order[i]) for i in range(36)]
+model_2_code_experience_is_vahta_sorted_maSsk = [model_2_code_experience_is_vahta_sorted.index(m2_order[i]) for i in range(34)]
+model_2_code_experience_isnt_vahta_sorted_mask = [model_2_code_experience_isnt_vahta_sorted.index(m2_order[i]) for i in range(34)]
 
 st.header("Предсказание зарплаты по вакансии сварщика исходя из навыков")
 # data = pd.read_csv("fish.csv")
@@ -43,6 +43,8 @@ model_2_code_experience_isnt_vahta = CatBoostRegressor()
 model_2_code_experience_isnt_vahta.load_model('model_2_code_experience_isnt_vahta')
 
 
+
+flag = -1
 
 st.subheader("Выберите класс вакансии")
 left_column, right_column = st.columns(2)
@@ -71,9 +73,11 @@ if experience == 'Без опыта':
     for number,skill in enumerate(base_skills_1):
         st.write(f'{number+1}) {skill}')
 
-    st.subheader("Отметьте критерии, исходя из которых будет подсчитана зарплата")
-
+    st.subheader("Отметьте критерии, исходя из которых будет подсчитана зарплата. Расположены в порядке убывания стоимости навыка")
+    st.subheader("Подсчет стоимости каждого навыка производился по формуле:")
+    st.subheader("(Зарплата по вакансии с выделенным навыком) - (Средняя зарплата с базовыми навыками)")
     if a36:
+        flag = 0
         a0 =   1 if st.checkbox(model_0_code_experience_is_vahta_sorted[0]) else 0
         a1 =   1 if st.checkbox(model_0_code_experience_is_vahta_sorted[1]) else 0
         a2 =   1 if st.checkbox(model_0_code_experience_is_vahta_sorted[2]) else 0
@@ -113,6 +117,7 @@ if experience == 'Без опыта':
         inputs = np.array([a0, a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15, a16, a17, a18, a19, a20, a21, a22, a23, a24, a25, a26, a27, a28, a29, a30, a31, a32, a33, a34, a35])[model_0_code_experience_is_vahta_sorted_mask]
         prediction = model_0_code_experience_is_vahta.predict(inputs)
     else:
+        flag = 1
         a0 =   1 if st.checkbox(model_0_code_experience_isnt_vahta_sorted[0]) else 0
         a1 =   1 if st.checkbox(model_0_code_experience_isnt_vahta_sorted[1]) else 0
         a2 =   1 if st.checkbox(model_0_code_experience_isnt_vahta_sorted[2]) else 0
@@ -160,9 +165,12 @@ elif experience == 'От 1 до 3 лет':
     st.subheader("Базовые навыки Сварщик От 1 до 3 лет:")
     for number,skill in enumerate(base_skills_1):
         st.write(f'{number+1}) {skill}')
-    st.subheader("Отметьте критерии, исходя из которых будет подсчитана зарплата")
+    st.subheader("Отметьте критерии, исходя из которых будет подсчитана зарплата. Расположены в порядке убывания стоимости навыка")
+    st.subheader("Подсчет стоимости каждого навыка производился по формуле:")
+    st.subheader("(Зарплата по вакансии с выделенным навыком) - (Средняя зарплата с базовыми навыками)")
 
     if a36:
+        flag = 2
         a0 =   1 if st.checkbox(model_1_code_experience_is_vahta_sorted[0]) else 0
         a1 =   1 if st.checkbox(model_1_code_experience_is_vahta_sorted[1]) else 0
         a2 =   1 if st.checkbox(model_1_code_experience_is_vahta_sorted[2]) else 0
@@ -206,6 +214,7 @@ elif experience == 'От 1 до 3 лет':
         inputs = np.array([a0, a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15, a16, a17, a18, a19, a20, a21, a22, a23, a24, a25, a26, a27, a28, a29, a30, a31, a32, a33, a34, a35])[model_1_code_experience_is_vahta_sorted_mask]
         prediction = model_1_code_experience_is_vahta.predict(inputs)
     else:
+        flag = 3
         a0 =   1 if st.checkbox(model_1_code_experience_isnt_vahta_sorted[0]) else 0
         a1 =   1 if st.checkbox(model_1_code_experience_isnt_vahta_sorted[1]) else 0
         a2 =   1 if st.checkbox(model_1_code_experience_isnt_vahta_sorted[2]) else 0
@@ -253,9 +262,12 @@ else:
     st.subheader("Базовые навыки Сварщик Более 3 лет опыта:")
     for number,skill in enumerate(base_skills_2):
         st.write(f'{number+1}) {skill}')
-    st.subheader("Отметьте критерии, исходя из которых будет подсчитана зарплата")
+    st.subheader("Отметьте критерии, исходя из которых будет подсчитана зарплата. Расположены в порядке убывания стоимости навыка")
+    st.subheader("Подсчет стоимости каждого навыка производился по формуле:")
+    st.subheader("(Зарплата по вакансии с выделенным навыком) - (Средняя зарплата с базовыми навыками)")
 
     if a36:
+        flag = 4
         a0 =   1 if st.checkbox(model_2_code_experience_is_vahta_sorted[0]) else 0
         a1 =   1 if st.checkbox(model_2_code_experience_is_vahta_sorted[1]) else 0
         a2 =   1 if st.checkbox(model_2_code_experience_is_vahta_sorted[2]) else 0
@@ -298,6 +310,7 @@ else:
         inputs = np.array([a0, a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15, a16, a17, a18, a19, a20, a21, a22, a23, a24, a25, a26, a27, a28, a29, a30, a31, a32, a33])[model_1_code_experience_is_vahta_sorted_mask]
         prediction = model_2_code_experience_is_vahta.predict(inputs)
     else:
+        flag = 5
         a0 =   1 if st.checkbox(model_2_code_experience_isnt_vahta_sorted[0]) else 0
         a1 =   1 if st.checkbox(model_2_code_experience_isnt_vahta_sorted[1]) else 0
         a2 =   1 if st.checkbox(model_2_code_experience_isnt_vahta_sorted[2]) else 0
@@ -343,12 +356,43 @@ else:
         prediction = model_2_code_experience_isnt_vahta.predict(inputs)
 
 
+model_0_code_experience_is_vahta_rmse = 24309.1451
+model_0_code_experience_isnt_vahta_rmse = 18835.0906
+model_1_code_experience_is_vahta_rmse = 21428.43
+model_1_code_experience_isnt_vahta_rmse = 27549.1031
+model_2_code_experience_is_vahta_rmse = 24441.3256
+model_2_code_experience_isnt_vahta_rmse = 22959.09548
+
 if st.button('Предсказать зарплату'):
-    prediction = abs(prediction)
-    if prediction < 10000:
-        prediction += 28541.867543
+    pr = abs(prediction)
+    if pr < 10000: pr += 23914.49832
+    if flag == 0:
+        p1 = pr - model_0_code_experience_is_vahta_rmse/2
+        p2 = pr +model_0_code_experience_is_vahta_rmse/2
+    
+    if flag == 1:
+        p1 = pr - model_0_code_experience_isnt_vahta_rmse/2
+        p2 = pr +model_0_code_experience_isnt_vahta_rmse/2
+    
+    if flag == 2:
+        p1 = pr - model_1_code_experience_is_vahta_rmse/2
+        p2 = pr +model_1_code_experience_is_vahta_rmse/2
+    
+    if flag == 3:
+        p1 = pr - model_1_code_experience_isnt_vahta_rmse/2
+        p2 = pr +model_1_code_experience_isnt_vahta_rmse/2
+
+    if flag == 4:
+        p1 = pr - model_2_code_experience_is_vahta_rmse/2
+        p2 = pr +model_2_code_experience_is_vahta_rmse/2
+    
+    if flag == 5:
+        p1 = pr - model_2_code_experience_isnt_vahta_rmse/2
+        p2 = pr + model_2_code_experience_isnt_vahta_rmse/2
+    
+    
         
-    st.write(f"Предполагаемая ЗП:  {'{:.2f}'.format(round(np.squeeze(prediction, -1),2))}  рублей")
+    st.write(f"Предполагаемая ЗП:  {'{:.2f}'.format(round(np.squeeze(p1, -1),2))} - {'{:.2f}'.format(round(np.squeeze(p2, -1),2))} рублей")
     
 
 
