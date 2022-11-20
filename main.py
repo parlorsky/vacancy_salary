@@ -427,8 +427,9 @@ if flag == 0:
     dfx = pd.DataFrame([int(x) for x in prices.values()],index = prices.keys(),columns = ['Стоимость навыка'])
     fig = px.histogram(dfx,x = dfx['Стоимость навыка'],y = dfx.index,  width=2000, height=2000,labels={'x':'Стоимость', 'y':'Навык'})
     st.plotly_chart(fig, use_container_width=False)
+    st.write("обязательно разверните график, нажав на значок стрелок, чтобы ознакомиться с информацией")
     fig1 = px.pie(dfx,values = dfx['Стоимость навыка'],names = dfx.index,  width=1300, height=1300,title = 'Отношение стоимости признаков')
-    st.plotly_chart(fig1, use_container_width=True)
+    st.plotly_chart(fig1, use_container_width=False)
 
 
 if flag == 1:
@@ -436,6 +437,8 @@ if flag == 1:
     dfx = pd.DataFrame([int(x) for x in prices.values()],index = prices.keys(),columns = ['Стоимость навыка'])
     fig = px.histogram(dfx,x = dfx['Стоимость навыка'],y = dfx.index,  width=2000, height=2000,labels={'x':'Стоимость', 'y':'Навык'})
     st.plotly_chart(fig, use_container_width=False)
+    st.write("обязательно разверните график, нажав на значок стрелок, чтобы ознакомиться с информацией")
+
     fig1 = px.pie(dfx,values = dfx['Стоимость навыка'],names = dfx.index,  width=1300, height=1300,title = 'Отношение стоимости признаков')
     st.plotly_chart(fig1, use_container_width=False)
 if flag == 2:
@@ -443,6 +446,8 @@ if flag == 2:
     dfx = pd.DataFrame([int(x) for x in prices.values()],index = prices.keys(),columns = ['Стоимость навыка'])
     fig = px.histogram(dfx,x = dfx['Стоимость навыка'],y = dfx.index,  width=2000, height=2000,labels={'x':'Стоимость', 'y':'Навык'})
     st.plotly_chart(fig, use_container_width=False)
+    st.write("обязательно разверните график, нажав на значок стрелок, чтобы ознакомиться с информацией")
+
     fig1 = px.pie(dfx,values = dfx['Стоимость навыка'],names = dfx.index,  width=1300, height=1300,title = 'Отношение стоимости признаков')
     st.plotly_chart(fig1, use_container_width=False)
 
@@ -451,6 +456,8 @@ if flag == 3:
     dfx = pd.DataFrame([int(x) for x in prices.values()],index = prices.keys(),columns = ['Стоимость навыка'])
     fig = px.histogram(dfx,x = dfx['Стоимость навыка'],y = dfx.index,  width=2000, height=2000,labels={'x':'Стоимость', 'y':'Навык'})
     st.plotly_chart(fig, use_container_width=False)
+    st.write("обязательно разверните график, нажав на значок стрелок, чтобы ознакомиться с информацией")
+
     fig1 = px.pie(dfx,values = dfx['Стоимость навыка'],names = dfx.index,  width=1300, height=1300,title = 'Отношение стоимости признаков')
     st.plotly_chart(fig1, use_container_width=False)
 
@@ -459,6 +466,8 @@ if flag == 4:
     dfx = pd.DataFrame([int(x) for x in prices.values()],index = prices.keys(),columns = ['Стоимость навыка'])
     fig = px.histogram(dfx,x = dfx['Стоимость навыка'],y = dfx.index,  width=2000, height=2000,labels={'x':'Стоимость', 'y':'Навык'})
     st.plotly_chart(fig, use_container_width=False)
+    st.write("обязательно разверните график, нажав на значок стрелок, чтобы ознакомиться с информацией")
+
     fig1 = px.pie(dfx,values = dfx['Стоимость навыка'],names = dfx.index,  width=1300, height=1300,title = 'Отношение стоимости признаков')
     st.plotly_chart(fig1, use_container_width=False)
 
@@ -467,6 +476,8 @@ if flag == 5:
     dfx = pd.DataFrame([int(x) for x in prices.values()],index = prices.keys(),columns = ['Стоимость навыка'])
     fig = px.histogram(dfx,x = dfx['Стоимость навыка'],y = dfx.index,  width=2000, height=2000,labels={'x':'Стоимость', 'y':'Навык'})
     st.plotly_chart(fig, use_container_width=False)
+    st.write("обязательно разверните график, нажав на значок стрелок, чтобы ознакомиться с информацией")
+
     fig1 = px.pie(dfx,values = dfx['Стоимость навыка'],names = dfx.index,  width=1300, height=1300,title = 'Отношение стоимости признаков')
     st.plotly_chart(fig1, use_container_width=False)
 
