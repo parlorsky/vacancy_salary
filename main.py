@@ -4,7 +4,6 @@ import numpy as np
 import json
 import plotly.express as px
 import pandas as pd
-import seaborn as sns
 import matplotlib.pyplot as plt
 
 base_skills_1 = ['Дополнительные льготы','Сварка без конкретизации вида/оборудования','Дуговая сварка','Удостоверения','Ручная сварка']
@@ -435,7 +434,7 @@ if flag == 0:
     plt.figure(figsize=(15,8))
 
 
-    fig = sns.lineplot(x = dfx['Стоимость навыка'],y = dfx.index)
+    fig = plt.plot(dfx['Стоимость навыка'],dfx.index)
     st.pyplot(fig)
 
 
