@@ -68,8 +68,8 @@ a36 = 1 if st.checkbox('Вахта') else 0
 
 if experience == 'Без опыта':
     st.subheader("Базовые навыки Сварщик Без опыта:")
-    for i in base_skills_1:
-        st.subheader(i)
+    for i in enumerate(base_skills_1):
+        st.write(f'{i}) {base_skills_1[i]}')
 
     st.subheader("Отметьте критерии, исходя из которых будет подсчитана зарплата")
 
