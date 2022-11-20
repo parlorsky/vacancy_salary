@@ -4,8 +4,6 @@ import numpy as np
 import json
 import plotly.express as px
 import pandas as pd
-import seaborn as sns
-import matplotlib.pyplot as plt
 
 base_skills_1 = ['Дополнительные льготы','Сварка без конкретизации вида/оборудования','Дуговая сварка','Удостоверения','Ручная сварка']
 base_skills_2 = ['НАКС','Требования к образованию','Дополнительные льготы','Сварка без конкретизации вида/оборудования','Дуговая сварка','Удостоверения','Ручная сварка',]
