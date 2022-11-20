@@ -378,11 +378,11 @@ else:
         
         inputs = np.array([a0, a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15, a16, a17, a18, a19, a20, a21, a22, a23, a24, a25, a26, a27, a28, a29, a30, a31, a32, a33])[model_2_code_experience_isnt_vahta_sorted_mask]
         prediction = model_2_code_experience_isnt_vahta.predict(inputs)
-        
+
         prices = json.load(open('model_2_code_experience_isnt_vahta_sorted.json'))
         dfx = pd.DataFrame(prices.values(),index = prices.keys(),columns = ['Стоимость навыка'])
         fig = px.funnel(dfx,x = dfx['Стоимость навыка'],y = dfx.index,  width=1300, height=1300)
-        fig.show()
+        st.write(fig.show())
 
 model_0_code_experience_is_vahta_rmse = 24309.1451
 model_0_code_experience_isnt_vahta_rmse = 18835.0906
