@@ -420,8 +420,6 @@ st.write("(Зарплата по вакансии с выделенным нав
 st.write("")
 st.write("Чтобы полность изучить график, расширьте его. При наведении курсора на каждый столбец будет появляться доп. информация")
 
-
-
 if flag == 0:
     prices = json.load(open('model_0_code_experience_is_vahta_sorted.json'))
     dfx = pd.DataFrame([int(x) for x in prices.values()],index = prices.keys(),columns = ['Стоимость навыка'])
@@ -438,9 +436,9 @@ if flag == 1:
     fig = px.histogram(dfx,x = dfx['Стоимость навыка'],y = dfx.index,  width=2000, height=2000,labels={'x':'Стоимость', 'y':'Навык'})
     st.plotly_chart(fig, use_container_width=False)
     st.write("обязательно разверните график, нажав на значок стрелок, чтобы ознакомиться с информацией")
-
     fig1 = px.pie(dfx,values = dfx['Стоимость навыка'],names = dfx.index,  width=1300, height=1300,title = 'Отношение стоимости признаков')
     st.plotly_chart(fig1, use_container_width=False)
+
 if flag == 2:
     prices = json.load(open('model_1_code_experience_is_vahta_sorted.json'))
     dfx = pd.DataFrame([int(x) for x in prices.values()],index = prices.keys(),columns = ['Стоимость навыка'])
@@ -472,7 +470,7 @@ if flag == 4:
     st.plotly_chart(fig1, use_container_width=False)
 
 if flag == 5:
-    prices = json.load(open('model_2_code_experience_is_vahta_sorted.json'))
+    prices = json.load(open('model_2_code_experience_isnt_vahta_sorted.json'))
     dfx = pd.DataFrame([int(x) for x in prices.values()],index = prices.keys(),columns = ['Стоимость навыка'])
     fig = px.histogram(dfx,x = dfx['Стоимость навыка'],y = dfx.index,  width=2000, height=2000,labels={'x':'Стоимость', 'y':'Навык'})
     st.plotly_chart(fig, use_container_width=False)
