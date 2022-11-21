@@ -411,16 +411,17 @@ if st.button('Предсказать зарплату'):
     
     st.write(f"Предполагаемая ЗП:  {'{:.2f}'.format(round(np.squeeze(p1, -1),2))} - {'{:.2f}'.format(round(np.squeeze(p2, -1),2))} рублей")
 
-st.subheader("")
-st.subheader("")
-st.subheader("Гистограмма стоимости навыков.")
-
-st.subheader("Подсчет стоимости каждого навыка производился по формуле:")
-st.write("(Зарплата по вакансии с выделенным навыком) - (Средняя зарплата с базовыми навыками)")
-st.write("")
-st.write("Чтобы полность изучить график, расширьте его. При наведении курсора на каждый столбец будет появляться доп. информация")
 
 if flag == 0:
+    st.subheader("")
+    st.subheader("")
+    st.subheader("Гистограмма стоимости навыков Сварщик Без опыта Вахта")
+
+    st.subheader("Подсчет стоимости каждого навыка производился по формуле:")
+    st.write("(Зарплата по вакансии с выделенным навыком) - (Средняя зарплата с базовыми навыками)")
+    st.write("")
+    st.write("Чтобы полность изучить график, расширьте его. При наведении курсора на каждый столбец будет появляться доп. информация")
+
     prices = json.load(open('model_0_code_experience_is_vahta_sorted.json'))
     dfx = pd.DataFrame([int(x) for x in prices.values()],index = prices.keys(),columns = ['Стоимость навыка'])
     fig = px.histogram(dfx,x = dfx['Стоимость навыка'],y = dfx.index,  width=2000, height=2000,labels={'x':'Стоимость', 'y':'Навык'})
@@ -431,6 +432,15 @@ if flag == 0:
 
 
 if flag == 1:
+    st.subheader("")
+    st.subheader("")
+    st.subheader("Гистограмма стоимости навыков Сварщик Без опыта Не вахта")
+
+    st.subheader("Подсчет стоимости каждого навыка производился по формуле:")
+    st.write("(Зарплата по вакансии с выделенным навыком) - (Средняя зарплата с базовыми навыками)")
+    st.write("")
+    st.write("Чтобы полность изучить график, расширьте его. При наведении курсора на каждый столбец будет появляться доп. информация")
+
     prices = json.load(open('model_0_code_experience_isnt_vahta_sorted.json'))
     dfx = pd.DataFrame([int(x) for x in prices.values()],index = prices.keys(),columns = ['Стоимость навыка'])
     fig = px.histogram(dfx,x = dfx['Стоимость навыка'],y = dfx.index,  width=2000, height=2000,labels={'x':'Стоимость', 'y':'Навык'})
@@ -440,6 +450,15 @@ if flag == 1:
     st.plotly_chart(fig1, use_container_width=False)
 
 if flag == 2:
+    st.subheader("")
+    st.subheader("")
+    st.subheader("Гистограмма стоимости навыков Сварщик От 1 до 3 лет опыта Вахта")
+
+    st.subheader("Подсчет стоимости каждого навыка производился по формуле:")
+    st.write("(Зарплата по вакансии с выделенным навыком) - (Средняя зарплата с базовыми навыками)")
+    st.write("")
+    st.write("Чтобы полность изучить график, расширьте его. При наведении курсора на каждый столбец будет появляться доп. информация")
+
     prices = json.load(open('model_1_code_experience_is_vahta_sorted.json'))
     dfx = pd.DataFrame([int(x) for x in prices.values()],index = prices.keys(),columns = ['Стоимость навыка'])
     fig = px.histogram(dfx,x = dfx['Стоимость навыка'],y = dfx.index,  width=2000, height=2000,labels={'x':'Стоимость', 'y':'Навык'})
@@ -450,6 +469,15 @@ if flag == 2:
     st.plotly_chart(fig1, use_container_width=False)
 
 if flag == 3:
+    st.subheader("")
+    st.subheader("")
+    st.subheader("Гистограмма стоимости навыков Сварщик От 1 до 3 лет опыта Не Вахта")
+
+    st.subheader("Подсчет стоимости каждого навыка производился по формуле:")
+    st.write("(Зарплата по вакансии с выделенным навыком) - (Средняя зарплата с базовыми навыками)")
+    st.write("")
+    st.write("Чтобы полность изучить график, расширьте его. При наведении курсора на каждый столбец будет появляться доп. информация")
+
     prices = json.load(open('model_1_code_experience_isnt_vahta_sorted.json'))
     dfx = pd.DataFrame([int(x) for x in prices.values()],index = prices.keys(),columns = ['Стоимость навыка'])
     fig = px.histogram(dfx,x = dfx['Стоимость навыка'],y = dfx.index,  width=2000, height=2000,labels={'x':'Стоимость', 'y':'Навык'})
@@ -460,6 +488,16 @@ if flag == 3:
     st.plotly_chart(fig1, use_container_width=False)
 
 if flag == 4:
+    st.subheader("")
+    st.subheader("")
+    st.subheader("Гистограмма стоимости навыков Сварщик Более 3 лет опыта Вахта")
+
+    st.subheader("Подсчет стоимости каждого навыка производился по формуле:")
+    st.write("(Зарплата по вакансии с выделенным навыком) - (Средняя зарплата с базовыми навыками)")
+    st.write("")
+    st.write("Чтобы полность изучить график, расширьте его. При наведении курсора на каждый столбец будет появляться доп. информация")
+
+
     prices = json.load(open('model_2_code_experience_is_vahta_sorted.json'))
     dfx = pd.DataFrame([int(x) for x in prices.values()],index = prices.keys(),columns = ['Стоимость навыка'])
     fig = px.histogram(dfx,x = dfx['Стоимость навыка'],y = dfx.index,  width=2000, height=2000,labels={'x':'Стоимость', 'y':'Навык'})
@@ -470,6 +508,15 @@ if flag == 4:
     st.plotly_chart(fig1, use_container_width=False)
 
 if flag == 5:
+    st.subheader("")
+    st.subheader("")
+    st.subheader("Гистограмма стоимости навыков Сварщик Более 3 лет опыта Не Вахта")
+
+    st.subheader("Подсчет стоимости каждого навыка производился по формуле:")
+    st.write("(Зарплата по вакансии с выделенным навыком) - (Средняя зарплата с базовыми навыками)")
+    st.write("")
+    st.write("Чтобы полность изучить график, расширьте его. При наведении курсора на каждый столбец будет появляться доп. информация")
+
     prices = json.load(open('model_2_code_experience_isnt_vahta_sorted.json'))
     dfx = pd.DataFrame([int(x) for x in prices.values()],index = prices.keys(),columns = ['Стоимость навыка'])
     fig = px.histogram(dfx,x = dfx['Стоимость навыка'],y = dfx.index,  width=2000, height=2000,labels={'x':'Стоимость', 'y':'Навык'})
