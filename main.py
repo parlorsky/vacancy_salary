@@ -1,5 +1,11 @@
 import streamlit as st
-from catboost import CatBoostRegressor
+from catboost_install import install
+try:
+    from catboost import CatBoostRegressor
+except:
+
+    install('catboost')
+    from catboost import CatBoostRegressor
 import numpy as np
 import json
 import plotly.express as px
