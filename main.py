@@ -583,9 +583,9 @@ if inp_species == 'Сварщик':
         # st.write(f"Предполагаемая ЗП:  {'{:.2f}'.format(round(np.squeeze(prediction, -1),2))}  рублей")
 else:
 
-    model_0_code_experience_sorted = list(json.load(open('model_0_code_experience_hr.json')).keys())
-    model_1_code_experience_sorted = list(json.load(open('model_1_code_experience_hr.json')).keys())
-    model_2_code_experience_sorted = list(json.load(open('model_2_code_experience_hr.json')).keys())
+    model_0_code_experience_sorted = list(json.load(open('model_0_code_experience.json')).keys())
+    model_1_code_experience_sorted = list(json.load(open('model_1_code_experience.json')).keys())
+    model_2_code_experience_sorted = list(json.load(open('model_2_code_experience.json')).keys())
     model_0_code_experience_rmse = 13622.6
     model_1_code_experience_rmse = 14896.5
     model_2_code_experience_rmse = 17330
