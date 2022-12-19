@@ -599,9 +599,9 @@ else:
     model_2_code_experience = CatBoostRegressor()
     model_2_code_experience.load_model('model_2_code_experience_hr')
     m_order = ['is_distance', 'is_parttime', 'v3_region_index', 'Работа в 1С', 'Английский язык', 'Опыт работы', 'Опыт работы не обязателен', 'Обучение/профподготовка в компании', 'Требования к образованию', 'Дополнительные льготы', 'Зарплата и другие выплаты, официальное трудоустройство', 'График работы', 'Русский язык', 'Личные установки и ценности, мировоззрение', 'Знания предметных областей для сварщика', 'Карьера', 'Условия работы/проживания/отдыха', 'Административные функции', 'Специальное ПО', 'Поиск и подбор персонала (СУП)', 'Кадровое делопроизводство (СУП)', 'Знания в области поиска и подбора персонала (СУП)', 'Оценка и аттестация персонала (СУП)', 'Знания в области оценки и аттестации персонала (СУП)', 'Развитие персонала (СУП)', 'Организация и оплата труда персонала СУП)', 'Обеспечение корпоративной и социальной политики (СУП)', 'Требование к опыту работы и образованию (СУП)', 'Ведение медицинской документации', 'Не соответствует СУП', 'Компьютерные программы для ведения бухгалтерского учета', 'Оформление учетно-отчетной документации', 'Пользоваться компьютерными и телекоммуникационными средствами в профессиональной деятельности']
-    model_0_code_experience_sorted_mask = [model_0_code_experience_sorted.index(m_order[i]) for i in range(33)]
-    model_1_code_experience_sorted_mask = [model_1_code_experience_sorted.index(m_order[i]) for i in range(33)]
-    model_2_code_experience_sorted_mask = [model_2_code_experience_sorted.index(m_order[i]) for i in range(33)]
+    model_0_code_experience_sorted_mask = [model_0_code_experience_sorted.index(m_order[i]) for i in range(32)]
+    model_1_code_experience_sorted_mask = [model_1_code_experience_sorted.index(m_order[i]) for i in range(32)]
+    model_2_code_experience_sorted_mask = [model_2_code_experience_sorted.index(m_order[i]) for i in range(32)]
 
     
     st.header("Предсказание зарплаты по вакансии сварщика исходя из навыков")
@@ -665,7 +665,10 @@ else:
         option = st.selectbox(
             'Напишите регион вакансии',
             (list(data.keys())))
+
+
         a20 = data[str(option)]
+
         inputs = np.array([a0, a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15, a16, a17, a18, a19, a20, a21, a22, a23, a24, a25, a26, a27, a28, a29, a30, a31])[model_0_code_experience_sorted_mask]
         prediction = model_0_code_experience.predict(inputs)
     
