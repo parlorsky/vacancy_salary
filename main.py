@@ -542,29 +542,7 @@ if inp_species == 'Сварщик':
         fig1 = px.pie(dfx,values = dfx['Стоимость навыка'],names = dfx.index,  width=1300, height=1300,title = 'Отношение стоимости признаков')
         st.plotly_chart(fig1, use_container_width=False)
 
-            
-        # inputs = [a0, a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15, a16, a17, a18, a19, a20, a21, a22, a23, a24, a25, a26, a27, a28, a29, a30, a31, a32, a33, a34, a35, a36, a37, a38, a39, a40, a41, a42, a43, a44, a45, a46, a47, a48, a49, a50, a51, a52,region_ , a53]
-        
-        # if experience == 'Без опыта':
-        #     if a53:
-        #         prediction = model_0_code_experience_is_vahta.predict(inputs)
-        #     else:
-        #         prediction = model_0_code_experience_isnt_vahta.predict(inputs)
 
-        # if experience == 'От 1 до 3 лет':
-        #     if a53:
-        #         prediction = model_1_code_experience_is_vahta.predict(inputs)
-        #     else:
-        #         prediction = model_1_code_experience_isnt_vahta.predict(inputs)
-        # if experience == 'От 3 лет':
-        #     if a53:
-        #         prediction = model_2_code_experience_is_vahta.predict(inputs)
-        #     else:
-        #         prediction = model_2_code_experience_isnt_vahta.predict(inputs)
-        
-        # prediction = abs(prediction)
-        # if prediction < 10000:
-        #     prediction += 28541.867543
             
      
      
@@ -580,7 +558,6 @@ if inp_species == 'Сварщик':
      
      
      
-        # st.write(f"Предполагаемая ЗП:  {'{:.2f}'.format(round(np.squeeze(prediction, -1),2))}  рублей")
 else:
 
     model_0_code_experience_sorted = list(json.load(open('model_0_code_experience.json')).keys())
@@ -746,9 +723,9 @@ else:
         a7 =   1 if st.checkbox(model_2_code_experience_sorted[7]) else 0
         a8 =   1 if st.checkbox(model_2_code_experience_sorted[8]) else 0
         a9 =   1 if st.checkbox(model_2_code_experience_sorted[9]) else 0
-        a10 = 1 if st.checkbox(model_2_code_experience_sorted[10]) else 0
-        a11 = 1 if st.checkbox(model_2_code_experience_sorted[11]) else 0
-        a12 = 1 if st.checkbox(model_2_code_experience_sorted[12]) else 0
+        a10 =  1 if st.checkbox(model_2_code_experience_sorted[10]) else 0
+        a11 =  1 if st.checkbox(model_2_code_experience_sorted[11]) else 0
+        a12 =  1 if st.checkbox(model_2_code_experience_sorted[12]) else 0
         a13 = 1 if st.checkbox(model_2_code_experience_sorted[13]) else 0
         a14 = 1 if st.checkbox(model_2_code_experience_sorted[14]) else 0
         a15 = 1 if st.checkbox(model_2_code_experience_sorted[15]) else 0
@@ -776,8 +753,6 @@ else:
             (list(data.keys())))
         a20 = data[str(option)]
         inputs = np.array([a0, a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15, a16, a17, a18, a19, a20, a21, a22, a23, a24, a25, a26, a27, a28, a29, a30, a31,a32])[model_2_code_experience_sorted_mask]
-        st.subheader(m_order)
-        st.subheader(list(inputs))
         prediction = model_2_code_experience.predict(inputs)    
             
 
@@ -811,7 +786,7 @@ else:
         st.write("")
         st.write("Чтобы полность изучить график, расширьте его. При наведении курсора на каждый столбец будет появляться доп. информация")
 
-        prices = json.load(open('model_0_code_experience_sorted.json'))
+        prices = json.load(open('model_0_code_experience.json'))
         dfx = pd.DataFrame([int(x) for x in prices.values()],index = prices.keys(),columns = ['Стоимость навыка'])
         fig = px.histogram(dfx,x = dfx['Стоимость навыка'],y = dfx.index,  width=2000, height=2000,labels={'x':'Стоимость', 'y':'Навык'})
         st.plotly_chart(fig, use_container_width=False)
@@ -831,7 +806,7 @@ else:
         st.write("")
         st.write("Чтобы полность изучить график, расширьте его. При наведении курсора на каждый столбец будет появляться доп. информация")
 
-        prices = json.load(open('model_1_code_experience_sorted.json'))
+        prices = json.load(open('model_1_code_experience.json'))
         dfx = pd.DataFrame([int(x) for x in prices.values()],index = prices.keys(),columns = ['Стоимость навыка'])
         fig = px.histogram(dfx,x = dfx['Стоимость навыка'],y = dfx.index,  width=2000, height=2000,labels={'x':'Стоимость', 'y':'Навык'})
         st.plotly_chart(fig, use_container_width=False)
@@ -843,7 +818,7 @@ else:
     if flag == 4:
         st.subheader("")
         st.subheader("")
-        st.subheader(f"Гистограмма стоимости навыков {inp_species} Более 3 лет опыта Вахта")
+        st.subheader(f"Гистограмма стоимости навыков {inp_species} Более 3 лет опыта")
 
         st.write("Подсчет стоимости каждого навыка производился по формуле:")
         st.write("(Зарплата по вакансии с выделенным навыком) - (Средняя зарплата с базовыми навыками)")
@@ -851,7 +826,7 @@ else:
         st.write("Чтобы полность изучить график, расширьте его. При наведении курсора на каждый столбец будет появляться доп. информация")
 
 
-        prices = json.load(open('model_2_code_experience_sorted.json'))
+        prices = json.load(open('model_2_code_experience_hr.json'))
         dfx = pd.DataFrame([int(x) for x in prices.values()],index = prices.keys(),columns = ['Стоимость навыка'])
         fig = px.histogram(dfx,x = dfx['Стоимость навыка'],y = dfx.index,  width=2000, height=2000,labels={'x':'Стоимость', 'y':'Навык'})
         st.plotly_chart(fig, use_container_width=False)
@@ -860,26 +835,3 @@ else:
         fig1 = px.pie(dfx,values = dfx['Стоимость навыка'],names = dfx.index,  width=1300, height=1300,title = 'Отношение стоимости признаков')
         st.plotly_chart(fig1, use_container_width=False)
         
-        # inputs = [a0, a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15, a16, a17, a18, a19, a20, a21, a22, a23, a24, a25, a26, a27, a28, a29, a30, a31, a32, a33, a34, a35, a36, a37, a38, a39, a40, a41, a42, a43, a44, a45, a46, a47, a48, a49, a50, a51, a52,region_ , a53]
-        
-        # if experience == 'Без опыта':
-        #     if a53:
-        #         prediction = model_0_code_experience_is_vahta.predict(inputs)
-        #     else:
-        #         prediction = model_0_code_experience_isnt_vahta.predict(inputs)
-
-        # if experience == 'От 1 до 3 лет':
-        #     if a53:
-        #         prediction = model_1_code_experience_is_vahta.predict(inputs)
-        #     else:
-        #         prediction = model_1_code_experience_isnt_vahta.predict(inputs)
-        # if experience == 'От 3 лет':
-        #     if a53:
-        #         prediction = model_2_code_experience_is_vahta.predict(inputs)
-        #     else:
-        #         prediction = model_2_code_experience_isnt_vahta.predict(inputs)
-        
-        # prediction = abs(prediction)
-        # if prediction < 10000:
-        #     prediction += 28541.867543
-    
