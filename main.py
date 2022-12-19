@@ -753,9 +753,9 @@ else:
             (list(data.keys())))
         a20 = data[str(option)]
         inputs = np.array([a0, a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15, a16, a17, a18, a19, a20, a21, a22, a23, a24, a25, a26, a27, a28, a29, a30, a31,a32])[model_2_code_experience_sorted_mask]
-        prediction = model_2_code_experience.predict(inputs)
-        if abs(prediction) < 47000:
-            prediction += 12942.31    
+        prediction = model_2_code_experience.predict(inputs) 
+        if prediction < 47000:
+            prediction += 12932.31
             
 
 
@@ -790,10 +790,10 @@ else:
 
         prices = json.load(open('model_0_code_experience.json'))
         dfx = pd.DataFrame([int(x) for x in prices.values()],index = prices.keys(),columns = ['Стоимость навыка'])
-        fig = px.histogram(dfx,x = dfx['Абсолютное отклонение от средней зп, создаваемое навыком'],y = dfx.index,  width=2000, height=2000,labels={'x':'Стоимость', 'y':'Навык'})
+        fig = px.histogram(dfx,x = dfx['Стоимость навыка'],y = dfx.index,  width=2000, height=2000,labels={'x':'Абсолютное отклонение от средней зп, создаваемое навыком', 'y':'Навык'})
         st.plotly_chart(fig, use_container_width=False)
         st.write("обязательно разверните график, нажав на значок стрелок, чтобы ознакомиться с информацией")
-        fig1 = px.pie(dfx,values = dfx['Абсолютное отклонение от средней зп, создаваемое навыком'],names = dfx.index,  width=1300, height=1300,title = 'Отношение стоимости признаков')
+        fig1 = px.pie(dfx,values = dfx['Стоимость навыка'],names = dfx.index,  width=1300, height=1300,title = 'Отношение стоимости признаков')
         st.plotly_chart(fig1, use_container_width=False)
 
 
@@ -810,11 +810,11 @@ else:
 
         prices = json.load(open('model_1_code_experience.json'))
         dfx = pd.DataFrame([int(x) for x in prices.values()],index = prices.keys(),columns = ['Стоимость навыка'])
-        fig = px.histogram(dfx,x = dfx['Абсолютное отклонение от средней зп, создаваемое навыком'],y = dfx.index,  width=2000, height=2000,labels={'x':'Стоимость', 'y':'Навык'})
+        fig = px.histogram(dfx,x = dfx['Стоимость навыка'],y = dfx.index,  width=2000, height=2000,labels={'x':'Абсолютное отклонение от средней зп, создаваемое навыком', 'y':'Навык'})
         st.plotly_chart(fig, use_container_width=False)
         st.write("обязательно разверните график, нажав на значок стрелок, чтобы ознакомиться с информацией")
 
-        fig1 = px.pie(dfx,values = dfx['Абсолютное отклонение от средней зп, создаваемое навыком'],names = dfx.index,  width=1300, height=1300,title = 'Отношение стоимости признаков')
+        fig1 = px.pie(dfx,values = dfx['Стоимость навыка'],names = dfx.index,  width=1300, height=1300,title = 'Отношение стоимости признаков')
         st.plotly_chart(fig1, use_container_width=False)
 
     if flag == 2:
@@ -830,10 +830,10 @@ else:
 
         prices = json.load(open('model_2_code_experience_hr.json'))
         dfx = pd.DataFrame([int(x) for x in prices.values()],index = prices.keys(),columns = ['Стоимость навыка'])
-        fig = px.histogram(dfx,x = dfx['Абсолютное отклонение, создаваемое навыком'],y = dfx.index,  width=2000, height=2000,labels={'x':'Стоимость', 'y':'Навык'})
+        fig = px.histogram(dfx,x = dfx['Стоимость навыка'],y = dfx.index,  width=2000, height=2000,labels={'x':'Абсолютное отклонение от средней зп, создаваемое навыком', 'y':'Навык'})
         st.plotly_chart(fig, use_container_width=False)
         st.write("обязательно разверните график, нажав на значок стрелок, чтобы ознакомиться с информацией")
 
-        fig1 = px.pie(dfx,values = dfx['Абсолютное отклонение от средней зп, создаваемое навыком'],names = dfx.index,  width=1300, height=1300,title = 'Отношение стоимости признаков')
+        fig1 = px.pie(dfx,values = dfx['Стоимость навыка'],names = dfx.index,  width=1300, height=1300,title = 'Отношение стоимости признаков')
         st.plotly_chart(fig1, use_container_width=False)
         
