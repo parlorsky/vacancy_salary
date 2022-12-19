@@ -575,7 +575,7 @@ else:
     model_1_code_experience.load_model('model_1_code_experience_hr')
     model_2_code_experience = CatBoostRegressor()
     model_2_code_experience.load_model('model_2_code_experience_hr')
-    m_order = ['is_distance', 'is_parttime', 'v3_region_index', 'Работа в 1С', 'Английский язык', 'Опыт работы', 'Опыт работы не обязателен', 'Обучение/профподготовка в компании', 'Требования к образованию', 'Дополнительные льготы', 'Зарплата и другие выплаты, официальное трудоустройство', 'График работы', 'Русский язык', 'Личные установки и ценности, мировоззрение', 'Знания предметных областей для сварщика', 'Карьера', 'Условия работы/проживания/отдыха', 'Административные функции', 'Специальное ПО', 'Поиск и подбор персонала (СУП)', 'Кадровое делопроизводство (СУП)', 'Знания в области поиска и подбора персонала (СУП)', 'Оценка и аттестация персонала (СУП)', 'Знания в области оценки и аттестации персонала (СУП)', 'Развитие персонала (СУП)', 'Организация и оплата труда персонала СУП)', 'Обеспечение корпоративной и социальной политики (СУП)', 'Требование к опыту работы и образованию (СУП)', 'Ведение медицинской документации', 'Не соответствует СУП', 'Компьютерные программы для ведения бухгалтерского учета', 'Оформление учетно-отчетной документации', 'Пользоваться компьютерными и телекоммуникационными средствами в профессиональной деятельности']
+    m_order = ['is_distance', 'is_parttime', 'v3_region_index', 'Работа в 1С', 'Английский язык', 'Опыт работы', 'Опыт работы не обязателен', 'Обучение/профподготовка в компании', 'Требования к образованию', 'Дополнительные льготы', 'Зарплата и другие выплаты, официальное трудоустройство', 'График работы', 'Русский язык', 'Личные установки и ценности, мировоззрение', 'is_multiple', 'Карьера', 'Условия работы/проживания/отдыха', 'Административные функции', 'Специальное ПО', 'Поиск и подбор персонала (СУП)', 'Кадровое делопроизводство (СУП)', 'Знания в области поиска и подбора персонала (СУП)', 'Оценка и аттестация персонала (СУП)', 'Знания в области оценки и аттестации персонала (СУП)', 'Развитие персонала (СУП)', 'Организация и оплата труда персонала СУП)', 'Обеспечение корпоративной и социальной политики (СУП)', 'Требование к опыту работы и образованию (СУП)', 'Ведение медицинской документации', 'Не соответствует СУП', 'Компьютерные программы для ведения бухгалтерского учета', 'Оформление учетно-отчетной документации', 'Пользоваться компьютерными и телекоммуникационными средствами в профессиональной деятельности']
     model_0_code_experience_sorted_mask = [model_0_code_experience_sorted.index(m_order[i]) for i in range(33)]
     model_1_code_experience_sorted_mask = [model_1_code_experience_sorted.index(m_order[i]) for i in range(33)]
     model_2_code_experience_sorted_mask = [model_2_code_experience_sorted.index(m_order[i]) for i in range(33)]
@@ -634,7 +634,7 @@ else:
         a27 = 1 if st.checkbox(model_0_code_experience_sorted[27]) else 0
         a28 = 1 if st.checkbox(model_0_code_experience_sorted[28]) else 0
         a29 = 1 if st.checkbox(model_0_code_experience_sorted[29]) else 0
-        a30 = 1 if st.checkbox(model_0_code_experience_sorted[30]) else 0
+        a30 = 1 if st.checkbox('is_multiple') else 0
         a31 = 1 if st.checkbox(model_0_code_experience_sorted[31]) else 0
         a32 = 1 if st.checkbox(model_0_code_experience_sorted[32]) else 0
 
@@ -680,7 +680,7 @@ else:
         a16 = 1 if st.checkbox(model_1_code_experience_sorted[16]) else 0
         # a17 = 1 if st.checkbox(model_1_code_experience_sorted[17]) else 0
         a18 = 1 if st.checkbox(model_1_code_experience_sorted[18]) else 0
-        a19 = 1 if st.checkbox(model_1_code_experience_sorted[19]) else 0
+        a19 = 1 if st.checkbox('is_multiple') else 0
         a20 = 1 if st.checkbox(model_1_code_experience_sorted[20]) else 0
         a21 = 1 if st.checkbox(model_1_code_experience_sorted[21]) else 0
         a22 = 1 if st.checkbox(model_1_code_experience_sorted[22]) else 0
@@ -731,7 +731,7 @@ else:
         a15 = 1 if st.checkbox(model_2_code_experience_sorted[15]) else 0
         a16 = 1 if st.checkbox(model_2_code_experience_sorted[16]) else 0
         a17 = 1 if st.checkbox(model_2_code_experience_sorted[17]) else 0
-        a18 = 1 if st.checkbox(model_2_code_experience_sorted[18]) else 0
+        a18 = 1 if st.checkbox('is_multiple') else 0
         a19 = 1 if st.checkbox(model_2_code_experience_sorted[19]) else 0
         # a20 = 1 if st.checkbox(model_2_code_experience_sorted[20]) else 0
         a21 = 1 if st.checkbox(model_2_code_experience_sorted[21]) else 0
@@ -789,7 +789,7 @@ else:
         st.write("Чтобы полность изучить график, расширьте его. При наведении курсора на каждый столбец будет появляться доп. информация")
 
         prices = json.load(open('model_0_code_experience.json'))
-        dfx = pd.DataFrame([int(x) for x in prices.values()],index = prices.keys(),columns = ['Стоимость навыка'])
+        dfx = pd.DataFrame([int(x) for x in prices.values()],index = ['is_multiple' if 'рщик' in x else x for x  in prices.keys()],columns = ['Стоимость навыка'])
         fig = px.histogram(dfx,x = dfx['Стоимость навыка'],y = dfx.index,  width=2000, height=2000,labels={'x':'Абсолютное отклонение от средней зп, создаваемое навыком', 'y':'Навык'})
         st.plotly_chart(fig, use_container_width=False)
         st.write("обязательно разверните график, нажав на значок стрелок, чтобы ознакомиться с информацией")
@@ -809,7 +809,7 @@ else:
         st.write("Чтобы полность изучить график, расширьте его. При наведении курсора на каждый столбец будет появляться доп. информация")
 
         prices = json.load(open('model_1_code_experience.json'))
-        dfx = pd.DataFrame([int(x) for x in prices.values()],index = prices.keys(),columns = ['Стоимость навыка'])
+        dfx = pd.DataFrame([int(x) for x in prices.values()],index = ['is_multiple' if 'рщик' in x else x for x  in prices.keys()],columns = ['Стоимость навыка'])
         fig = px.histogram(dfx,x = dfx['Стоимость навыка'],y = dfx.index,  width=2000, height=2000,labels={'x':'Абсолютное отклонение от средней зп, создаваемое навыком', 'y':'Навык'})
         st.plotly_chart(fig, use_container_width=False)
         st.write("обязательно разверните график, нажав на значок стрелок, чтобы ознакомиться с информацией")
@@ -829,7 +829,7 @@ else:
 
 
         prices = json.load(open('model_2_code_experience_hr.json'))
-        dfx = pd.DataFrame([int(x) for x in prices.values()],index = prices.keys(),columns = ['Стоимость навыка'])
+        dfx = pd.DataFrame([int(x) for x in prices.values()],index = ['is_multiple' if 'рщик' in x else x for x  in prices.keys()],columns = ['Стоимость навыка'])
         fig = px.histogram(dfx,x = dfx['Стоимость навыка'],y = dfx.index,  width=2000, height=2000,labels={'x':'Абсолютное отклонение от средней зп, создаваемое навыком', 'y':'Навык'})
         st.plotly_chart(fig, use_container_width=False)
         st.write("обязательно разверните график, нажав на значок стрелок, чтобы ознакомиться с информацией")
