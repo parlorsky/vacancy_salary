@@ -647,7 +647,7 @@ else:
         a17 = 1 if st.checkbox(model_0_code_experience_sorted[17]) else 0
         a18 = 1 if st.checkbox(model_0_code_experience_sorted[18]) else 0
         a19 = 1 if st.checkbox(model_0_code_experience_sorted[19]) else 0
-        a20 = 1 if st.checkbox(model_0_code_experience_sorted[20]) else 0
+        # a20 = 1 if st.checkbox(model_0_code_experience_sorted[20]) else 0
         a21 = 1 if st.checkbox(model_0_code_experience_sorted[21]) else 0
         a22 = 1 if st.checkbox(model_0_code_experience_sorted[22]) else 0
         a23 = 1 if st.checkbox(model_0_code_experience_sorted[23]) else 0
@@ -665,7 +665,7 @@ else:
         option = st.selectbox(
             'Напишите регион вакансии',
             (list(data.keys())))
-        a32 = data[str(option)]
+        a20 = data[str(option)]
         inputs = np.array([a0, a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15, a16, a17, a18, a19, a20, a21, a22, a23, a24, a25, a26, a27, a28, a29, a30, a31, a32])[model_0_code_experience_sorted_mask]
         prediction = model_0_code_experience.predict(inputs)
     
@@ -699,7 +699,7 @@ else:
         a17 = 1 if st.checkbox(model_1_code_experience_sorted[17]) else 0
         a18 = 1 if st.checkbox(model_1_code_experience_sorted[18]) else 0
         a19 = 1 if st.checkbox(model_1_code_experience_sorted[19]) else 0
-        a20 = 1 if st.checkbox(model_1_code_experience_sorted[20]) else 0
+        # a20 = 1 if st.checkbox(model_1_code_experience_sorted[20]) else 0
         a21 = 1 if st.checkbox(model_1_code_experience_sorted[21]) else 0
         a22 = 1 if st.checkbox(model_1_code_experience_sorted[22]) else 0
         a23 = 1 if st.checkbox(model_1_code_experience_sorted[23]) else 0
@@ -717,7 +717,7 @@ else:
         option = st.selectbox(
             'Напишите регион вакансии',
             (list(data.keys())))
-        a32 = data[str(option)]
+        a20 = data[str(option)]
         inputs = np.array([a0, a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15, a16, a17, a18, a19, a20, a21, a22, a23, a24, a25, a26, a27, a28, a29, a30, a31, a32])[model_1_code_experience_sorted_mask]
         prediction = model_1_code_experience.predict(inputs)
 
@@ -750,7 +750,7 @@ else:
         a17 = 1 if st.checkbox(model_2_code_experience_sorted[17]) else 0
         a18 = 1 if st.checkbox(model_2_code_experience_sorted[18]) else 0
         a19 = 1 if st.checkbox(model_2_code_experience_sorted[19]) else 0
-        a20 = 1 if st.checkbox(model_2_code_experience_sorted[20]) else 0
+        # a20 = 1 if st.checkbox(model_2_code_experience_sorted[20]) else 0
         a21 = 1 if st.checkbox(model_2_code_experience_sorted[21]) else 0
         a22 = 1 if st.checkbox(model_2_code_experience_sorted[22]) else 0
         a23 = 1 if st.checkbox(model_2_code_experience_sorted[23]) else 0
@@ -768,7 +768,7 @@ else:
         option = st.selectbox(
             'Напишите регион вакансии',
             (list(data.keys())))
-        a32 = data[str(option)]
+        a20 = data[str(option)]
         inputs = np.array([a0, a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15, a16, a17, a18, a19, a20, a21, a22, a23, a24, a25, a26, a27, a28, a29, a30, a31, a32])[model_2_code_experience_sorted_mask]
         prediction = model_2_code_experience.predict(inputs)    
             
