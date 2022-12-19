@@ -815,7 +815,7 @@ else:
         fig1 = px.pie(dfx,values = dfx['Стоимость навыка'],names = dfx.index,  width=1300, height=1300,title = 'Отношение стоимости признаков')
         st.plotly_chart(fig1, use_container_width=False)
 
-    if flag == 4:
+    if flag == 2:
         st.subheader("")
         st.subheader("")
         st.subheader(f"Гистограмма стоимости навыков {inp_species} Более 3 лет опыта")
