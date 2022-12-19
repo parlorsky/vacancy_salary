@@ -560,9 +560,9 @@ if inp_species == 'Сварщик':
      
 else:
 
-    model_0_code_experience_sorted = list(json.load(open('model_0_code_experience.json')).keys())
-    model_1_code_experience_sorted = list(json.load(open('model_1_code_experience.json')).keys())
-    model_2_code_experience_sorted = list(json.load(open('model_2_code_experience_hr.json')).keys())
+    model_0_code_experience_sorted = ['is_multiple' if 'рщик' in x else x for x in list(json.load(open('model_0_code_experience.json')).keys())]
+    model_1_code_experience_sorted = ['is_multiple' if 'рщик' in x else x for x in list(json.load(open('model_1_code_experience.json')).keys())]
+    model_2_code_experience_sorted = ['is_multiple' if 'рщик' in x else x for x in list(json.load(open('model_2_code_experience_hr.json')).keys())]
     model_0_code_experience_rmse = 14598.6
     model_1_code_experience_rmse = 15649.5
     model_2_code_experience_rmse = 18331.8
