@@ -45,7 +45,7 @@ if inp_species == 'Сварщик':
     model_2_code_experience_is_vahta_sorted_mask = [model_2_code_experience_is_vahta_sorted.index(m2_order[i]) for i in range(34)]
     model_2_code_experience_isnt_vahta_sorted_mask = [model_2_code_experience_isnt_vahta_sorted.index(m2_order[i]) for i in range(34)]
 
-    st.header("Предсказание зарплаты по вакансии сварщика исходя из навыков")
+    st.header("Оценка стоимости навыков сварщика")
     # data = pd.read_csv("fish.csv")
 
     model_0_code_experience_is_vahta = CatBoostRegressor()
@@ -581,7 +581,7 @@ else:
     model_2_code_experience_sorted_mask = [model_2_code_experience_sorted.index(m_order[i]) for i in range(33)]
 
     
-    st.header(f"Предсказание зарплаты по вакансии {inp_species} исходя из навыков")
+    st.header(f"Оценка стоимости навыков {inp_species}")
     # data = pd.read_csv("fish.csv")
 
     st.subheader("Выберите стаж работы")
