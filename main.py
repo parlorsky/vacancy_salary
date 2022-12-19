@@ -666,7 +666,7 @@ else:
             'Напишите регион вакансии',
             (list(data.keys())))
         a20 = data[str(option)]
-        inputs = np.array([a0, a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15, a16, a17, a18, a19, a20, a21, a22, a23, a24, a25, a26, a27, a28, a29, a30, a31, a32])[model_0_code_experience_sorted_mask]
+        inputs = np.array([a0, a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15, a16, a17, a18, a19, a20, a21, a22, a23, a24, a25, a26, a27, a28, a29, a30, a31])[model_0_code_experience_sorted_mask]
         prediction = model_0_code_experience.predict(inputs)
     
 
@@ -718,7 +718,7 @@ else:
             'Напишите регион вакансии',
             (list(data.keys())))
         a20 = data[str(option)]
-        inputs = np.array([a0, a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15, a16, a17, a18, a19, a20, a21, a22, a23, a24, a25, a26, a27, a28, a29, a30, a31, a32])[model_1_code_experience_sorted_mask]
+        inputs = np.array([a0, a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15, a16, a17, a18, a19, a20, a21, a22, a23, a24, a25, a26, a27, a28, a29, a30, a31])[model_1_code_experience_sorted_mask]
         prediction = model_1_code_experience.predict(inputs)
 
 
@@ -769,7 +769,7 @@ else:
             'Напишите регион вакансии',
             (list(data.keys())))
         a20 = data[str(option)]
-        inputs = np.array([a0, a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15, a16, a17, a18, a19, a20, a21, a22, a23, a24, a25, a26, a27, a28, a29, a30, a31, a32])[model_2_code_experience_sorted_mask]
+        inputs = np.array([a0, a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15, a16, a17, a18, a19, a20, a21, a22, a23, a24, a25, a26, a27, a28, a29, a30, a31])[model_2_code_experience_sorted_mask]
         prediction = model_2_code_experience.predict(inputs)    
             
 
