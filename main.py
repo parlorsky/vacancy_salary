@@ -692,8 +692,8 @@ else:
         a28 = 1 if st.checkbox(model_1_code_experience_sorted[28]) else 0
         a29 = 1 if st.checkbox(model_1_code_experience_sorted[29]) else 0
         a30 = 1 if st.checkbox(model_1_code_experience_sorted[30]) else 0
-        a31 = 1 if st.checkbox(model_0_code_experience_sorted[31]) else 0
-        a32 = 1 if st.checkbox(model_0_code_experience_sorted[32]) else 0
+        a31 = 1 if st.checkbox(model_1_code_experience_sorted[31]) else 0
+        a32 = 1 if st.checkbox(model_1_code_experience_sorted[32]) else 0
 
     
         st.subheader("Выберите регион вакансии")
