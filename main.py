@@ -123,7 +123,7 @@ if inp_species == 'медсестра':
         # a11 = 1 if st.checkbox(model_1_code_experience_sorted[11]) else 0
         a12 = 1 if st.checkbox(model_1_code_experience_sorted[12]) else 0
         a13 = 1 if st.checkbox(model_1_code_experience_sorted[13]) else 0
-        a14 = 1 if st.checkbox(model_0_code_experience_sorted[14]) else 0
+        a14 = 1 if st.checkbox(model_1_code_experience_sorted[14]) else 0
         a15 = 1 if st.checkbox(model_1_code_experience_sorted[15]) else 0
         a16 = 1 if st.checkbox(model_1_code_experience_sorted[16]) else 0
         a17 = 1 if st.checkbox(model_1_code_experience_sorted[17]) else 0
