@@ -387,8 +387,8 @@ elif inp_species == 'сварщик':
         a21 = 1 if st.checkbox(model_1_code_experience_sorted[21]) else 0
         a22 = 1 if st.checkbox(model_1_code_experience_sorted[22]) else 0
         a23 = 1 if st.checkbox(model_1_code_experience_sorted[23]) else 0
-        a24 = 1 if st.checkbox(model_2_code_experience_sorted[24]) else 0
-        a25 = 1 if st.checkbox(model_2_code_experience_sorted[25]) else 0
+        a24 = 1 if st.checkbox(model_1_code_experience_sorted[24]) else 0
+        a25 = 1 if st.checkbox(model_1_code_experience_sorted[25]) else 0
 
         
 
