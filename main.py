@@ -87,7 +87,7 @@ if inp_species == 'медсестра':
         a20 = 1 if st.checkbox(model_0_code_experience_sorted[20]) else 0
         a21 = 1 if st.checkbox(model_0_code_experience_sorted[21]) else 0
         a22 = 1 if st.checkbox(model_0_code_experience_sorted[22]) else 0
-    
+        a23 = 1 if st.checkbox(model_0_code_experience_sorted[23]) else 0
         st.subheader("Выберите регион вакансии")
         option = st.selectbox(
             'Напишите регион вакансии',
@@ -131,7 +131,7 @@ if inp_species == 'медсестра':
         a20 = 1 if st.checkbox(model_0_code_experience_sorted[20]) else 0
         a21 = 1 if st.checkbox(model_0_code_experience_sorted[21]) else 0
         a22 = 1 if st.checkbox(model_0_code_experience_sorted[22]) else 0
-    
+        a23 = 1 if st.checkbox(model_0_code_experience_sorted[23]) else 0
         st.subheader("Выберите регион вакансии")
         option = st.selectbox(
             'Напишите регион вакансии',
@@ -139,7 +139,7 @@ if inp_species == 'медсестра':
 
         a14 = data[str(option)]
 
-        inputs = np.array([a0, a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15, a16, a17, a18, a19, a20, a21, a22])[model_0_code_experience_sorted_mask]
+        inputs = np.array([a0, a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15, a16, a17, a18, a19, a20, a21, a22,a23])[model_1_code_experience_sorted_mask]
         prediction = model_1_code_experience.predict(inputs)
 
 
@@ -174,6 +174,8 @@ if inp_species == 'медсестра':
         a20 = 1 if st.checkbox(model_0_code_experience_sorted[20]) else 0
         a21 = 1 if st.checkbox(model_0_code_experience_sorted[21]) else 0
         a22 = 1 if st.checkbox(model_0_code_experience_sorted[22]) else 0
+        a23 = 1 if st.checkbox(model_0_code_experience_sorted[23]) else 0
+
     
         st.subheader("Выберите регион вакансии")
         option = st.selectbox(
@@ -182,7 +184,7 @@ if inp_species == 'медсестра':
 
         a14 = data[str(option)]
 
-        inputs = np.array([a0, a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15, a16, a17, a18, a19, a20, a21, a22])[model_0_code_experience_sorted_mask]
+        inputs = np.array([a0, a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15, a16, a17, a18, a19, a20, a21, a22,a23])[model_2_code_experience_sorted_mask]
         prediction = model_2_code_experience.predict(inputs)
 
         if prediction < 45000:
