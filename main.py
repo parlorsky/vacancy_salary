@@ -38,9 +38,9 @@ if inp_species == 'медсестра':
     model_2_code_experience = CatBoostRegressor()
     model_2_code_experience.load_model(f'{name}/model_2_code_experience_{name}')
     m_order = [x.strip() for x in open(f'{name}/order_{name}.txt')]
-    model_0_code_experience_sorted_mask = [model_0_code_experience_sorted.index(m_order[i]) for i in range(len(model_0_code_experience_sorted))]
-    model_1_code_experience_sorted_mask = [model_1_code_experience_sorted.index(m_order[i]) for i in range(len(model_1_code_experience_sorted))]
-    model_2_code_experience_sorted_mask = [model_2_code_experience_sorted.index(m_order[i]) for i in range(len(model_2_code_experience_sorted))]
+    model_0_code_experience_sorted_mask = [model_0_code_experience_sorted.index(m_order[i]) for i in range(len(m_order))]
+    model_1_code_experience_sorted_mask = [model_1_code_experience_sorted.index(m_order[i]) for i in range(len(m_order))]
+    model_2_code_experience_sorted_mask = [model_2_code_experience_sorted.index(m_order[i]) for i in range(len(m_order))]
 
     
     st.header(f"Оценка стоимости навыков {inp_species}")
@@ -337,10 +337,7 @@ elif inp_species == 'сварщик':
         a20 = 1 if st.checkbox(model_0_code_experience_sorted[20]) else 0
         a21 = 1 if st.checkbox(model_0_code_experience_sorted[21]) else 0
         a22 = 1 if st.checkbox(model_0_code_experience_sorted[22]) else 0
-        a23 = 1 if st.checkbox(model_0_code_experience_sorted[23]) else 0
-        a24 = 1 if st.checkbox(model_0_code_experience_sorted[24]) else 0
-        # a25 = 1 if st.checkbox(model_0_code_experience_sorted[23]) else 0
-        a26 = 1 if st.checkbox(model_0_code_experience_sorted[26]) else 0
+        
 
         st.subheader("Выберите регион вакансии")
         option = st.selectbox(
@@ -384,10 +381,7 @@ elif inp_species == 'сварщик':
         a20 = 1 if st.checkbox(model_1_code_experience_sorted[20]) else 0
         a21 = 1 if st.checkbox(model_1_code_experience_sorted[21]) else 0
         a22 = 1 if st.checkbox(model_1_code_experience_sorted[22]) else 0
-        a23 = 1 if st.checkbox(model_1_code_experience_sorted[23]) else 0
-        a24 = 1 if st.checkbox(model_1_code_experience_sorted[24]) else 0
-        # a25 = 1 if st.checkbox(model_0_code_experience_sorted[23]) else 0
-        a26 = 1 if st.checkbox(model_1_code_experience_sorted[26]) else 0
+        
 
         st.subheader("Выберите регион вакансии")
         option = st.selectbox(
@@ -430,10 +424,6 @@ elif inp_species == 'сварщик':
         a20 = 1 if st.checkbox(model_2_code_experience_sorted[20]) else 0
         a21 = 1 if st.checkbox(model_2_code_experience_sorted[21]) else 0
         a22 = 1 if st.checkbox(model_2_code_experience_sorted[22]) else 0
-        a23 = 1 if st.checkbox(model_2_code_experience_sorted[23]) else 0
-        a24 = 1 if st.checkbox(model_2_code_experience_sorted[24]) else 0
-        # a25 = 1 if st.checkbox(model_0_code_experience_sorted[23]) else 0
-        a26 = 1 if st.checkbox(model_2_code_experience_sorted[26]) else 0
 
         st.subheader("Выберите регион вакансии")
         option = st.selectbox(
