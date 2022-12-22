@@ -288,9 +288,9 @@ elif inp_species == 'сварщик':
     model_2_code_experience = CatBoostRegressor()
     model_2_code_experience.load_model(f'{name}/model_2_code_experience_{name}')
     m_order = [x.strip() for x in open(f'{name}/order_{name}.txt')]
-    model_0_code_experience_sorted_mask = [model_0_code_experience_sorted.index(m_order[i]) for i in range(len(model_0_code_experience_sorted))]
-    model_1_code_experience_sorted_mask = [model_1_code_experience_sorted.index(m_order[i]) for i in range(len(model_1_code_experience_sorted))]
-    model_2_code_experience_sorted_mask = [model_2_code_experience_sorted.index(m_order[i]) for i in range(len(model_2_code_experience_sorted))]
+    model_0_code_experience_sorted_mask = [model_0_code_experience_sorted.index(m_order[i]) for i in range(len(m_order))]
+    model_1_code_experience_sorted_mask = [model_1_code_experience_sorted.index(m_order[i]) for i in range(len(m_order))]
+    model_2_code_experience_sorted_mask = [model_2_code_experience_sorted.index(m_order[i]) for i in range(len(m_order))]
 
     
     st.header(f"Оценка стоимости навыков {inp_species}")
