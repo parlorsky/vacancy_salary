@@ -222,7 +222,7 @@ if inp_species == 'медсестра':
         st.write("")
         st.write("Чтобы полность изучить график, расширьте его. При наведении курсора на каждый столбец будет появляться доп. информация")
 
-        prices = json.load(open('model_0_code_experience.json'))
+        prices = json.load(open(f'model_0_code_experience_{name}.json'))
         dfx = pd.DataFrame([int(x) for x in prices.values()],index = ['is_multiple' if 'рщик' in x else x for x  in prices.keys()],columns = ['Стоимость навыка'])
         fig = px.histogram(dfx,x = dfx['Стоимость навыка'],y = dfx.index,  width=2000, height=2000,labels={'x':'Абсолютное отклонение от средней зп, создаваемое навыком', 'y':'Навык'})
         st.plotly_chart(fig, use_container_width=False)
@@ -242,7 +242,7 @@ if inp_species == 'медсестра':
         st.write("")
         st.write("Чтобы полность изучить график, расширьте его. При наведении курсора на каждый столбец будет появляться доп. информация")
 
-        prices = json.load(open('model_1_code_experience.json'))
+        prices = json.load(open(f'model_1_code_experience_{name}.json'))
         dfx = pd.DataFrame([int(x) for x in prices.values()],index = ['is_multiple' if 'рщик' in x else x for x  in prices.keys()],columns = ['Стоимость навыка'])
         fig = px.histogram(dfx,x = dfx['Стоимость навыка'],y = dfx.index,  width=2000, height=2000,labels={'x':'Абсолютное отклонение от средней зп, создаваемое навыком', 'y':'Навык'})
         st.plotly_chart(fig, use_container_width=False)
@@ -262,7 +262,7 @@ if inp_species == 'медсестра':
         st.write("Чтобы полность изучить график, расширьте его. При наведении курсора на каждый столбец будет появляться доп. информация")
 
 
-        prices = json.load(open('model_2_code_experience_hr.json'))
+        prices = json.load(open(f'model_2_code_experience_{name}.json'))
         dfx = pd.DataFrame([int(x) for x in prices.values()],index = ['is_multiple' if 'рщик' in x else x for x  in prices.keys()],columns = ['Стоимость навыка'])
         fig = px.histogram(dfx,x = dfx['Стоимость навыка'],y = dfx.index,  width=2000, height=2000,labels={'x':'Абсолютное отклонение от средней зп, создаваемое навыком', 'y':'Навык'})
         st.plotly_chart(fig, use_container_width=False)
