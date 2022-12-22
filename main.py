@@ -434,7 +434,7 @@ elif inp_species == 'сварщик':
         a20 = 1 if st.checkbox(model_2_code_experience_sorted[20]) else 0
         a21 = 1 if st.checkbox(model_2_code_experience_sorted[21]) else 0
         a22 = 1 if st.checkbox(model_2_code_experience_sorted[22]) else 0
-        a23 = 1 if st.checkbox(model_1_code_experience_sorted[23]) else 0
+        a23 = 1 if st.checkbox(model_2_code_experience_sorted[23]) else 0
         a24 = 1 if st.checkbox(model_2_code_experience_sorted[24]) else 0
 
         st.subheader("Выберите регион вакансии")
