@@ -377,7 +377,7 @@ elif inp_species == 'сварщик':
         a11 = 1 if st.checkbox(model_1_code_experience_sorted[11]) else 0
         a12 = 1 if st.checkbox(model_1_code_experience_sorted[12]) else 0
         a13 = 1 if st.checkbox(model_1_code_experience_sorted[13]) else 0
-        a14 = 1 if st.checkbox(model_1_code_experience_sorted[14]) else 0
+        # a14 = 1 if st.checkbox(model_1_code_experience_sorted[14]) else 0
         a15 = 1 if st.checkbox(model_1_code_experience_sorted[15]) else 0
         a16 = 1 if st.checkbox(model_1_code_experience_sorted[16]) else 0
         a17 = 1 if st.checkbox(model_1_code_experience_sorted[17]) else 0
@@ -388,6 +388,8 @@ elif inp_species == 'сварщик':
         a22 = 1 if st.checkbox(model_1_code_experience_sorted[22]) else 0
         a23 = 1 if st.checkbox(model_1_code_experience_sorted[23]) else 0
         a24 = 1 if st.checkbox(model_2_code_experience_sorted[24]) else 0
+        a25 = 1 if st.checkbox(model_2_code_experience_sorted[25]) else 0
+
         
 
         st.subheader("Выберите регион вакансии")
@@ -395,7 +397,7 @@ elif inp_species == 'сварщик':
             'Напишите регион вакансии',
             (list(data.keys())))
 
-        a25 = data[str(option)]
+        a14 = data[str(option)]
 
         inputs = np.array([a0, a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15, a16, a17, a18, a19, a20, a21, a22,a23,a24,a25])[model_1_code_experience_sorted_mask]
         prediction = model_1_code_experience.predict(inputs)
