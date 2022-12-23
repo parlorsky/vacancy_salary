@@ -1734,9 +1734,9 @@ elif inp_species == 'специалист по персоналу':
 
 elif inp_species == 'продавец':
     name = 'prodavets'
-    model_0_code_experience_sorted = list(json.load(open(f'{name}/model_0_code_experience_{name}.json')).keys())
-    model_1_code_experience_sorted = list(json.load(open(f'{name}/model_1_code_experience_{name}.json')).keys())
-    model_2_code_experience_sorted = list(json.load(open(f'{name}/model_2_code_experience_{name}.json')).keys())
+    model_0_code_experience_sorted = list(json.load(open(f'{name}/model_0_code_experience_y_{name}.json')).keys())
+    model_1_code_experience_sorted = list(json.load(open(f'{name}/model_1_code_experience_y_{name}.json')).keys())
+    model_2_code_experience_sorted = list(json.load(open(f'{name}/model_2_code_experience_y_{name}.json')).keys())
     model_0_code_experience_rmse = 6159.105
     model_2_code_experience_rmse = 6842.395
     model_1_code_experience_rmse = 7072.589
