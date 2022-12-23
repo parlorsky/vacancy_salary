@@ -12,6 +12,93 @@ import plotly.express as px
 import pandas as pd
 
 
+rus_regs = ['Архангельская область',
+ 'город федерального значения Севастополь',
+ 'Республика Башкортостан',
+ 'Костромская область',
+ 'Новгородская область',
+ 'Рязанская область',
+ 'Республика Коми',
+ 'Владимирская область',
+ 'Томская область',
+ 'Республика Калмыкия',
+ 'Россия',
+ 'Республика Крым',
+ 'Красноярский край',
+ 'Республика Карелия',
+ 'Саратовская область',
+ 'Вологодская область',
+ 'Волгоградская область',
+ 'Еврейская автономная область',
+ 'Забайкальский край',
+ 'Иркутская область',
+ 'Ульяновская область',
+ 'Московская область',
+ 'Оренбургская область',
+ 'Сахалинская область',
+ 'Орловская область',
+ 'Белгородская область',
+ 'Челябинская область',
+ 'Республика Татарстан',
+ 'Республика Саха (Якутия)',
+ 'Магаданская область',
+ 'Республика Хакасия',
+ 'Хабаровский край',
+ 'Ямало-Ненецкий автономный округ',
+ 'Чукотский автономный округ',
+ 'Новосибирская область',
+ 'Республика Бурятия',
+ 'Ивановская область',
+ 'Кабардино-Балкарская Республика',
+ 'Псковская область',
+ 'Амурская область',
+ 'Тамбовская область',
+ 'Курская область',
+ 'Ростовская область',
+ 'Республика Ингушетия',
+ 'Липецкая область',
+ 'Алтайский край',
+ 'Воронежская область',
+ 'Камчатский край',
+ 'Омская область',
+ 'Смоленская область',
+ 'Город федерального значения Санкт-Петербург',
+ 'Свердловская область',
+ 'Чувашская Республика',
+ 'Брянская область',
+ 'Республика Тыва',
+ 'Кировская область',
+ 'Ставропольский край',
+ 'Карачаево-Черкесская Республика',
+ 'Ленинградская область',
+ 'Нижегородская область',
+ 'Республика Северная Осетия',
+ 'Калининградская область',
+ 'Республика Мордовия',
+ 'Мурманская область',
+ 'Город федерального значения Москва',
+ 'Республика Марий Эл',
+ 'Удмуртская Республика',
+ 'Самарская область',
+ 'Республика Дагестан',
+ 'Кемеровская область',
+ 'Краснодарский край',
+ 'Приморский край',
+ 'Тюменская область',
+ 'Республика Алтай',
+ 'Пензенская область',
+ 'Ненецкий автономный округ',
+ 'Тульская область',
+ 'Ярославская область',
+ 'Ханты-Мансийский автономный округ — Югра',
+ 'Республика Адыгея',
+ 'иные территории, включая город и космодром Байконур',
+ 'Чеченская Республика',
+ 'Пермский край',
+ 'Астраханская область',
+ 'Тверская область',
+ 'Курганская область',
+ 'Калужская область']
 
 
 st.subheader("Выберите класс вакансии")
@@ -93,7 +180,7 @@ if inp_species == 'медсестра':
         st.subheader("Выберите регион вакансии")
         option = st.selectbox(
             'Напишите регион вакансии',
-            (list(data.keys())))
+            ([x for x in list(data.keys()) if x in rus_regs]))
 
         a14 = data[str(option)]
 
@@ -137,7 +224,7 @@ if inp_species == 'медсестра':
         st.subheader("Выберите регион вакансии")
         option = st.selectbox(
             'Напишите регион вакансии',
-            (list(data.keys())))
+            ([x for x in list(data.keys()) if x in rus_regs]))
 
         a11 = data[str(option)]
 
@@ -181,7 +268,8 @@ if inp_species == 'медсестра':
         st.subheader("Выберите регион вакансии")
         option = st.selectbox(
             'Напишите регион вакансии',
-            (list(data.keys())))
+            ([x for x in list(data.keys()) if x in rus_regs]))
+
 
         a15 = data[str(option)]
 
@@ -367,7 +455,8 @@ elif inp_species == 'сварщик':
             st.subheader("Выберите регион вакансии")
             option = st.selectbox(
                 'Напишите регион вакансии',
-                (list(data.keys())))
+                ([x for x in list(data.keys()) if x in rus_regs]))
+
 
             a25 = data[str(option)]
 
@@ -417,7 +506,8 @@ elif inp_species == 'сварщик':
             st.subheader("Выберите регион вакансии")
             option = st.selectbox(
                 'Напишите регион вакансии',
-                (list(data.keys())))
+                ([x for x in list(data.keys()) if x in rus_regs]))
+
 
             a17 = data[str(option)]
 
@@ -464,7 +554,8 @@ elif inp_species == 'сварщик':
             st.subheader("Выберите регион вакансии")
             option = st.selectbox(
                 'Напишите регион вакансии',
-                (list(data.keys())))
+                ([x for x in list(data.keys()) if x in rus_regs]))
+
 
             a19 = data[str(option)]
 
@@ -533,7 +624,8 @@ elif inp_species == 'сварщик':
             st.subheader("Выберите регион вакансии")
             option = st.selectbox(
                 'Напишите регион вакансии',
-                (list(data.keys())))
+                ([x for x in list(data.keys()) if x in rus_regs]))
+
 
             a16 = data[str(option)]
 
@@ -583,7 +675,8 @@ elif inp_species == 'сварщик':
             st.subheader("Выберите регион вакансии")
             option = st.selectbox(
                 'Напишите регион вакансии',
-                (list(data.keys())))
+                ([x for x in list(data.keys()) if x in rus_regs]))
+
 
             a23 = data[str(option)]
 
@@ -630,7 +723,8 @@ elif inp_species == 'сварщик':
             st.subheader("Выберите регион вакансии")
             option = st.selectbox(
                 'Напишите регион вакансии',
-                (list(data.keys())))
+                ([x for x in list(data.keys()) if x in rus_regs]))
+
 
             a12 = data[str(option)]
 
@@ -867,7 +961,8 @@ elif inp_species == 'слесарь':
             st.subheader("Выберите регион вакансии")
             option = st.selectbox(
                 'Напишите регион вакансии',
-                (list(data.keys())))
+                ([x for x in list(data.keys()) if x in rus_regs]))
+
 
             a11 = data[str(option)]
 
@@ -910,7 +1005,8 @@ elif inp_species == 'слесарь':
             st.subheader("Выберите регион вакансии")
             option = st.selectbox(
                 'Напишите регион вакансии',
-                (list(data.keys())))
+                ([x for x in list(data.keys()) if x in rus_regs]))
+
 
             a8 = data[str(option)]
 
@@ -950,7 +1046,8 @@ elif inp_species == 'слесарь':
             st.subheader("Выберите регион вакансии")
             option = st.selectbox(
                 'Напишите регион вакансии',
-                (list(data.keys())))
+                ([x for x in list(data.keys()) if x in rus_regs]))
+
 
             a14 = data[str(option)]
 
@@ -1012,7 +1109,8 @@ elif inp_species == 'слесарь':
             st.subheader("Выберите регион вакансии")
             option = st.selectbox(
                 'Напишите регион вакансии',
-                (list(data.keys())))
+                ([x for x in list(data.keys()) if x in rus_regs]))
+
 
             a2 = data[str(option)]
 
@@ -1055,7 +1153,8 @@ elif inp_species == 'слесарь':
             st.subheader("Выберите регион вакансии")
             option = st.selectbox(
                 'Напишите регион вакансии',
-                (list(data.keys())))
+                ([x for x in list(data.keys()) if x in rus_regs]))
+
 
             a18 = data[str(option)]
 
@@ -1095,7 +1194,8 @@ elif inp_species == 'слесарь':
             st.subheader("Выберите регион вакансии")
             option = st.selectbox(
                 'Напишите регион вакансии',
-                (list(data.keys())))
+                ([x for x in list(data.keys()) if x in rus_regs]))
+
 
             a15 = data[str(option)]
 
@@ -1342,7 +1442,8 @@ elif inp_species == 'специалист по персоналу':
             st.subheader("Выберите регион вакансии")
             option = st.selectbox(
                 'Напишите регион вакансии',
-                (list(data.keys())))
+                ([x for x in list(data.keys()) if x in rus_regs]))
+
 
             a20 = data[str(option)]
 
@@ -1399,7 +1500,8 @@ elif inp_species == 'специалист по персоналу':
             st.subheader("Выберите регион вакансии")
             option = st.selectbox(
                 'Напишите регион вакансии',
-                (list(data.keys())))
+                ([x for x in list(data.keys()) if x in rus_regs]))
+
 
             a15 = data[str(option)]
 
@@ -1477,7 +1579,8 @@ elif inp_species == 'специалист по персоналу':
             st.subheader("Выберите регион вакансии")
             option = st.selectbox(
                 'Напишите регион вакансии',
-                (list(data.keys())))
+                ([x for x in list(data.keys()) if x in rus_regs]))
+
 
             a9 = data[str(option)]
 
@@ -1533,7 +1636,8 @@ elif inp_species == 'специалист по персоналу':
             st.subheader("Выберите регион вакансии")
             option = st.selectbox(
                 'Напишите регион вакансии',
-                (list(data.keys())))
+                ([x for x in list(data.keys()) if x in rus_regs]))
+
 
             a2 = data[str(option)]
 
@@ -1586,7 +1690,8 @@ elif inp_species == 'специалист по персоналу':
             st.subheader("Выберите регион вакансии")
             option = st.selectbox(
                 'Напишите регион вакансии',
-                (list(data.keys())))
+                ([x for x in list(data.keys()) if x in rus_regs]))
+
 
             a18 = data[str(option)]
 
@@ -1804,7 +1909,8 @@ elif inp_species == 'продавец':
         st.subheader("Выберите регион вакансии")
         option = st.selectbox(
             'Напишите регион вакансии',
-            (list(data.keys())))
+            ([x for x in list(data.keys()) if x in rus_regs]))
+
 
         a2 = data[str(option)]
 
@@ -1847,7 +1953,8 @@ elif inp_species == 'продавец':
         st.subheader("Выберите регион вакансии")
         option = st.selectbox(
             'Напишите регион вакансии',
-            (list(data.keys())))
+            ([x for x in list(data.keys()) if x in rus_regs]))
+
 
         a14 = data[str(option)]
 
@@ -1890,7 +1997,8 @@ elif inp_species == 'продавец':
         st.subheader("Выберите регион вакансии")
         option = st.selectbox(
             'Напишите регион вакансии',
-            (list(data.keys())))
+            ([x for x in list(data.keys()) if x in rus_regs]))
+
 
         a12 = data[str(option)]
 
