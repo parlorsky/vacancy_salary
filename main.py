@@ -153,31 +153,31 @@ if inp_species == 'медсестра':
         st.subheader("Выберите навыки для подсчета зарплаты по вакансии. Расположены в порядке убывания абсолютной значимости (см. развернутый график внизу страницы)")
     
         flag = 0
-        
-        a0 =   1 if st.checkbox(model_0_code_experience_sorted[0]) else 0
-        a1 =   1 if st.checkbox(model_0_code_experience_sorted[1]) else 0
-        a2 =   1 if st.checkbox(model_0_code_experience_sorted[2]) else 0
-        a3 =   1 if st.checkbox(model_0_code_experience_sorted[3]) else 0
-        a4 =   1 if st.checkbox(model_0_code_experience_sorted[4]) else 0
-        a5 =   1 if st.checkbox(model_0_code_experience_sorted[5]) else 0
-        a6 =   1 if st.checkbox(model_0_code_experience_sorted[6]) else 0
-        a7 =   1 if st.checkbox(model_0_code_experience_sorted[7]) else 0
-        a8 =   1 if st.checkbox(model_0_code_experience_sorted[8]) else 0
-        a9 =   1 if st.checkbox(model_0_code_experience_sorted[9]) else 0
-        a10 = 1 if st.checkbox(model_0_code_experience_sorted[10]) else 0
-        a11 = 1 if st.checkbox(model_0_code_experience_sorted[11]) else 0
-        a12 = 1 if st.checkbox(model_0_code_experience_sorted[12]) else 0
-        a13 = 1 if st.checkbox(model_0_code_experience_sorted[13]) else 0
-        # a14 = 1 if st.checkbox(model_0_code_experience_sorted[14]) else 0
-        a15 = 1 if st.checkbox(model_0_code_experience_sorted[15]) else 0
-        a16 = 1 if st.checkbox(model_0_code_experience_sorted[16]) else 0
-        a17 = 1 if st.checkbox(model_0_code_experience_sorted[17]) else 0
-        a18 = 1 if st.checkbox(model_0_code_experience_sorted[18]) else 0
-        a19 = 1 if st.checkbox(model_0_code_experience_sorted[19]) else 0
-        a20 = 1 if st.checkbox(model_0_code_experience_sorted[20]) else 0
-        a21 = 1 if st.checkbox(model_0_code_experience_sorted[21]) else 0
-        a22 = 1 if st.checkbox(model_0_code_experience_sorted[22]) else 0
-        a23 = 1 if st.checkbox(model_0_code_experience_sorted[23]) else 0
+        input = [1 if st.checkbox(model_0_code_experience_sorted[i]) else 0 for i in range(24).remove(14)]
+        # a0 =   1 if st.checkbox(model_0_code_experience_sorted[0]) else 0
+        # a1 =   1 if st.checkbox(model_0_code_experience_sorted[1]) else 0
+        # a2 =   1 if st.checkbox(model_0_code_experience_sorted[2]) else 0
+        # a3 =   1 if st.checkbox(model_0_code_experience_sorted[3]) else 0
+        # a4 =   1 if st.checkbox(model_0_code_experience_sorted[4]) else 0
+        # a5 =   1 if st.checkbox(model_0_code_experience_sorted[5]) else 0
+        # a6 =   1 if st.checkbox(model_0_code_experience_sorted[6]) else 0
+        # a7 =   1 if st.checkbox(model_0_code_experience_sorted[7]) else 0
+        # a8 =   1 if st.checkbox(model_0_code_experience_sorted[8]) else 0
+        # a9 =   1 if st.checkbox(model_0_code_experience_sorted[9]) else 0
+        # a10 = 1 if st.checkbox(model_0_code_experience_sorted[10]) else 0
+        # a11 = 1 if st.checkbox(model_0_code_experience_sorted[11]) else 0
+        # a12 = 1 if st.checkbox(model_0_code_experience_sorted[12]) else 0
+        # a13 = 1 if st.checkbox(model_0_code_experience_sorted[13]) else 0
+        # # a14 = 1 if st.checkbox(model_0_code_experience_sorted[14]) else 0
+        # a15 = 1 if st.checkbox(model_0_code_experience_sorted[15]) else 0
+        # a16 = 1 if st.checkbox(model_0_code_experience_sorted[16]) else 0
+        # a17 = 1 if st.checkbox(model_0_code_experience_sorted[17]) else 0
+        # a18 = 1 if st.checkbox(model_0_code_experience_sorted[18]) else 0
+        # a19 = 1 if st.checkbox(model_0_code_experience_sorted[19]) else 0
+        # a20 = 1 if st.checkbox(model_0_code_experience_sorted[20]) else 0
+        # a21 = 1 if st.checkbox(model_0_code_experience_sorted[21]) else 0
+        # a22 = 1 if st.checkbox(model_0_code_experience_sorted[22]) else 0
+        # a23 = 1 if st.checkbox(model_0_code_experience_sorted[23]) else 0
 
         st.subheader("Выберите регион вакансии")
         option = st.selectbox(
