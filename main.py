@@ -155,7 +155,7 @@ if inp_species == 'медсестра':
         flag = 0
         inputs = [1 if i in base_skills_0 else 1 if st.checkbox(i) else 0 for \
                  i in [x for x in model_0_code_experience_sorted if x != 'v3_all_index']]
-
+        print([x for x in model_0_code_experience_sorted if x != 'v3_all_index'])
         st.subheader("Выберите регион вакансии")
         option = st.selectbox(
             'Напишите регион вакансии',
