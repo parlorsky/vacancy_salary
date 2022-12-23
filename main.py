@@ -153,8 +153,8 @@ if inp_species == 'медсестра':
         st.subheader("Выберите навыки для подсчета зарплаты по вакансии. Расположены в порядке убывания абсолютной значимости (см. развернутый график внизу страницы)")
     
         flag = 0
-        inputs = [1 if model_0_code_experience_sorted[i] in base_skills_0 else 1 if st.checkbox(model_0_code_experience_sorted[i]) else 0 for \
-                 i in [_ for _ in range(len(model_0_code_experience_sorted)) if _ != 'v3_region_index']]
+        inputs = [1 if i in base_skills_0 else 1 if st.checkbox(i) else 0 for \
+                 i in [x for x in model_0_code_experience_sorted if x != 'v3_all_index']]
 
         st.subheader("Выберите регион вакансии")
         option = st.selectbox(
