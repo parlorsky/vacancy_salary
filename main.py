@@ -1654,7 +1654,7 @@ elif inp_species == 'специалист по персоналу':
 
             st.subheader("Выберите навыки для подсчета зарплаты по вакансии. Расположены в порядке убывания абсолютной значимости (см. развернутый график внизу страницы)")
 
-            flag = 5
+            flag = 2
             a0 =   1 if st.checkbox(model_2_code_experience_n_sorted[0]) else 0
             a1 =   1 if st.checkbox(model_2_code_experience_n_sorted[1]) else 0
             a2 =   1 if st.checkbox(model_2_code_experience_n_sorted[2]) else 0
