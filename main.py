@@ -1819,25 +1819,7 @@ elif inp_species == 'специалист по персоналу':
 
         fig1 = px.pie(dfx,values = dfx['Стоимость навыка'],names = dfx.index,  width=1300, height=1300,title = 'Отношение стоимости признаков')
         st.plotly_chart(fig1, use_container_width=False)
-    if flag == 5:
-        st.subheader("")
-        st.subheader("")
-        st.subheader(f"Гистограмма стоимости навыков {inp_species} Более 3 лет опыта")
-
-        st.write("Подсчет стоимости каждого навыка производился по формуле:")
-        st.write("(Зарплата по вакансии с выделенным навыком) - (Средняя зарплата с базовыми навыками)")
-        st.write("")
-        st.write("Чтобы полность изучить график, расширьте его. При наведении курсора на каждый столбец будет появляться доп. информация")
-
-
-        prices = json.load(open(f'{name}/model_2_code_experience_n_{name}.json'))
-        dfx = pd.DataFrame([int(x) for x in prices.values()],index = ['is_multiple' if 'рщик' in x else x for x  in prices.keys()],columns = ['Стоимость навыка'])
-        fig = px.histogram(dfx,x = dfx['Стоимость навыка'],y = dfx.index,  width=2000, height=2000,labels={'x':'Абсолютное отклонение от средней зп, создаваемое навыком', 'y':'Навык'})
-        st.plotly_chart(fig, use_container_width=False)
-        st.write("обязательно разверните график, нажав на значок стрелок, чтобы ознакомиться с информацией")
-
-        fig1 = px.pie(dfx,values = dfx['Стоимость навыка'],names = dfx.index,  width=1300, height=1300,title = 'Отношение стоимости признаков')
-        st.plotly_chart(fig1, use_container_width=False)
+    
 
 elif inp_species == 'продавец':
     name = 'prodavets'
