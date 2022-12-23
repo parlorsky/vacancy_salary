@@ -153,7 +153,7 @@ if inp_species == 'медсестра':
         st.subheader("Выберите навыки для подсчета зарплаты по вакансии. Расположены в порядке убывания абсолютной значимости (см. развернутый график внизу страницы)")
     
         flag = 0
-        input = [1 if st.checkbox(model_0_code_experience_sorted[i]) else 0 for i in range(24).remove(14)]
+        input = [1 if st.checkbox(model_0_code_experience_sorted[i]) else 0 for i in [_ for _ in range(24) if _ != 14]]
         # a0 =   1 if st.checkbox(model_0_code_experience_sorted[0]) else 0
         # a1 =   1 if st.checkbox(model_0_code_experience_sorted[1]) else 0
         # a2 =   1 if st.checkbox(model_0_code_experience_sorted[2]) else 0
