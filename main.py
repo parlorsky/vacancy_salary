@@ -19,7 +19,7 @@ left_column, right_column = st.columns(2)
 with left_column:
     inp_species = st.radio(
         'Наименование вакансии',
-        np.unique(['медсестра','сварщик','слесарь']))
+        np.unique(['медсестра','сварщик','слесарь','специалист по персоналу']))
 
 if inp_species == 'медсестра':
     name = 'medsestra'
