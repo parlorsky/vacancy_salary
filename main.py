@@ -1779,7 +1779,7 @@ elif inp_species == 'продавец':
         flag = 0
         a0 =   1 if st.checkbox(model_0_code_experience_sorted[0]) else 0
         a1 =   1 if st.checkbox(model_0_code_experience_sorted[1]) else 0
-        a2 =   1 if st.checkbox(model_0_code_experience_sorted[2]) else 0
+        # a2 =   1 if st.checkbox(model_0_code_experience_sorted[2]) else 0
         a3 =   1 if st.checkbox(model_0_code_experience_sorted[3]) else 0
         a4 =   1 if st.checkbox(model_0_code_experience_sorted[4]) else 0
         a5 =   1 if st.checkbox(model_0_code_experience_sorted[5]) else 0
@@ -1805,9 +1805,9 @@ elif inp_species == 'продавец':
             'Напишите регион вакансии',
             (list(data.keys())))
 
-        a14 = data[str(option)]
+        a2 = data[str(option)]
 
-        inputs = np.array([a0, a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15, a16, a17, a18, a19, a20, a21, a22,a23])[model_0_code_experience_sorted_mask]
+        inputs = np.array([a0, a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15, a16, a17, a18, a19, a20, a21])[model_0_code_experience_sorted_mask]
         prediction = model_0_code_experience.predict(inputs)
     
 
@@ -1834,7 +1834,7 @@ elif inp_species == 'продавец':
         a11 = 1 if st.checkbox(model_1_code_experience_sorted[11]) else 0
         a12 = 1 if st.checkbox(model_1_code_experience_sorted[12]) else 0
         a13 = 1 if st.checkbox(model_1_code_experience_sorted[13]) else 0
-        a14 = 1 if st.checkbox(model_1_code_experience_sorted[14]) else 0
+        # a14 = 1 if st.checkbox(model_1_code_experience_sorted[14]) else 0
         a15 = 1 if st.checkbox(model_1_code_experience_sorted[15]) else 0
         a16 = 1 if st.checkbox(model_1_code_experience_sorted[16]) else 0
         a17 = 1 if st.checkbox(model_1_code_experience_sorted[17]) else 0
@@ -1848,9 +1848,9 @@ elif inp_species == 'продавец':
             'Напишите регион вакансии',
             (list(data.keys())))
 
-        a11 = data[str(option)]
+        a14 = data[str(option)]
 
-        inputs = np.array([a0, a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15, a16, a17, a18, a19, a20, a21, a22,a23])[model_1_code_experience_sorted_mask]
+        inputs = np.array([a0, a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15, a16, a17, a18, a19, a20, a21])[model_1_code_experience_sorted_mask]
         prediction = model_1_code_experience.predict(inputs)
 
 
@@ -1874,7 +1874,7 @@ elif inp_species == 'продавец':
         a9 =   1 if st.checkbox(model_2_code_experience_sorted[9]) else 0
         a10 = 1 if st.checkbox(model_2_code_experience_sorted[10]) else 0
         a11 = 1 if st.checkbox(model_2_code_experience_sorted[11]) else 0
-        a12 = 1 if st.checkbox(model_2_code_experience_sorted[12]) else 0
+        # a12 = 1 if st.checkbox(model_2_code_experience_sorted[12]) else 0
         a13 = 1 if st.checkbox(model_2_code_experience_sorted[13]) else 0
         a14 = 1 if st.checkbox(model_2_code_experience_sorted[14]) else 0
         a15 = 1 if st.checkbox(model_2_code_experience_sorted[15]) else 0
@@ -1891,9 +1891,9 @@ elif inp_species == 'продавец':
             'Напишите регион вакансии',
             (list(data.keys())))
 
-        a15 = data[str(option)]
+        a12 = data[str(option)]
 
-        inputs = np.array([a0, a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15, a16, a17, a18, a19, a20, a21, a22,a23])[model_2_code_experience_sorted_mask]
+        inputs = np.array([a0, a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15, a16, a17, a18, a19, a20, a21])[model_2_code_experience_sorted_mask]
         prediction = model_2_code_experience.predict(inputs)
 
         if prediction < 46000:
