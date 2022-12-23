@@ -134,7 +134,7 @@ if inp_species == 'медсестра':
     st.header(f"Оценка стоимости навыков {inp_species}")
     # data = pd.read_csv("fish.csv")
 
-    st.subheader("Выберите стаж работы")
+    st.subheader("Выберите опыт работы")
     left_column1, right_column1 = st.columns(2)
     with left_column1:
         experience = st.radio(
@@ -404,7 +404,7 @@ elif inp_species == 'сварщик':
     st.header(f"Оценка стоимости навыков {inp_species}")
     # data = pd.read_csv("fish.csv")
 
-    st.subheader("Выберите стаж работы")
+    st.subheader("Выберите опыт работы")
     left_column1, right_column1 = st.columns(2)
     with left_column1:
         experience = st.radio(
@@ -917,7 +917,7 @@ elif inp_species == 'слесарь':
     st.header(f"Оценка стоимости навыков {inp_species}")
     # data = pd.read_csv("fish.csv")
 
-    st.subheader("Выберите стаж работы")
+    st.subheader("Выберите опыт работы")
     left_column1, right_column1 = st.columns(2)
     with left_column1:
         experience = st.radio(
@@ -1389,7 +1389,7 @@ elif inp_species == 'специалист по персоналу':
 
     vahta = 1 if st.checkbox('Дистанционно') else 0
     if vahta:
-        st.subheader("Выберите стаж работы")
+        st.subheader("Выберите опыт работы")
         left_column1, right_column1 = st.columns(2)
         with left_column1:
             experience = st.radio(
@@ -1527,7 +1527,7 @@ elif inp_species == 'специалист по персоналу':
             st.write(f"Предполагаемая ЗП:  {'{:.2f}'.format(round(np.squeeze(p1, -1),2))} - {'{:.2f}'.format(round(np.squeeze(p2, -1),2))} рублей")
     else:
 
-        st.subheader("Выберите стаж работы")
+        st.subheader("Выберите опыт работы")
         left_column1, right_column1 = st.columns(2)
         with left_column1:
             experience = st.radio(
@@ -1863,7 +1863,7 @@ elif inp_species == 'продавец':
     st.header(f"Оценка стоимости навыков {inp_species}")
     # data = pd.read_csv("fish.csv")
 
-    st.subheader("Выберите стаж работы")
+    st.subheader("Выберите опыт работы")
     left_column1, right_column1 = st.columns(2)
     with left_column1:
         experience = st.radio(
