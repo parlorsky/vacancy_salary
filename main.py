@@ -110,15 +110,15 @@ with left_column:
 
 if inp_species == 'медсестра':
     name = 'medsestra'
+    model_0_code_experience_sorted = list(json.load(open(f'{name}/model_0_code_experience_{name}.json')).keys())
+    model_1_code_experience_sorted = list(json.load(open(f'{name}/model_1_code_experience_{name}.json')).keys())
+    model_2_code_experience_sorted = list(json.load(open(f'{name}/model_2_code_experience_{name}.json')).keys())
     model_0_code_experience_rmse = 9561.680
     model_1_code_experience_rmse = 11819.859
     model_2_code_experience_rmse = 11792.724
     base_skills_0 = [x.strip() for x in open(f'{name}/base_skills_0_{name}.txt', 'r') if len(x) > 3]
     base_skills_1 = [x.strip() for x in open(f'{name}/base_skills_1_{name}.txt', 'r') if len(x) > 3]
     base_skills_2 = [x.strip() for x in open(f'{name}/base_skills_2_{name}.txt', 'r') if len(x) > 3]
-    model_0_code_experience_sorted = [x for x in list(json.load(open(f'{name}/model_0_code_experience_{name}.json')).keys()) if x not in base_skills_0]
-    model_1_code_experience_sorted = [x for x in list(json.load(open(f'{name}/model_1_code_experience_{name}.json')).keys()) if x not in base_skills_1]
-    model_2_code_experience_sorted = [x for x in list(json.load(open(f'{name}/model_2_code_experience_{name}.json')).keys()) if x not in base_skills_2]
     model_0_code_experience = CatBoostRegressor()
     model_0_code_experience.load_model(f'{name}/model_0_code_experience_{name}')
     model_1_code_experience = CatBoostRegressor()
