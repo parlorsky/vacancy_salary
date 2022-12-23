@@ -126,9 +126,9 @@ if inp_species == 'медсестра':
     model_2_code_experience = CatBoostRegressor()
     model_2_code_experience.load_model(f'{name}/model_2_code_experience_{name}')
     m_order = [x.strip() for x in open(f'{name}/order_{name}.txt')]
-    model_0_code_experience_sorted_mask = [model_0_code_experience_sorted.index(m_order[i]) for i in range(len(m_order))]
-    model_1_code_experience_sorted_mask = [model_1_code_experience_sorted.index(m_order[i]) for i in range(len(m_order))]
-    model_2_code_experience_sorted_mask = [model_2_code_experience_sorted.index(m_order[i]) for i in range(len(m_order))]
+    model_0_code_experience_sorted_mask = [model_0_code_experience_sorted.index(m_order[i]) for i in range(len(m_order)) if model_0_code_experience_sorted.index(m_order[i]) not in base_skills_0]
+    model_1_code_experience_sorted_mask = [model_1_code_experience_sorted.index(m_order[i]) for i in range(len(m_order)) if model_1_code_experience_sorted.index(m_order[i]) not in base_skills_1]
+    model_2_code_experience_sorted_mask = [model_2_code_experience_sorted.index(m_order[i]) for i in range(len(m_order)) if model_2_code_experience_sorted.index(m_order[i]) not in base_skills_2]
 
     
     st.header(f"Оценка стоимости навыков {inp_species}")
@@ -153,6 +153,7 @@ if inp_species == 'медсестра':
         st.subheader("Выберите навыки для подсчета зарплаты по вакансии. Расположены в порядке убывания абсолютной значимости (см. развернутый график внизу страницы)")
     
         flag = 0
+        
         a0 =   1 if st.checkbox(model_0_code_experience_sorted[0]) else 0
         a1 =   1 if st.checkbox(model_0_code_experience_sorted[1]) else 0
         a2 =   1 if st.checkbox(model_0_code_experience_sorted[2]) else 0
@@ -167,6 +168,7 @@ if inp_species == 'медсестра':
         a11 = 1 if st.checkbox(model_0_code_experience_sorted[11]) else 0
         a12 = 1 if st.checkbox(model_0_code_experience_sorted[12]) else 0
         a13 = 1 if st.checkbox(model_0_code_experience_sorted[13]) else 0
+        a14 = 1 if st.checkbox(model_0_code_experience_sorted[14]) else 0
         a15 = 1 if st.checkbox(model_0_code_experience_sorted[15]) else 0
         a16 = 1 if st.checkbox(model_0_code_experience_sorted[16]) else 0
         a17 = 1 if st.checkbox(model_0_code_experience_sorted[17]) else 0
