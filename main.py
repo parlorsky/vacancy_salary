@@ -1282,18 +1282,21 @@ elif inp_species == 'специалист по персоналу':
     st.header(f"Оценка стоимости навыков {inp_species}")
     # data = pd.read_csv("fish.csv")
 
-    st.subheader("Выберите стаж работы")
-    left_column1, right_column1 = st.columns(2)
-    with left_column1:
-        experience = st.radio(
-            'опыт работы:',
-            np.unique(['Без опыта', 'От 1 до 3 лет','От 3 лет']))
+    
 
     f = open('regions_final.json')
     data = json.load(f)
 
     vahta = 1 if st.checkbox('Дистанционно') else 0
     if vahta:
+        st.subheader("Выберите стаж работы")
+        left_column1, right_column1 = st.columns(2)
+        with left_column1:
+            experience = st.radio(
+                'опыт работы:',
+                np.unique(['Без опыта', 'От 1 до 3 лет']))
+
+
         if experience == 'Без опыта':
             st.subheader(f"Базовые навыки {inp_species} Без опыта:")
             for number,skill in enumerate(base_skills_0[:-1]):
@@ -1421,6 +1424,14 @@ elif inp_species == 'специалист по персоналу':
             
             st.write(f"Предполагаемая ЗП:  {'{:.2f}'.format(round(np.squeeze(p1, -1),2))} - {'{:.2f}'.format(round(np.squeeze(p2, -1),2))} рублей")
     else:
+
+        st.subheader("Выберите стаж работы")
+        left_column1, right_column1 = st.columns(2)
+        with left_column1:
+            experience = st.radio(
+                'опыт работы:',
+                np.unique(['Без опыта', 'От 1 до 3 лет','От 3 лет']))
+
         if experience == 'Без опыта':
             st.subheader(f"Базовые навыки {inp_species} Без опыта:")
             for number,skill in enumerate(base_skills_0[:-1]):
