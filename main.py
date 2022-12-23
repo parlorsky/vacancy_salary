@@ -604,7 +604,7 @@ elif inp_species == 'слесарь':
             a5 =   1 if st.checkbox(model_0_code_experience_y_sorted[5]) else 0
             a6 =   1 if st.checkbox(model_0_code_experience_y_sorted[6]) else 0
             a7 =   1 if st.checkbox(model_0_code_experience_y_sorted[7]) else 0
-            # a8 =   1 if st.checkbox(model_0_code_experience_sorted[8]) else 0
+            a8 =   1 if st.checkbox(model_0_code_experience_sorted[8]) else 0
             a9 =   1 if st.checkbox(model_0_code_experience_y_sorted[9]) else 0
             a10 = 1 if st.checkbox(model_0_code_experience_y_sorted[10]) else 0
             a11 = 1 if st.checkbox(model_0_code_experience_y_sorted[11]) else 0
@@ -615,13 +615,7 @@ elif inp_species == 'слесарь':
             a16 = 1 if st.checkbox(model_0_code_experience_y_sorted[16]) else 0
             a17 = 1 if st.checkbox(model_0_code_experience_y_sorted[17]) else 0
             a18 = 1 if st.checkbox(model_0_code_experience_y_sorted[18]) else 0
-            a19 = 1 if st.checkbox(model_0_code_experience_y_sorted[19]) else 0
-            a20 = 1 if st.checkbox(model_0_code_experience_y_sorted[20]) else 0
-            a21 = 1 if st.checkbox(model_0_code_experience_y_sorted[21]) else 0
-            a22 = 1 if st.checkbox(model_0_code_experience_y_sorted[22]) else 0
-            a23 = 1 if st.checkbox(model_0_code_experience_y_sorted[23]) else 0
-            a24 = 1 if st.checkbox(model_0_code_experience_y_sorted[24]) else 0
-            a25 = 1 if st.checkbox(model_0_code_experience_y_sorted[25]) else 0
+            
 
             st.subheader("Выберите регион вакансии")
             option = st.selectbox(
@@ -630,7 +624,7 @@ elif inp_species == 'слесарь':
 
             a8 = data[str(option)]
 
-            inputs = np.array([a0, a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15, a16, a17, a18, a19, a20, a21, a22,a23,a24,a25])[model_0_code_experience_sorted_mask]
+            inputs = np.array([a0, a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15, a16, a17, a18])[model_0_code_experience_y_sorted_mask]
             prediction = model_0_code_experience_y.predict(inputs)
         
 
@@ -657,18 +651,12 @@ elif inp_species == 'слесарь':
             a11 = 1 if st.checkbox(model_1_code_experience_y_sorted[11]) else 0
             a12 = 1 if st.checkbox(model_1_code_experience_y_sorted[12]) else 0
             a13 = 1 if st.checkbox(model_1_code_experience_y_sorted[13]) else 0
-            # a14 = 1 if st.checkbox(model_1_code_experience_sorted[14]) else 0
+            a14 = 1 if st.checkbox(model_1_code_experience_sorted[14]) else 0
             a15 = 1 if st.checkbox(model_1_code_experience_y_sorted[15]) else 0
             a16 = 1 if st.checkbox(model_1_code_experience_y_sorted[16]) else 0
             a17 = 1 if st.checkbox(model_1_code_experience_y_sorted[17]) else 0
             a18 = 1 if st.checkbox(model_1_code_experience_y_sorted[18]) else 0
-            a19 = 1 if st.checkbox(model_1_code_experience_y_sorted[19]) else 0
-            a20 = 1 if st.checkbox(model_1_code_experience_y_sorted[20]) else 0
-            a21 = 1 if st.checkbox(model_1_code_experience_y_sorted[21]) else 0
-            a22 = 1 if st.checkbox(model_1_code_experience_y_sorted[22]) else 0
-            a23 = 1 if st.checkbox(model_1_code_experience_y_sorted[23]) else 0
-            a24 = 1 if st.checkbox(model_1_code_experience_y_sorted[24]) else 0
-            a25 = 1 if st.checkbox(model_1_code_experience_y_sorted[25]) else 0
+          
 
             
 
@@ -679,7 +667,7 @@ elif inp_species == 'слесарь':
 
             a14 = data[str(option)]
 
-            inputs = np.array([a0, a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15, a16, a17, a18, a19, a20, a21, a22,a23,a24,a25])[model_1_code_experience_sorted_mask]
+            inputs = np.array([a0, a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15, a16, a17, a18])[model_1_code_experience_sorted_y_mask]
             prediction = model_1_code_experience_y.predict(inputs)
 
 
@@ -710,12 +698,7 @@ elif inp_species == 'слесарь':
             a16 = 1 if st.checkbox(model_2_code_experience_y_sorted[16]) else 0
             a17 = 1 if st.checkbox(model_2_code_experience_y_sorted[17]) else 0
             a18 = 1 if st.checkbox(model_2_code_experience_y_sorted[18]) else 0
-            a19 = 1 if st.checkbox(model_2_code_experience_y_sorted[19]) else 0
-            a20 = 1 if st.checkbox(model_2_code_experience_y_sorted[20]) else 0
-            a21 = 1 if st.checkbox(model_2_code_experience_y_sorted[21]) else 0
-            a22 = 1 if st.checkbox(model_2_code_experience_y_sorted[22]) else 0
-            a23 = 1 if st.checkbox(model_2_code_experience_y_sorted[23]) else 0
-            a24 = 1 if st.checkbox(model_2_code_experience_y_sorted[24]) else 0
+            
 
             st.subheader("Выберите регион вакансии")
             option = st.selectbox(
@@ -724,7 +707,7 @@ elif inp_species == 'слесарь':
 
             a25 = data[str(option)]
 
-            inputs = np.array([a0, a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15, a16, a17, a18, a19, a20, a21, a22,a23,a24,a25,a26])[model_2_code_experience_sorted_mask]
+            inputs = np.array([a0, a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15, a16, a17, a18])[model_2_code_experience_y_sorted_mask]
             prediction = model_2_code_experience_y.predict(inputs)
 
             if prediction < 45000:
@@ -736,16 +719,16 @@ elif inp_species == 'слесарь':
             pr = abs(prediction)
             if pr < 10000: pr += 13041.49832
             if flag == 0:
-                p1 = pr - model_0_code_experience_rmse/2
-                p2 = pr +model_0_code_experience_rmse/2
+                p1 = pr - model_0_code_experience_y_rmse/2
+                p2 = pr +model_0_code_experience_y_rmse/2
             
             if flag == 1:
-                p1 = pr - model_1_code_experience_rmse/2
-                p2 = pr +model_1_code_experience_rmse/2
+                p1 = pr - model_1_code_experience_y_rmse/2
+                p2 = pr +model_1_code_experience_y_rmse/2
             
             if flag == 2:
-                p1 = pr - model_2_code_experience_rmse/2
-                p2 = pr +model_2_code_experience_rmse/2
+                p1 = pr - model_2_code_experience_y_rmse/2
+                p2 = pr +model_2_code_experience_y_rmse/2
             
             
             st.write(f"Предполагаемая ЗП:  {'{:.2f}'.format(round(np.squeeze(p1, -1),2))} - {'{:.2f}'.format(round(np.squeeze(p2, -1),2))} рублей")
@@ -766,7 +749,7 @@ elif inp_species == 'слесарь':
             a5 =   1 if st.checkbox(model_0_code_experience_n_sorted[5]) else 0
             a6 =   1 if st.checkbox(model_0_code_experience_n_sorted[6]) else 0
             a7 =   1 if st.checkbox(model_0_code_experience_n_sorted[7]) else 0
-            # a8 =   1 if st.checkbox(model_0_code_experience_sorted[8]) else 0
+            a8 =   1 if st.checkbox(model_0_code_experience_sorted[8]) else 0
             a9 =   1 if st.checkbox(model_0_code_experience_n_sorted[9]) else 0
             a10 = 1 if st.checkbox(model_0_code_experience_n_sorted[10]) else 0
             a11 = 1 if st.checkbox(model_0_code_experience_n_sorted[11]) else 0
@@ -777,13 +760,7 @@ elif inp_species == 'слесарь':
             a16 = 1 if st.checkbox(model_0_code_experience_n_sorted[16]) else 0
             a17 = 1 if st.checkbox(model_0_code_experience_n_sorted[17]) else 0
             a18 = 1 if st.checkbox(model_0_code_experience_n_sorted[18]) else 0
-            a19 = 1 if st.checkbox(model_0_code_experience_n_sorted[19]) else 0
-            a20 = 1 if st.checkbox(model_0_code_experience_n_sorted[20]) else 0
-            a21 = 1 if st.checkbox(model_0_code_experience_n_sorted[21]) else 0
-            a22 = 1 if st.checkbox(model_0_code_experience_n_sorted[22]) else 0
-            a23 = 1 if st.checkbox(model_0_code_experience_n_sorted[23]) else 0
-            a24 = 1 if st.checkbox(model_0_code_experience_n_sorted[24]) else 0
-            a25 = 1 if st.checkbox(model_0_code_experience_n_sorted[25]) else 0
+           
 
             st.subheader("Выберите регион вакансии")
             option = st.selectbox(
@@ -792,7 +769,7 @@ elif inp_species == 'слесарь':
 
             a8 = data[str(option)]
 
-            inputs = np.array([a0, a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15, a16, a17, a18, a19, a20, a21, a22,a23,a24,a25])[model_0_code_experience_sorted_mask]
+            inputs = np.array([a0, a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15, a16, a17, a18])[model_0_code_experience_n_sorted_mask]
             prediction = model_0_code_experience_n.predict(inputs)
         
 
@@ -819,18 +796,12 @@ elif inp_species == 'слесарь':
             a11 = 1 if st.checkbox(model_1_code_experience_n_sorted[11]) else 0
             a12 = 1 if st.checkbox(model_1_code_experience_n_sorted[12]) else 0
             a13 = 1 if st.checkbox(model_1_code_experience_n_sorted[13]) else 0
-            # a14 = 1 if st.checkbox(model_1_code_experience_sorted[14]) else 0
+            a14 = 1 if st.checkbox(model_1_code_experience_sorted[14]) else 0
             a15 = 1 if st.checkbox(model_1_code_experience_n_sorted[15]) else 0
             a16 = 1 if st.checkbox(model_1_code_experience_n_sorted[16]) else 0
             a17 = 1 if st.checkbox(model_1_code_experience_n_sorted[17]) else 0
             a18 = 1 if st.checkbox(model_1_code_experience_n_sorted[18]) else 0
-            a19 = 1 if st.checkbox(model_1_code_experience_n_sorted[19]) else 0
-            a20 = 1 if st.checkbox(model_1_code_experience_n_sorted[20]) else 0
-            a21 = 1 if st.checkbox(model_1_code_experience_n_sorted[21]) else 0
-            a22 = 1 if st.checkbox(model_1_code_experience_n_sorted[22]) else 0
-            a23 = 1 if st.checkbox(model_1_code_experience_n_sorted[23]) else 0
-            a24 = 1 if st.checkbox(model_1_code_experience_n_sorted[24]) else 0
-            a25 = 1 if st.checkbox(model_1_code_experience_n_sorted[25]) else 0
+            
 
             
 
@@ -841,7 +812,7 @@ elif inp_species == 'слесарь':
 
             a14 = data[str(option)]
 
-            inputs = np.array([a0, a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15, a16, a17, a18, a19, a20, a21, a22,a23,a24,a25])[model_1_code_experience_sorted_mask]
+            inputs = np.array([a0, a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15, a16, a17, a18])[model_1_code_experience_n_sorted_mask]
             prediction = model_1_code_experience_n.predict(inputs)
 
 
@@ -872,12 +843,7 @@ elif inp_species == 'слесарь':
             a16 = 1 if st.checkbox(model_2_code_experience_n_sorted[16]) else 0
             a17 = 1 if st.checkbox(model_2_code_experience_n_sorted[17]) else 0
             a18 = 1 if st.checkbox(model_2_code_experience_n_sorted[18]) else 0
-            a19 = 1 if st.checkbox(model_2_code_experience_n_sorted[19]) else 0
-            a20 = 1 if st.checkbox(model_2_code_experience_n_sorted[20]) else 0
-            a21 = 1 if st.checkbox(model_2_code_experience_n_sorted[21]) else 0
-            a22 = 1 if st.checkbox(model_2_code_experience_n_sorted[22]) else 0
-            a23 = 1 if st.checkbox(model_2_code_experience_n_sorted[23]) else 0
-            a24 = 1 if st.checkbox(model_2_code_experience_n_sorted[24]) else 0
+            
 
             st.subheader("Выберите регион вакансии")
             option = st.selectbox(
@@ -886,7 +852,7 @@ elif inp_species == 'слесарь':
 
             a25 = data[str(option)]
 
-            inputs = np.array([a0, a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15, a16, a17, a18, a19, a20, a21, a22,a23,a24,a25,a26])[model_2_code_experience_sorted_mask]
+            inputs = np.array([a0, a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15, a16, a17, a18])[model_2_code_experience_n_sorted_mask]
             prediction = model_2_code_experience_n.predict(inputs)
 
             if prediction < 45000:
@@ -897,17 +863,18 @@ elif inp_species == 'слесарь':
         if st.button('Рассчитать зарплату'):
             pr = abs(prediction)
             if pr < 10000: pr += 13041.49832
-            if flag == 0:
-                p1 = pr - model_0_code_experience_rmse/2
-                p2 = pr +model_0_code_experience_rmse/2
             
-            if flag == 1:
-                p1 = pr - model_1_code_experience_rmse/2
-                p2 = pr +model_1_code_experience_rmse/2
+            if flag == 3:
+                p1 = pr - model_0_code_experience_n_rmse/2
+                p2 = pr +model_0_code_experience_n_rmse/2
             
-            if flag == 2:
-                p1 = pr - model_2_code_experience_rmse/2
-                p2 = pr +model_2_code_experience_rmse/2
+            if flag == 4:
+                p1 = pr - model_1_code_experience_n_rmse/2
+                p2 = pr +model_1_code_experience_n_rmse/2
+            
+            if flag == 5:
+                p1 = pr - model_2_code_experience_n_rmse/2
+                p2 = pr +model_2_code_experience_n_rmse/2
             
             
             st.write(f"Предполагаемая ЗП:  {'{:.2f}'.format(round(np.squeeze(p1, -1),2))} - {'{:.2f}'.format(round(np.squeeze(p2, -1),2))} рублей")
