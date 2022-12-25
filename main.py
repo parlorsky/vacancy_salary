@@ -1392,7 +1392,7 @@ elif inp_species == 'продавец':
     
         flag = 0
         inputs = [1 if i in base_skills_0 else 1 if st.checkbox(i) else 0 for \
-                 i in [x for x in model_0_code_experience if x != 'v3_region_index']]
+                 i in [x for x in model_0_code_experience_sorted if x != 'v3_region_index']]
             
         
 
@@ -1418,7 +1418,7 @@ elif inp_species == 'продавец':
     
         flag = 1
         inputs = [1 if i in base_skills_1 else 1 if st.checkbox(i) else 0 for \
-                 i in [x for x in model_1_code_experience if x != 'v3_region_index']]
+                 i in [x for x in model_1_code_experience_sorted if x != 'v3_region_index']]
         
         st.subheader("Выберите регион вакансии")
         option = st.selectbox(
@@ -1440,8 +1440,8 @@ elif inp_species == 'продавец':
         st.subheader("Выберите навыки для подсчета зарплаты по вакансии. Расположены в порядке убывания абсолютной значимости (см. развернутый график внизу страницы)")
 
         flag = 2
-        inputs = [1 if i in base_skills_1 else 1 if st.checkbox(i) else 0 for \
-                 i in [x for x in model_1_code_experience if x != 'v3_region_index']]
+        inputs = [1 if i in base_skills_2 else 1 if st.checkbox(i) else 0 for \
+                 i in [x for x in model_2_code_experience_sorted if x != 'v3_region_index']]
         
     
         st.subheader("Выберите регион вакансии")
