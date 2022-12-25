@@ -106,7 +106,7 @@ left_column, right_column = st.columns(2)
 with left_column:
     inp_species = st.radio(
         'Наименование вакансии',
-        np.unique(['медсестра','сварщик','слесарь','специалист по персоналу','продавец','слесарь КИПиА','слесарь-ремонтник']))
+        np.unique(['медсестра','сварщик','слесарь','специалист по персоналу','продавец','слесарь КИПиА','слесарь-ремонтник','Слесарь механосборочных работ (MCP)']))
 
 if inp_species == 'медсестра':
     name = 'medsestra'
@@ -2041,7 +2041,7 @@ elif inp_species == 'слесарь-ремонтник':
         fig1 = px.pie(dfx,values = dfx['Стоимость навыка'],names = dfx.index,  width=1300, height=1300,title = 'Отношение стоимости признаков')
         st.plotly_chart(fig1, use_container_width=False)
 
-elif inp_species == 'сварщик':
+elif inp_species == 'Слесарь механосборочных работ (MCP)':
     name = 'slesar_mech'
     model_0_code_experience_y_sorted = list(json.load(open(f'{name}/model_0_code_experience_y_{name}.json')).keys())
     model_1_code_experience_y_sorted = list(json.load(open(f'{name}/model_1_code_experience_y_{name}.json')).keys())
