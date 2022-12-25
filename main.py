@@ -1455,8 +1455,7 @@ elif inp_species == 'продавец':
         inputs = np.array(inputs)[model_2_code_experience_sorted_mask]
         prediction = model_2_code_experience.predict(inputs)
 
-        if prediction < 46000:
-            prediction += 12932.31
+       
             
 
 
