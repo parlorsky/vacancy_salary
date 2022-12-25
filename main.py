@@ -1889,7 +1889,7 @@ elif inp_species == 'слесарь-ремонтник':
 
     if experience == 'Без опыта':
         st.subheader(f"Базовые навыки {inp_species} Без опыта:")
-        for number,skill in enumerate(base_skills_0[:-1]):
+        for number,skill in enumerate(base_skills_0):
             st.write(f'{number+1}) {skill}')
 
         st.subheader("Выберите навыки для подсчета зарплаты по вакансии. Расположены в порядке убывания абсолютной значимости (см. развернутый график внизу страницы)")
@@ -1914,7 +1914,7 @@ elif inp_species == 'слесарь-ремонтник':
 
     elif experience == 'От 1 до 3 лет':
         st.subheader(f"Базовые навыки {inp_species} От 1 до 3 лет:")
-        for number,skill in enumerate(base_skills_1[:-1]):
+        for number,skill in enumerate(base_skills_1):
             st.write(f'{number+1}) {skill}')
 
         st.subheader("Выберите навыки для подсчета зарплаты по вакансии. Расположены в порядке убывания абсолютной значимости (см. развернутый график внизу страницы)")
@@ -1938,7 +1938,7 @@ elif inp_species == 'слесарь-ремонтник':
 
     else:
         st.subheader(f"Базовые навыки {inp_species} Более 3 лет опыта:")
-        for number,skill in enumerate(base_skills_2[:-1]):
+        for number,skill in enumerate(base_skills_2):
             st.write(f'{number+1}) {skill}')
 
         st.subheader("Выберите навыки для подсчета зарплаты по вакансии. Расположены в порядке убывания абсолютной значимости (см. развернутый график внизу страницы)")
