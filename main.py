@@ -956,8 +956,11 @@ elif inp_species == 'специалист по персоналу':
         prediction = bases[0] + sum(inputs)
         if 70000 > prediction > 50000:
             prediction /= 1.5
-        elif prediction > 70000:
+        elif 80000 > prediction > 70000:
             prediction /= 2
+        elif prediction > 80000:
+            prediction /= 2.5
+        
         
         
 
