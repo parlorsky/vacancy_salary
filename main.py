@@ -163,6 +163,11 @@ if inp_species == 'медсестра':
         reg = model_0_code_experience_y_sorted_obl[option]
         inputs += [reg]
         prediction = bases[0] + sum(inputs)
+        if 70000 > prediction > 50000:
+            prediction /= 1.5
+        elif prediction > 70000:
+            prediction /= 2
+        
         
 
     elif experience == 'От 1 до 3 лет':
@@ -185,7 +190,11 @@ if inp_species == 'медсестра':
 
         reg = model_1_code_experience_y_sorted_obl[option]
         inputs += [reg]
-        prediction = bases[2] + sum(inputs)
+        prediction = bases[1] + sum(inputs)
+        if 75000 > prediction > 60000:
+            prediction /= 1.5
+        elif prediction > 75000:
+            prediction /= 2
 
     else:
         st.subheader(f"Базовые навыки {inp_species} Более 3 лет опыта:")
@@ -206,7 +215,11 @@ if inp_species == 'медсестра':
 
         reg = model_2_code_experience_y_sorted_obl[option]
         inputs += [reg]
-        prediction = bases[4] + sum(inputs)
+        prediction = bases[2] + sum(inputs)
+        if 80000 > prediction > 60000:
+            prediction /= 1.5
+        elif prediction > 80000:
+            prediction /= 2
 
             
     if st.button('Рассчитать зарплату'):
