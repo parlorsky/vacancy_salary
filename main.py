@@ -384,7 +384,7 @@ elif inp_species == 'сварщик':
             reg = model_1_code_experience_y_sorted_obl[option]
             inputs += [reg]
             prediction = bases[2] + sum(inputs)
-            print(prediction)
+            st.write(prediction)
 
 
         else:
