@@ -1,14 +1,14 @@
 import streamlit as st
-from catboost_install import install
-try:
-    from catboost import CatBoostRegressor
-except:
+# from catboost_install import install
+# try:
+#     from catboost import CatBoostRegressor
+# except:
 
-    install('catboost')
-    from catboost import CatBoostRegressor
+#     install('catboost')
+#     from catboost import CatBoostRegressor
 import numpy as np
 import json
-import plotly.express as px
+# import plotly.express as px
 import pandas as pd
 
 
@@ -106,7 +106,7 @@ left_column, right_column = st.columns(2)
 with left_column:
     inp_species = st.radio(
         'Наименование вакансии',
-        np.unique(['медсестра','сварщик','слесарь','специалист по персоналу','продавец','слесарь КИПиА','слесарь-ремонтник','Слесарь механосборочных работ (MCP)']))
+        np.unique(['медсестра','сварщик','слесарь','специалист по персоналу','слесарь КИПиА','слесарь-ремонтник','Слесарь механосборочных работ (MCP)']))
 
 if inp_species == 'медсестра':
     name = 'medsestra'
@@ -901,322 +901,231 @@ elif inp_species == 'слесарь':
 
 elif inp_species == 'специалист по персоналу':
     name = 'hr'
-    model_0_code_experience_y_sorted = list(json.load(open(f'{name}/model_0_code_experience_y_{name}.json')).keys())
-    model_1_code_experience_y_sorted = list(json.load(open(f'{name}/model_1_code_experience_y_{name}.json')).keys())
-    model_2_code_experience_n_sorted = list(json.load(open(f'{name}/model_2_code_experience_y_{name}.json')).keys())
-    model_0_code_experience_n_sorted = list(json.load(open(f'{name}/model_0_code_experience_n_{name}.json')).keys())
-    model_1_code_experience_n_sorted = list(json.load(open(f'{name}/model_1_code_experience_n_{name}.json')).keys())
+   model_0_code_experience_y_sorted = json.load(open(f'{name}/model_0_code_experience_y_{name}.json'))
+    model_1_code_experience_y_sorted = json.load(open(f'{name}/model_1_code_experience_y_{name}.json'))
+    model_2_code_experience_y_sorted = json.load(open(f'{name}/model_2_code_experience_y_{name}.json'))
     
-    model_0_code_experience_y_rmse = 7314
-    model_1_code_experience_y_rmse = 6689
-    model_2_code_experience_n_rmse = 10781
-    model_0_code_experience_n_rmse = 10024
-    model_1_code_experience_n_rmse = 11179
+    model_0_code_experience_y_sorted_obl = json.load(open(f'{name}/model_0_code_experience_y_{name}_obl.json'))
+    model_1_code_experience_y_sorted_obl = json.load(open(f'{name}/model_1_code_experience_y_{name}_obl.json'))
+    model_2_code_experience_y_sorted_obl = json.load(open(f'{name}/model_2_code_experience_y_{name}_obl.json'))
+    rmses = [float(x.strip()) for x in open(f'{name}/rmse_{name}.txt')]
+    bases = [float(x.strip()) for x in open(f'{name}/base_{name}.txt')]
+
+    model_0_code_experience_y_rmse = rmses[0]
+    model_1_code_experience_y_rmse = rmses[1]
+    model_2_code_experience_y_rmse = rmses[2]
 
     base_skills_0 = [x.strip() for x in open(f'{name}/base_skills_0_{name}.txt', 'r') if len(x) > 3]
     base_skills_1 = [x.strip() for x in open(f'{name}/base_skills_1_{name}.txt', 'r') if len(x) > 3]
     base_skills_2 = [x.strip() for x in open(f'{name}/base_skills_2_{name}.txt', 'r') if len(x) > 3]
-    
-    model_0_code_experience_y = CatBoostRegressor()
-    model_0_code_experience_y.load_model(f'{name}/model_0_code_experience_y_{name}')
-    model_1_code_experience_y = CatBoostRegressor()
-    model_1_code_experience_y.load_model(f'{name}/model_1_code_experience_y_{name}')
-    model_2_code_experience_n = CatBoostRegressor()
-    model_2_code_experience_n.load_model(f'{name}/model_2_code_experience_y_{name}')
-    model_0_code_experience_n = CatBoostRegressor()
-    model_0_code_experience_n.load_model(f'{name}/model_0_code_experience_n_{name}')
-    model_1_code_experience_n = CatBoostRegressor()
-    model_1_code_experience_n.load_model(f'{name}/model_1_code_experience_n_{name}')
 
     m_order = [x.strip() for x in open(f'{name}/order_{name}.txt')]
-    model_0_code_experience_y_sorted_mask = [model_0_code_experience_y_sorted.index(m_order[i]) for i in range(len(m_order))]
-    model_1_code_experience_y_sorted_mask = [model_1_code_experience_y_sorted.index(m_order[i]) for i in range(len(m_order))]
-    model_2_code_experience_n_sorted_mask = [model_2_code_experience_n_sorted.index(m_order[i]) for i in range(len(m_order))]
-    model_0_code_experience_n_sorted_mask = [model_0_code_experience_n_sorted.index(m_order[i]) for i in range(len(m_order))]
-    model_1_code_experience_n_sorted_mask = [model_1_code_experience_n_sorted.index(m_order[i]) for i in range(len(m_order))]
-
     
     st.header(f"Оценка стоимости навыков {inp_species}")
-    # data = pd.read_csv("fish.csv")
 
-    
+    st.subheader("Выберите опыт работы")
+    left_column1, right_column1 = st.columns(2)
+    with left_column1:
+        experience = st.radio(
+            'опыт работы:',
+            np.unique(['Без опыта', 'От 1 до 3 лет','От 3 лет']))
 
     f = open('regions_final.json')
     data = json.load(f)
 
-    vahta = 1 if st.checkbox('Дистанционно') else 0
-    if vahta:
-        st.subheader("Выберите опыт работы")
-        left_column1, right_column1 = st.columns(2)
-        with left_column1:
-            experience = st.radio(
-                'опыт работы:',
-                np.unique(['Без опыта', 'От 1 до 3 лет']))
+    
+    if experience == 'Без опыта':
+        st.subheader(f"Базовые навыки {inp_species} Без опыта:")
+        for number,skill in enumerate(base_skills_0):
+            st.write(f'{number+1}) {skill}')
 
+        st.subheader("Выберите навыки для подсчета зарплаты по вакансии. Расположены в порядке убывания абсолютной значимости (см. развернутый график внизу страницы)")
+    
+        flag = 0
+        inputs = [model_0_code_experience_y_sorted[i] if st.checkbox(i) else 0 for \
+                i in [x for x in model_0_code_experience_y_sorted]]
+    
+    
+        st.subheader("Выберите регион вакансии")
+        option = st.selectbox(
+            'Напишите регион вакансии',
+            ([x for x in list(model_0_code_experience_y_sorted_obl.keys())]))
 
-        if experience == 'Без опыта':
-            st.subheader(f"Базовые навыки {inp_species} Без опыта:")
-            for number,skill in enumerate(base_skills_0):
-                st.write(f'{number+1}) {skill}')
-
-            st.subheader("Выберите навыки для подсчета зарплаты по вакансии. Расположены в порядке убывания абсолютной значимости (см. развернутый график внизу страницы)")
+        reg = model_0_code_experience_y_sorted_obl[option]
+        inputs += [reg]
+        prediction = bases[0] + sum(inputs)
+        if 70000 > prediction > 50000:
+            prediction /= 1.5
+        elif prediction > 70000:
+            prediction /= 2
         
-            flag = 0
-            inputs = [1 if i in base_skills_0 else 1 if st.checkbox(i) else 0 for \
-                 i in [x for x in model_0_code_experience_y_sorted if x != 'v3_region_index']]
-            
-            st.subheader("Выберите регион вакансии")
-            option = st.selectbox(
-                'Напишите регион вакансии',
-                ([x for x in list(data.keys()) if x in rus_regs]))
-
-
-            reg = data[str(option)]
-            inputs.insert(model_0_code_experience_y_sorted.index('v3_region_index'),reg)
-            inputs = np.array(inputs)[model_0_code_experience_y_sorted_mask]
-            prediction = model_0_code_experience_y.predict(inputs)
         
 
-        elif experience == 'От 1 до 3 лет':
-            st.subheader(f"Базовые навыки {inp_species} От 1 до 3 лет:")
-            for number,skill in enumerate(base_skills_1):
-                st.write(f'{number+1}) {skill}')
+    elif experience == 'От 1 до 3 лет':
+        st.subheader(f"Базовые навыки {inp_species} От 1 до 3 лет:")
+        for number,skill in enumerate(base_skills_1):
+            st.write(f'{number+1}) {skill}')
 
-            st.subheader("Выберите навыки для подсчета зарплаты по вакансии. Расположены в порядке убывания абсолютной значимости (см. развернутый график внизу страницы)")
-
+        st.subheader("Выберите навыки для подсчета зарплаты по вакансии. Расположены в порядке убывания абсолютной значимости (см. развернутый график внизу страницы)")
         
-            flag = 1
-            inputs = [1 if i in base_skills_1 else 1 if st.checkbox(i) else 0 for \
-                 i in [x for x in model_1_code_experience_y_sorted if x != 'v3_region_index']]
-            
+    
+        flag = 1
+        inputs = [model_1_code_experience_y_sorted[i] if st.checkbox(i) else 0 for \
+                i in [x for x in model_1_code_experience_y_sorted]]
+    
+    
+        st.subheader("Выберите регион вакансии")
+        option = st.selectbox(
+            'Напишите регион вакансии',
+            ([x for x in list(model_1_code_experience_y_sorted_obl.keys())]))
 
-            
+        reg = model_1_code_experience_y_sorted_obl[option]
+        inputs += [reg]
+        prediction = bases[1] + sum(inputs)
+        if 75000 > prediction > 60000:
+            prediction /= 1.5
+        elif prediction > 75000:
+            prediction /= 2
 
-            st.subheader("Выберите регион вакансии")
-            option = st.selectbox(
-                'Напишите регион вакансии',
-                ([x for x in list(data.keys()) if x in rus_regs]))
-
-
-            reg = data[str(option)]
-            inputs.insert(model_1_code_experience_y_sorted.index('v3_region_index'),reg)
-            inputs = np.array(inputs)[model_1_code_experience_y_sorted_mask]
-            prediction = model_1_code_experience_y.predict(inputs)
-
-                
-
-
-        if st.button('Рассчитать зарплату'):
-            pr = abs(prediction)
-            if pr < 10000: pr += 13041.49832
-            if flag == 0:
-                p1 = pr - model_0_code_experience_y_rmse/2
-                p2 = pr +model_0_code_experience_y_rmse/2
-            
-            if flag == 1:
-                p1 = pr - model_1_code_experience_y_rmse/2
-                p2 = pr +model_1_code_experience_y_rmse/2
-            
-            
-            
-            st.write(f"Предполагаемая ЗП:  {'{:.2f}'.format(round(np.squeeze(p1, -1),2))} - {'{:.2f}'.format(round(np.squeeze(p2, -1),2))} рублей")
     else:
+        st.subheader(f"Базовые навыки {inp_species} Более 3 лет опыта:")
+        for number,skill in enumerate(base_skills_2):
+            st.write(f'{number+1}) {skill}')
 
-        st.subheader("Выберите опыт работы")
-        left_column1, right_column1 = st.columns(2)
-        with left_column1:
-            experience = st.radio(
-                'опыт работы:',
-                np.unique(['Без опыта', 'От 1 до 3 лет','От 3 лет']))
+        st.subheader("Выберите навыки для подсчета зарплаты по вакансии. Расположены в порядке убывания абсолютной значимости (см. развернутый график внизу страницы)")
 
-        if experience == 'Без опыта':
-            st.subheader(f"Базовые навыки {inp_species} Без опыта:")
-            for number,skill in enumerate(base_skills_0):
-                st.write(f'{number+1}) {skill}')
+        flag = 2
+        inputs = [model_2_code_experience_y_sorted[i] if st.checkbox(i) else 0 for \
+                i in [x for x in model_2_code_experience_y_sorted]]
+    
+    
+        st.subheader("Выберите регион вакансии")
+        option = st.selectbox(
+            'Напишите регион вакансии',
+            ([x for x in list(model_2_code_experience_y_sorted_obl.keys())]))
 
-            st.subheader("Выберите навыки для подсчета зарплаты по вакансии. Расположены в порядке убывания абсолютной значимости (см. развернутый график внизу страницы)")
+        reg = model_2_code_experience_y_sorted_obl[option]
+        inputs += [reg]
+        prediction = bases[2] + sum(inputs)
+        if 80000 > prediction > 60000:
+            prediction /= 1.5
+        elif prediction > 80000:
+            prediction /= 2
+
+            
+    if st.button('Рассчитать зарплату'):
+        pr = abs(prediction)
+        if flag == 0:
+            p1 = pr - model_0_code_experience_y_rmse/2
+            p2 = pr +model_0_code_experience_y_rmse/2
         
-            flag = 3
-            
-            inputs = [1 if i in base_skills_0 else 1 if st.checkbox(i) else 0 for \
-                 i in [x for x in model_0_code_experience_n_sorted if x != 'v3_region_index']]
-            
-
-            st.subheader("Выберите регион вакансии")
-            option = st.selectbox(
-                'Напишите регион вакансии',
-                ([x for x in list(data.keys()) if x in rus_regs]))
-
-
-            reg = data[str(option)]
-            inputs.insert(model_0_code_experience_n_sorted.index('v3_region_index'),reg)
-            inputs = np.array(inputs)[model_0_code_experience_n_sorted_mask]
-            prediction = model_0_code_experience_n.predict(inputs)
+        if flag == 1:
+            p1 = pr - model_1_code_experience_y_rmse/2
+            p2 = pr +model_1_code_experience_y_rmse/2
         
-
-        elif experience == 'От 1 до 3 лет':
-            st.subheader(f"Базовые навыки {inp_species} От 1 до 3 лет:")
-            for number,skill in enumerate(base_skills_1):
-                st.write(f'{number+1}) {skill}')
-
-            st.subheader("Выберите навыки для подсчета зарплаты по вакансии. Расположены в порядке убывания абсолютной значимости (см. развернутый график внизу страницы)")
-
+        if flag == 2:
+            p1 = pr - model_2_code_experience_y_rmse/2
+            p2 = pr +model_2_code_experience_y_rmse/2
         
-            flag = 4
-            inputs = [1 if i in base_skills_1 else 1 if st.checkbox(i) else 0 for \
-                 i in [x for x in model_1_code_experience_n_sorted if x != 'v3_region_index']]
-            
-            st.subheader("Выберите регион вакансии")
-            option = st.selectbox(
-                'Напишите регион вакансии',
-                ([x for x in list(data.keys()) if x in rus_regs]))
+        
+        st.write(f"Предполагаемая ЗП:  {'{:.2f}'.format(p1)} - {'{:.2f}'.format(p2)} рублей")
+    
+    # if flag == 0:
+    #     st.subheader("")
+    #     st.subheader("")
+    #     st.subheader(f"Гистограмма стоимости навыков {inp_species} Без опытa")
 
+    #     st.write("Подсчет стоимости каждого навыка производился по формуле:")
+    #     st.write("(Зарплата по вакансии с выделенным навыком) - (Средняя зарплата с базовыми навыками)")
+    #     st.write("")
+    #     st.write("Чтобы полность изучить график, расширьте его. При наведении курсора на каждый столбец будет появляться доп. информация")
 
-            reg = data[str(option)]
-            inputs.insert(model_1_code_experience_n_sorted.index('v3_region_index'),reg)
-            inputs = np.array(inputs)[model_1_code_experience_n_sorted_mask]
-            prediction = model_1_code_experience_n.predict(inputs)
-
-
-        else:
-            st.subheader(f"Базовые навыки {inp_species} Более 3 лет опыта:")
-            for number,skill in enumerate(base_skills_2):
-                st.write(f'{number+1}) {skill}')
-
-            st.subheader("Выберите навыки для подсчета зарплаты по вакансии. Расположены в порядке убывания абсолютной значимости (см. развернутый график внизу страницы)")
-
-            flag = 2
-            inputs = [1 if i in base_skills_2 else 1 if st.checkbox(i) else 0 for \
-                 i in [x for x in model_2_code_experience_n_sorted if x != 'v3_region_index']]
-            
-
-            st.subheader("Выберите регион вакансии")
-            option = st.selectbox(
-                'Напишите регион вакансии',
-                ([x for x in list(data.keys()) if x in rus_regs]))
-
-
-            reg = data[str(option)]
-            inputs.insert(model_2_code_experience_n_sorted.index('v3_region_index'),reg)
-            inputs = np.array(inputs)[model_2_code_experience_n_sorted_mask]
-            prediction = model_2_code_experience_n.predict(inputs)     
-
-
-        if st.button('Рассчитать зарплату'):
-            pr = abs(prediction)
-            if pr < 10000: pr += 13041.49832
-            
-            if flag == 3:
-                p1 = pr - model_0_code_experience_n_rmse/2
-                p2 = pr +model_0_code_experience_n_rmse/2
-            
-            if flag == 4:
-                p1 = pr - model_1_code_experience_n_rmse/2
-                p2 = pr +model_1_code_experience_n_rmse/2
-            
-            if flag == 5:
-                p1 = pr - model_2_code_experience_n_rmse/2
-                p2 = pr +model_2_code_experience_n_rmse/2
-            
-            
-            st.write(f"Предполагаемая ЗП:  {'{:.2f}'.format(round(np.squeeze(p1, -1),2))} - {'{:.2f}'.format(round(np.squeeze(p2, -1),2))} рублей")
-
-    if flag == 0:
-        st.subheader("")
-        st.subheader("")
-        st.subheader(f"Гистограмма стоимости навыков {inp_species} Без опытa")
-
-        st.write("Подсчет стоимости каждого навыка производился по формуле:")
-        st.write("(Зарплата по вакансии с выделенным навыком) - (Средняя зарплата с базовыми навыками)")
-        st.write("")
-        st.write("Чтобы полность изучить график, расширьте его. При наведении курсора на каждый столбец будет появляться доп. информация")
-
-        prices = json.load(open(f'{name}/model_0_code_experience_y_{name}.json'))
-        dfx = pd.DataFrame([int(x) for x in prices.values()],index = [x for x  in prices.keys()],columns = ['Стоимость навыка'])
-        fig = px.histogram(dfx,x = dfx['Стоимость навыка'],y = dfx.index,  width=2000, height=2000,labels={'x':'Абсолютное отклонение от средней зп, создаваемое навыком', 'y':'Навык'})
-        st.plotly_chart(fig, use_container_width=False)
-        st.write("обязательно разверните график, нажав на значок стрелок, чтобы ознакомиться с информацией")
-        fig1 = px.pie(dfx,values = dfx['Стоимость навыка'],names = dfx.index,  width=1300, height=1300,title = 'Отношение стоимости признаков')
-        st.plotly_chart(fig1, use_container_width=False)
+    #     prices = json.load(open(f'{name}/model_0_code_experience_y_{name}.json'))
+    #     dfx = pd.DataFrame([int(x) for x in prices.values()],index = [x for x  in prices.keys()],columns = ['Стоимость навыка'])
+    #     fig = px.histogram(dfx,x = dfx['Стоимость навыка'],y = dfx.index,  width=2000, height=2000,labels={'x':'Абсолютное отклонение от средней зп, создаваемое навыком', 'y':'Навык'})
+    #     st.plotly_chart(fig, use_container_width=False)
+    #     st.write("обязательно разверните график, нажав на значок стрелок, чтобы ознакомиться с информацией")
+    #     fig1 = px.pie(dfx,values = dfx['Стоимость навыка'],names = dfx.index,  width=1300, height=1300,title = 'Отношение стоимости признаков')
+    #     st.plotly_chart(fig1, use_container_width=False)
 
 
     
-    if flag == 1:
-        st.subheader("")
-        st.subheader("")
-        st.subheader(f"Гистограмма стоимости навыков {inp_species} От 1 до 3 лет опыта")
+    # if flag == 1:
+    #     st.subheader("")
+    #     st.subheader("")
+    #     st.subheader(f"Гистограмма стоимости навыков {inp_species} От 1 до 3 лет опыта")
 
-        st.write("Подсчет стоимости каждого навыка производился по формуле:")
-        st.write("(Зарплата по вакансии с выделенным навыком) - (Средняя зарплата с базовыми навыками)")
-        st.write("")
-        st.write("Чтобы полность изучить график, расширьте его. При наведении курсора на каждый столбец будет появляться доп. информация")
+    #     st.write("Подсчет стоимости каждого навыка производился по формуле:")
+    #     st.write("(Зарплата по вакансии с выделенным навыком) - (Средняя зарплата с базовыми навыками)")
+    #     st.write("")
+    #     st.write("Чтобы полность изучить график, расширьте его. При наведении курсора на каждый столбец будет появляться доп. информация")
 
-        prices = json.load(open(f'{name}/model_1_code_experience_y_{name}.json'))
-        dfx = pd.DataFrame([int(x) for x in prices.values()],index = [x for x  in prices.keys()],columns = ['Стоимость навыка'])
-        fig = px.histogram(dfx,x = dfx['Стоимость навыка'],y = dfx.index,  width=2000, height=2000,labels={'x':'Абсолютное отклонение от средней зп, создаваемое навыком', 'y':'Навык'})
-        st.plotly_chart(fig, use_container_width=False)
-        st.write("обязательно разверните график, нажав на значок стрелок, чтобы ознакомиться с информацией")
+    #     prices = json.load(open(f'{name}/model_1_code_experience_y_{name}.json'))
+    #     dfx = pd.DataFrame([int(x) for x in prices.values()],index = [x for x  in prices.keys()],columns = ['Стоимость навыка'])
+    #     fig = px.histogram(dfx,x = dfx['Стоимость навыка'],y = dfx.index,  width=2000, height=2000,labels={'x':'Абсолютное отклонение от средней зп, создаваемое навыком', 'y':'Навык'})
+    #     st.plotly_chart(fig, use_container_width=False)
+    #     st.write("обязательно разверните график, нажав на значок стрелок, чтобы ознакомиться с информацией")
 
-        fig1 = px.pie(dfx,values = dfx['Стоимость навыка'],names = dfx.index,  width=1300, height=1300,title = 'Отношение стоимости признаков')
-        st.plotly_chart(fig1, use_container_width=False)
+    #     fig1 = px.pie(dfx,values = dfx['Стоимость навыка'],names = dfx.index,  width=1300, height=1300,title = 'Отношение стоимости признаков')
+    #     st.plotly_chart(fig1, use_container_width=False)
 
-    if flag == 2:
-        st.subheader("")
-        st.subheader("")
-        st.subheader(f"Гистограмма стоимости навыков {inp_species} Более 3 лет опыта")
+    # if flag == 2:
+    #     st.subheader("")
+    #     st.subheader("")
+    #     st.subheader(f"Гистограмма стоимости навыков {inp_species} Более 3 лет опыта")
 
-        st.write("Подсчет стоимости каждого навыка производился по формуле:")
-        st.write("(Зарплата по вакансии с выделенным навыком) - (Средняя зарплата с базовыми навыками)")
-        st.write("")
-        st.write("Чтобы полность изучить график, расширьте его. При наведении курсора на каждый столбец будет появляться доп. информация")
-
-
-        prices = json.load(open(f'{name}/model_2_code_experience_y_{name}.json'))
-        dfx = pd.DataFrame([int(x) for x in prices.values()],index = [x for x  in prices.keys()],columns = ['Стоимость навыка'])
-        fig = px.histogram(dfx,x = dfx['Стоимость навыка'],y = dfx.index,  width=2000, height=2000,labels={'x':'Абсолютное отклонение от средней зп, создаваемое навыком', 'y':'Навык'})
-        st.plotly_chart(fig, use_container_width=False)
-        st.write("обязательно разверните график, нажав на значок стрелок, чтобы ознакомиться с информацией")
-
-        fig1 = px.pie(dfx,values = dfx['Стоимость навыка'],names = dfx.index,  width=1300, height=1300,title = 'Отношение стоимости признаков')
-        st.plotly_chart(fig1, use_container_width=False)
-    if flag == 3:
-        st.subheader("")
-        st.subheader("")
-        st.subheader(f"Гистограмма стоимости навыков {inp_species} Более 3 лет опыта")
-
-        st.write("Подсчет стоимости каждого навыка производился по формуле:")
-        st.write("(Зарплата по вакансии с выделенным навыком) - (Средняя зарплата с базовыми навыками)")
-        st.write("")
-        st.write("Чтобы полность изучить график, расширьте его. При наведении курсора на каждый столбец будет появляться доп. информация")
+    #     st.write("Подсчет стоимости каждого навыка производился по формуле:")
+    #     st.write("(Зарплата по вакансии с выделенным навыком) - (Средняя зарплата с базовыми навыками)")
+    #     st.write("")
+    #     st.write("Чтобы полность изучить график, расширьте его. При наведении курсора на каждый столбец будет появляться доп. информация")
 
 
-        prices = json.load(open(f'{name}/model_0_code_experience_n_{name}.json'))
-        dfx = pd.DataFrame([int(x) for x in prices.values()],index = [x for x  in prices.keys()],columns = ['Стоимость навыка'])
-        fig = px.histogram(dfx,x = dfx['Стоимость навыка'],y = dfx.index,  width=2000, height=2000,labels={'x':'Абсолютное отклонение от средней зп, создаваемое навыком', 'y':'Навык'})
-        st.plotly_chart(fig, use_container_width=False)
-        st.write("обязательно разверните график, нажав на значок стрелок, чтобы ознакомиться с информацией")
+    #     prices = json.load(open(f'{name}/model_2_code_experience_y_{name}.json'))
+    #     dfx = pd.DataFrame([int(x) for x in prices.values()],index = [x for x  in prices.keys()],columns = ['Стоимость навыка'])
+    #     fig = px.histogram(dfx,x = dfx['Стоимость навыка'],y = dfx.index,  width=2000, height=2000,labels={'x':'Абсолютное отклонение от средней зп, создаваемое навыком', 'y':'Навык'})
+    #     st.plotly_chart(fig, use_container_width=False)
+    #     st.write("обязательно разверните график, нажав на значок стрелок, чтобы ознакомиться с информацией")
 
-        fig1 = px.pie(dfx,values = dfx['Стоимость навыка'],names = dfx.index,  width=1300, height=1300,title = 'Отношение стоимости признаков')
-        st.plotly_chart(fig1, use_container_width=False)
-    if flag == 4:
-        st.subheader("")
-        st.subheader("")
-        st.subheader(f"Гистограмма стоимости навыков {inp_species} Более 3 лет опыта")
+    #     fig1 = px.pie(dfx,values = dfx['Стоимость навыка'],names = dfx.index,  width=1300, height=1300,title = 'Отношение стоимости признаков')
+    #     st.plotly_chart(fig1, use_container_width=False)
+    # if flag == 3:
+    #     st.subheader("")
+    #     st.subheader("")
+    #     st.subheader(f"Гистограмма стоимости навыков {inp_species} Более 3 лет опыта")
 
-        st.write("Подсчет стоимости каждого навыка производился по формуле:")
-        st.write("(Зарплата по вакансии с выделенным навыком) - (Средняя зарплата с базовыми навыками)")
-        st.write("")
-        st.write("Чтобы полность изучить график, расширьте его. При наведении курсора на каждый столбец будет появляться доп. информация")
+    #     st.write("Подсчет стоимости каждого навыка производился по формуле:")
+    #     st.write("(Зарплата по вакансии с выделенным навыком) - (Средняя зарплата с базовыми навыками)")
+    #     st.write("")
+    #     st.write("Чтобы полность изучить график, расширьте его. При наведении курсора на каждый столбец будет появляться доп. информация")
 
 
-        prices = json.load(open(f'{name}/model_1_code_experience_n_{name}.json'))
-        dfx = pd.DataFrame([int(x) for x in prices.values()],index = [x for x  in prices.keys()],columns = ['Стоимость навыка'])
-        fig = px.histogram(dfx,x = dfx['Стоимость навыка'],y = dfx.index,  width=2000, height=2000,labels={'x':'Абсолютное отклонение от средней зп, создаваемое навыком', 'y':'Навык'})
-        st.plotly_chart(fig, use_container_width=False)
-        st.write("обязательно разверните график, нажав на значок стрелок, чтобы ознакомиться с информацией")
+    #     prices = json.load(open(f'{name}/model_0_code_experience_n_{name}.json'))
+    #     dfx = pd.DataFrame([int(x) for x in prices.values()],index = [x for x  in prices.keys()],columns = ['Стоимость навыка'])
+    #     fig = px.histogram(dfx,x = dfx['Стоимость навыка'],y = dfx.index,  width=2000, height=2000,labels={'x':'Абсолютное отклонение от средней зп, создаваемое навыком', 'y':'Навык'})
+    #     st.plotly_chart(fig, use_container_width=False)
+    #     st.write("обязательно разверните график, нажав на значок стрелок, чтобы ознакомиться с информацией")
 
-        fig1 = px.pie(dfx,values = dfx['Стоимость навыка'],names = dfx.index,  width=1300, height=1300,title = 'Отношение стоимости признаков')
-        st.plotly_chart(fig1, use_container_width=False)
+    #     fig1 = px.pie(dfx,values = dfx['Стоимость навыка'],names = dfx.index,  width=1300, height=1300,title = 'Отношение стоимости признаков')
+    #     st.plotly_chart(fig1, use_container_width=False)
+    # if flag == 4:
+    #     st.subheader("")
+    #     st.subheader("")
+    #     st.subheader(f"Гистограмма стоимости навыков {inp_species} Более 3 лет опыта")
+
+    #     st.write("Подсчет стоимости каждого навыка производился по формуле:")
+    #     st.write("(Зарплата по вакансии с выделенным навыком) - (Средняя зарплата с базовыми навыками)")
+    #     st.write("")
+    #     st.write("Чтобы полность изучить график, расширьте его. При наведении курсора на каждый столбец будет появляться доп. информация")
+
+
+    #     prices = json.load(open(f'{name}/model_1_code_experience_n_{name}.json'))
+    #     dfx = pd.DataFrame([int(x) for x in prices.values()],index = [x for x  in prices.keys()],columns = ['Стоимость навыка'])
+    #     fig = px.histogram(dfx,x = dfx['Стоимость навыка'],y = dfx.index,  width=2000, height=2000,labels={'x':'Абсолютное отклонение от средней зп, создаваемое навыком', 'y':'Навык'})
+    #     st.plotly_chart(fig, use_container_width=False)
+    #     st.write("обязательно разверните график, нажав на значок стрелок, чтобы ознакомиться с информацией")
+
+    #     fig1 = px.pie(dfx,values = dfx['Стоимость навыка'],names = dfx.index,  width=1300, height=1300,title = 'Отношение стоимости признаков')
+    #     st.plotly_chart(fig1, use_container_width=False)
     
 
 elif inp_species == 'продавец':
