@@ -298,14 +298,14 @@ if inp_species == 'медсестра':
 elif inp_species == 'сварщик':
     name = 'svarshik'
     model_0_code_experience_y_sorted = json.load(open(f'{name}/model_0_code_experience_y_{name}.json'))
-    model_1_code_experience_y_sorted = json.load(open(f'{name}/model_1_code_experience_y_{name}.json'))
+    model_1_code_experience_y_sorted = json.load(open(f'{name}/model_1_code_experience_y_{name}_.json'))
     model_2_code_experience_y_sorted = json.load(open(f'{name}/model_2_code_experience_y_{name}.json'))
     model_0_code_experience_n_sorted = json.load(open(f'{name}/model_0_code_experience_n_{name}.json'))
     model_1_code_experience_n_sorted = json.load(open(f'{name}/model_1_code_experience_n_{name}.json'))
     model_2_code_experience_n_sorted = json.load(open(f'{name}/model_2_code_experience_n_{name}.json'))
 
     model_0_code_experience_y_sorted_obl = json.load(open(f'{name}/model_0_code_experience_y_{name}_obl.json'))
-    model_1_code_experience_y_sorted_obl = json.load(open(f'{name}/model_1_code_experience_y_{name}_obl.json'))
+    model_1_code_experience_y_sorted_obl = json.load(open(f'{name}/model_1_code_experience_y_{name}_obl_.json'))
     model_2_code_experience_y_sorted_obl = json.load(open(f'{name}/model_2_code_experience_y_{name}_obl.json'))
     model_0_code_experience_n_sorted_obl = json.load(open(f'{name}/model_0_code_experience_n_{name}_obl.json'))
     model_1_code_experience_n_sorted_obl = json.load(open(f'{name}/model_1_code_experience_n_{name}_obl.json'))
