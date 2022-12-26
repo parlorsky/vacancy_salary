@@ -942,8 +942,8 @@ elif inp_species == 'слесарь':
         st.write("")
         st.write("Чтобы полность изучить график, расширьте его. При наведении курсора на каждый столбец будет появляться доп. информация")
 
-
-        prices ={i:a[i] for i in json.load(open(f'{name}/model_1_code_experience_n_{name}.json')) if i not in base_skills_1}
+        a =  json.load(open(f'{name}/model_1_code_experience_n_{name}.json'))
+        prices ={i:a[i] for i in a if i not in base_skills_1}
         dfx = pd.DataFrame([int(x) for x in prices.values()],index = [x for x  in prices.keys()],columns = ['Стоимость навыка'])
         fig = px.histogram(dfx,x = dfx['Стоимость навыка'],y = dfx.index,  width=1000, height=1000,labels={'x':'Стоимость навыка', 'y':'Навык'})
         st.plotly_chart(fig, use_container_width=False)
