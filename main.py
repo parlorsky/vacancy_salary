@@ -2104,11 +2104,9 @@ elif inp_species == 'Слесарь механосборочных работ (M
                 'Напишите регион вакансии',
                 ([x for x in list(model_0_code_experience_y_sorted_obl.keys())]))
 
-
             reg = model_0_code_experience_y_sorted_obl[option]
-            inputs.insert(model_0_code_experience_y_sorted.index('v3_region_index'),reg)
-            inputs = np.array(inputs)[model_0_code_experience_y_sorted_mask]
-            prediction = sum(inputs)
+            inputs += [reg]
+            prediction = bases[0] + sum(inputs)
             
 
         elif experience == 'От 1 до 3 лет':
