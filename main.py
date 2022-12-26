@@ -545,7 +545,7 @@ elif inp_species == 'сварщик':
         st.write("")
         st.write("Чтобы полность изучить график, расширьте его. При наведении курсора на каждый столбец будет появляться доп. информация")
 
-        a = json.load(open(f'{name}/model_1_code_experience_y_{name}.json'))
+        a = json.load(open(f'{name}/model_1_code_experience_y_{name}_.json'))
         prices = {i:a[i] for i in a if i not in base_skills_1}
         dfx = pd.DataFrame([int(x) for x in prices.values()],index = [x for x  in prices.keys()],columns = ['Стоимость навыка'])
         fig = px.histogram(dfx,x = dfx['Стоимость навыка'],y = dfx.index,  width=1000, height=1000,labels={'x':'Стоимость навыка', 'y':'Навык'})
