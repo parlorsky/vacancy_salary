@@ -310,7 +310,6 @@ elif inp_species == 'сварщик':
     model_0_code_experience_n_sorted_obl = json.load(open(f'{name}/model_0_code_experience_n_{name}_obl.json'))
     model_1_code_experience_n_sorted_obl = json.load(open(f'{name}/model_1_code_experience_n_{name}_obl.json'))
     model_2_code_experience_n_sorted_obl = json.load(open(f'{name}/model_2_code_experience_n_{name}_obl.json'))
-    
     rmses = [float(x.strip()) for x in open(f'{name}/rmse_{name}.txt')]
     bases = [float(x.strip()) for x in open(f'{name}/base_{name}.txt')]
 
@@ -369,6 +368,7 @@ elif inp_species == 'сварщик':
                 st.write(f'{number+1}) {skill}')
 
             st.subheader("Выберите навыки для подсчета зарплаты по вакансии. Расположены в порядке убывания абсолютной значимости (см. развернутый график внизу страницы)")
+            print(model_1_code_experience_y_sorted)
 
         
             flag = 1
