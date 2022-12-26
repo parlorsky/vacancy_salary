@@ -237,7 +237,7 @@ if inp_species == 'медсестра':
             p2 = pr +model_2_code_experience_y_rmse/2
         
         
-        st.write(f"Предполагаемая ЗП:  {'{:.2f}'.format(p1)} - {'{:.2f}'.format(p2)} рублей")
+        st.write(f"Предполагаемая ЗП:  {p1//1000 * 1000} - {p2//1000 * 1000} рублей")
     if flag == 0:
         st.subheader("")
         st.subheader("")
@@ -1090,7 +1090,7 @@ elif inp_species == 'специалист по персоналу':
             p2 = pr +model_2_code_experience_y_rmse/2
         
         
-        st.write(f"Предполагаемая ЗП:  {'{:.2f}'.format(p1)} - {'{:.2f}'.format(p2)} рублей")
+        st.write(f"Предполагаемая ЗП:  {p1//1000 * 1000} - {p2//1000 * 1000} рублей")
     
     if flag == 0:
         st.subheader("")
@@ -1273,7 +1273,7 @@ elif inp_species == 'продавец':
             p2 = pr +model_2_code_experience_y_rmse/2
         
         
-        st.write(f"Предполагаемая ЗП:  {'{:.2f}'.format(p1)} - {'{:.2f}'.format(p2)} рублей")
+        st.write(f"Предполагаемая ЗП:  {p1//1000 * 1000} - {p2//1000 * 1000} рублей")
     
     if flag == 0:
         st.subheader("")
@@ -2779,7 +2779,7 @@ elif inp_species == 'бухгалтер':
             p2 = pr +model_2_code_experience_y_rmse/2
         
         
-        st.write(f"Предполагаемая ЗП:  {'{:.2f}'.format(p1)} - {'{:.2f}'.format(p2)} рублей")
+        st.write(f"Предполагаемая ЗП:  {p1//1000 * 1000} - {p2//1000 * 1000} рублей")
     if flag == 0:
         st.subheader("")
         st.subheader("")
