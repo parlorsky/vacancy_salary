@@ -2156,14 +2156,9 @@ elif inp_species == 'Слесарь механосборочных работ (M
            
             prediction = model_2_code_experience_y.predict(inputs)
 
-            if prediction < 45000:
-                prediction += 12932.31
                 
-
-
         if st.button('Рассчитать зарплату'):
             pr = abs(prediction)
-            if pr < 10000: pr += 13041.49832
             if flag == 0:
                 p1 = pr - model_0_code_experience_y_rmse/2
                 p2 = pr +model_0_code_experience_y_rmse/2
