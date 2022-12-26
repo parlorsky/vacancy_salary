@@ -250,7 +250,7 @@ if inp_species == 'медсестра':
 
         prices = json.load(open(f'{name}/model_0_code_experience_y_{name}.json'))
         dfx = pd.DataFrame([int(x) for x in prices.values()],index = [x for x  in prices.keys()],columns = ['Стоимость навыка'])
-        fig = px.histogram(dfx,x = dfx['Стоимость навыка'],y = dfx.index,  width=2000, height=2000,labels={'x':'Стоимость навыка', 'y':'Навык'})
+        fig = px.histogram(dfx,x = dfx['Стоимость навыка'],y = dfx.index,  width=800, height=800,labels={'x':'Стоимость навыка', 'y':'Навык'})
         st.plotly_chart(fig, use_container_width=False)
         st.write("обязательно разверните график, нажав на значок стрелок, чтобы ознакомиться с информацией")
         fig1 = px.pie(dfx,values = dfx['Стоимость навыка'],names = dfx.index,  width=1300, height=1300,title = 'Отношение стоимости признаков')
@@ -270,7 +270,7 @@ if inp_species == 'медсестра':
 
         prices = json.load(open(f'{name}/model_1_code_experience_y_{name}.json'))
         dfx = pd.DataFrame([int(x) for x in prices.values()],index = [x for x  in prices.keys()],columns = ['Стоимость навыка'])
-        fig = px.histogram(dfx,x = dfx['Стоимость навыка'],y = dfx.index,  width=2000, height=2000,labels={'x':'Стоимость навыка', 'y':'Навык'})
+        fig = px.histogram(dfx,x = dfx['Стоимость навыка'],y = dfx.index,  width=800, height=800,labels={'x':'Стоимость навыка', 'y':'Навык'})
         st.plotly_chart(fig, use_container_width=False)
         st.write("обязательно разверните график, нажав на значок стрелок, чтобы ознакомиться с информацией")
 
@@ -290,7 +290,7 @@ if inp_species == 'медсестра':
 
         prices = json.load(open(f'{name}/model_2_code_experience_y_{name}.json'))
         dfx = pd.DataFrame([int(x) for x in prices.values()],index = [x for x  in prices.keys()],columns = ['Стоимость навыка'])
-        fig = px.histogram(dfx,x = dfx['Стоимость навыка'],y = dfx.index,  width=2000, height=2000,labels={'x':'Стоимость навыка', 'y':'Навык'})
+        fig = px.histogram(dfx,x = dfx['Стоимость навыка'],y = dfx.index,  width=800, height=800,labels={'x':'Стоимость навыка', 'y':'Навык'})
         st.plotly_chart(fig, use_container_width=False)
         st.write("обязательно разверните график, нажав на значок стрелок, чтобы ознакомиться с информацией")
 
@@ -523,7 +523,7 @@ elif inp_species == 'сварщик':
 
         prices = json.load(open(f'{name}/model_0_code_experience_y_{name}.json'))
         dfx = pd.DataFrame([int(x) for x in prices.values()],index = [x for x  in prices.keys()],columns = ['Стоимость навыка'])
-        fig = px.histogram(dfx,x = dfx['Стоимость навыка'],y = dfx.index,  width=2000, height=2000,labels={'x':'Стоимость навыка', 'y':'Навык'})
+        fig = px.histogram(dfx,x = dfx['Стоимость навыка'],y = dfx.index,  width=800, height=800,labels={'x':'Стоимость навыка', 'y':'Навык'})
         st.plotly_chart(fig, use_container_width=False)
         st.write("обязательно разверните график, нажав на значок стрелок, чтобы ознакомиться с информацией")
         fig1 = px.pie(dfx,values = dfx['Стоимость навыка'],names = dfx.index,  width=1300, height=1300,title = 'Отношение стоимости признаков')
@@ -543,7 +543,7 @@ elif inp_species == 'сварщик':
 
         prices = json.load(open(f'{name}/model_1_code_experience_y_{name}.json'))
         dfx = pd.DataFrame([int(x) for x in prices.values()],index = [x for x  in prices.keys()],columns = ['Стоимость навыка'])
-        fig = px.histogram(dfx,x = dfx['Стоимость навыка'],y = dfx.index,  width=2000, height=2000,labels={'x':'Стоимость навыка', 'y':'Навык'})
+        fig = px.histogram(dfx,x = dfx['Стоимость навыка'],y = dfx.index,  width=800, height=800,labels={'x':'Стоимость навыка', 'y':'Навык'})
         st.plotly_chart(fig, use_container_width=False)
         st.write("обязательно разверните график, нажав на значок стрелок, чтобы ознакомиться с информацией")
 
@@ -563,7 +563,7 @@ elif inp_species == 'сварщик':
 
         prices = json.load(open(f'{name}/model_2_code_experience_y_{name}.json'))
         dfx = pd.DataFrame([int(x) for x in prices.values()],index = [x for x  in prices.keys()],columns = ['Стоимость навыка'])
-        fig = px.histogram(dfx,x = dfx['Стоимость навыка'],y = dfx.index,  width=2000, height=2000,labels={'x':'Стоимость навыка', 'y':'Навык'})
+        fig = px.histogram(dfx,x = dfx['Стоимость навыка'],y = dfx.index,  width=800, height=800,labels={'x':'Стоимость навыка', 'y':'Навык'})
         st.plotly_chart(fig, use_container_width=False)
         st.write("обязательно разверните график, нажав на значок стрелок, чтобы ознакомиться с информацией")
 
@@ -582,7 +582,7 @@ elif inp_species == 'сварщик':
 
         prices = json.load(open(f'{name}/model_0_code_experience_n_{name}.json'))
         dfx = pd.DataFrame([int(x) for x in prices.values()],index = [x for x  in prices.keys()],columns = ['Стоимость навыка'])
-        fig = px.histogram(dfx,x = dfx['Стоимость навыка'],y = dfx.index,  width=2000, height=2000,labels={'x':'Стоимость навыка', 'y':'Навык'})
+        fig = px.histogram(dfx,x = dfx['Стоимость навыка'],y = dfx.index,  width=800, height=800,labels={'x':'Стоимость навыка', 'y':'Навык'})
         st.plotly_chart(fig, use_container_width=False)
         st.write("обязательно разверните график, нажав на значок стрелок, чтобы ознакомиться с информацией")
 
@@ -601,7 +601,7 @@ elif inp_species == 'сварщик':
 
         prices = json.load(open(f'{name}/model_1_code_experience_n_{name}.json'))
         dfx = pd.DataFrame([int(x) for x in prices.values()],index = [x for x  in prices.keys()],columns = ['Стоимость навыка'])
-        fig = px.histogram(dfx,x = dfx['Стоимость навыка'],y = dfx.index,  width=2000, height=2000,labels={'x':'Стоимость навыка', 'y':'Навык'})
+        fig = px.histogram(dfx,x = dfx['Стоимость навыка'],y = dfx.index,  width=800, height=800,labels={'x':'Стоимость навыка', 'y':'Навык'})
         st.plotly_chart(fig, use_container_width=False)
         st.write("обязательно разверните график, нажав на значок стрелок, чтобы ознакомиться с информацией")
 
@@ -620,7 +620,7 @@ elif inp_species == 'сварщик':
 
         prices = json.load(open(f'{name}/model_2_code_experience_n_{name}.json'))
         dfx = pd.DataFrame([int(x) for x in prices.values()],index = [x for x  in prices.keys()],columns = ['Стоимость навыка'])
-        fig = px.histogram(dfx,x = dfx['Стоимость навыка'],y = dfx.index,  width=2000, height=2000,labels={'x':'Стоимость навыка', 'y':'Навык'})
+        fig = px.histogram(dfx,x = dfx['Стоимость навыка'],y = dfx.index,  width=800, height=800,labels={'x':'Стоимость навыка', 'y':'Навык'})
         st.plotly_chart(fig, use_container_width=False)
         st.write("обязательно разверните график, нажав на значок стрелок, чтобы ознакомиться с информацией")
 
@@ -854,7 +854,7 @@ elif inp_species == 'слесарь':
 
         prices = json.load(open(f'{name}/model_0_code_experience_y_{name}.json'))
         dfx = pd.DataFrame([int(x) for x in prices.values()],index = [x for x  in prices.keys()],columns = ['Стоимость навыка'])
-        fig = px.histogram(dfx,x = dfx['Стоимость навыка'],y = dfx.index,  width=2000, height=2000,labels={'x':'Стоимость навыка', 'y':'Навык'})
+        fig = px.histogram(dfx,x = dfx['Стоимость навыка'],y = dfx.index,  width=800, height=800,labels={'x':'Стоимость навыка', 'y':'Навык'})
         st.plotly_chart(fig, use_container_width=False)
         st.write("обязательно разверните график, нажав на значок стрелок, чтобы ознакомиться с информацией")
         fig1 = px.pie(dfx,values = dfx['Стоимость навыка'],names = dfx.index,  width=1300, height=1300,title = 'Отношение стоимости признаков')
@@ -874,7 +874,7 @@ elif inp_species == 'слесарь':
 
         prices = json.load(open(f'{name}/model_1_code_experience_y_{name}.json'))
         dfx = pd.DataFrame([int(x) for x in prices.values()],index = [x for x  in prices.keys()],columns = ['Стоимость навыка'])
-        fig = px.histogram(dfx,x = dfx['Стоимость навыка'],y = dfx.index,  width=2000, height=2000,labels={'x':'Стоимость навыка', 'y':'Навык'})
+        fig = px.histogram(dfx,x = dfx['Стоимость навыка'],y = dfx.index,  width=800, height=800,labels={'x':'Стоимость навыка', 'y':'Навык'})
         st.plotly_chart(fig, use_container_width=False)
         st.write("обязательно разверните график, нажав на значок стрелок, чтобы ознакомиться с информацией")
 
@@ -894,7 +894,7 @@ elif inp_species == 'слесарь':
 
         prices = json.load(open(f'{name}/model_2_code_experience_y_{name}.json'))
         dfx = pd.DataFrame([int(x) for x in prices.values()],index = [x for x  in prices.keys()],columns = ['Стоимость навыка'])
-        fig = px.histogram(dfx,x = dfx['Стоимость навыка'],y = dfx.index,  width=2000, height=2000,labels={'x':'Стоимость навыка', 'y':'Навык'})
+        fig = px.histogram(dfx,x = dfx['Стоимость навыка'],y = dfx.index,  width=800, height=800,labels={'x':'Стоимость навыка', 'y':'Навык'})
         st.plotly_chart(fig, use_container_width=False)
         st.write("обязательно разверните график, нажав на значок стрелок, чтобы ознакомиться с информацией")
 
@@ -913,7 +913,7 @@ elif inp_species == 'слесарь':
 
         prices = json.load(open(f'{name}/model_0_code_experience_n_{name}.json'))
         dfx = pd.DataFrame([int(x) for x in prices.values()],index = [x for x  in prices.keys()],columns = ['Стоимость навыка'])
-        fig = px.histogram(dfx,x = dfx['Стоимость навыка'],y = dfx.index,  width=2000, height=2000,labels={'x':'Стоимость навыка', 'y':'Навык'})
+        fig = px.histogram(dfx,x = dfx['Стоимость навыка'],y = dfx.index,  width=800, height=800,labels={'x':'Стоимость навыка', 'y':'Навык'})
         st.plotly_chart(fig, use_container_width=False)
         st.write("обязательно разверните график, нажав на значок стрелок, чтобы ознакомиться с информацией")
 
@@ -932,7 +932,7 @@ elif inp_species == 'слесарь':
 
         prices = json.load(open(f'{name}/model_1_code_experience_n_{name}.json'))
         dfx = pd.DataFrame([int(x) for x in prices.values()],index = [x for x  in prices.keys()],columns = ['Стоимость навыка'])
-        fig = px.histogram(dfx,x = dfx['Стоимость навыка'],y = dfx.index,  width=2000, height=2000,labels={'x':'Стоимость навыка', 'y':'Навык'})
+        fig = px.histogram(dfx,x = dfx['Стоимость навыка'],y = dfx.index,  width=800, height=800,labels={'x':'Стоимость навыка', 'y':'Навык'})
         st.plotly_chart(fig, use_container_width=False)
         st.write("обязательно разверните график, нажав на значок стрелок, чтобы ознакомиться с информацией")
 
@@ -951,7 +951,7 @@ elif inp_species == 'слесарь':
 
         prices = json.load(open(f'{name}/model_2_code_experience_n_{name}.json'))
         dfx = pd.DataFrame([int(x) for x in prices.values()],index = [x for x  in prices.keys()],columns = ['Стоимость навыка'])
-        fig = px.histogram(dfx,x = dfx['Стоимость навыка'],y = dfx.index,  width=2000, height=2000,labels={'x':'Стоимость навыка', 'y':'Навык'})
+        fig = px.histogram(dfx,x = dfx['Стоимость навыка'],y = dfx.index,  width=800, height=800,labels={'x':'Стоимость навыка', 'y':'Навык'})
         st.plotly_chart(fig, use_container_width=False)
         st.write("обязательно разверните график, нажав на значок стрелок, чтобы ознакомиться с информацией")
 
@@ -1104,7 +1104,7 @@ elif inp_species == 'специалист по персоналу':
 
         prices = json.load(open(f'{name}/model_0_code_experience_y_{name}.json'))
         dfx = pd.DataFrame([int(x) for x in prices.values()],index = [x for x  in prices.keys()],columns = ['Стоимость навыка'])
-        fig = px.histogram(dfx,x = dfx['Стоимость навыка'],y = dfx.index,  width=2000, height=2000,labels={'x':'Стоимость навыка', 'y':'Навык'})
+        fig = px.histogram(dfx,x = dfx['Стоимость навыка'],y = dfx.index,  width=800, height=800,labels={'x':'Стоимость навыка', 'y':'Навык'})
         st.plotly_chart(fig, use_container_width=False)
         st.write("обязательно разверните график, нажав на значок стрелок, чтобы ознакомиться с информацией")
         fig1 = px.pie(dfx,values = dfx['Стоимость навыка'],names = dfx.index,  width=1300, height=1300,title = 'Отношение стоимости признаков')
@@ -1124,7 +1124,7 @@ elif inp_species == 'специалист по персоналу':
 
         prices = json.load(open(f'{name}/model_1_code_experience_y_{name}.json'))
         dfx = pd.DataFrame([int(x) for x in prices.values()],index = [x for x  in prices.keys()],columns = ['Стоимость навыка'])
-        fig = px.histogram(dfx,x = dfx['Стоимость навыка'],y = dfx.index,  width=2000, height=2000,labels={'x':'Стоимость навыка', 'y':'Навык'})
+        fig = px.histogram(dfx,x = dfx['Стоимость навыка'],y = dfx.index,  width=800, height=800,labels={'x':'Стоимость навыка', 'y':'Навык'})
         st.plotly_chart(fig, use_container_width=False)
         st.write("обязательно разверните график, нажав на значок стрелок, чтобы ознакомиться с информацией")
 
@@ -1144,7 +1144,7 @@ elif inp_species == 'специалист по персоналу':
 
         prices = json.load(open(f'{name}/model_2_code_experience_y_{name}.json'))
         dfx = pd.DataFrame([int(x) for x in prices.values()],index = [x for x  in prices.keys()],columns = ['Стоимость навыка'])
-        fig = px.histogram(dfx,x = dfx['Стоимость навыка'],y = dfx.index,  width=2000, height=2000,labels={'x':'Стоимость навыка', 'y':'Навык'})
+        fig = px.histogram(dfx,x = dfx['Стоимость навыка'],y = dfx.index,  width=800, height=800,labels={'x':'Стоимость навыка', 'y':'Навык'})
         st.plotly_chart(fig, use_container_width=False)
         st.write("обязательно разверните график, нажав на значок стрелок, чтобы ознакомиться с информацией")
 
@@ -1287,7 +1287,7 @@ elif inp_species == 'продавец':
 
         prices = json.load(open(f'{name}/model_0_code_experience_y_{name}.json'))
         dfx = pd.DataFrame([int(x) for x in prices.values()],index = [x for x  in prices.keys()],columns = ['Стоимость навыка'])
-        fig = px.histogram(dfx,x = dfx['Стоимость навыка'],y = dfx.index,  width=2000, height=2000,labels={'x':'Стоимость навыка', 'y':'Навык'})
+        fig = px.histogram(dfx,x = dfx['Стоимость навыка'],y = dfx.index,  width=800, height=800,labels={'x':'Стоимость навыка', 'y':'Навык'})
         st.plotly_chart(fig, use_container_width=False)
         st.write("обязательно разверните график, нажав на значок стрелок, чтобы ознакомиться с информацией")
         fig1 = px.pie(dfx,values = dfx['Стоимость навыка'],names = dfx.index,  width=1300, height=1300,title = 'Отношение стоимости признаков')
@@ -1307,7 +1307,7 @@ elif inp_species == 'продавец':
 
         prices = json.load(open(f'{name}/model_1_code_experience_y_{name}.json'))
         dfx = pd.DataFrame([int(x) for x in prices.values()],index = [x for x  in prices.keys()],columns = ['Стоимость навыка'])
-        fig = px.histogram(dfx,x = dfx['Стоимость навыка'],y = dfx.index,  width=2000, height=2000,labels={'x':'Стоимость навыка', 'y':'Навык'})
+        fig = px.histogram(dfx,x = dfx['Стоимость навыка'],y = dfx.index,  width=800, height=800,labels={'x':'Стоимость навыка', 'y':'Навык'})
         st.plotly_chart(fig, use_container_width=False)
         st.write("обязательно разверните график, нажав на значок стрелок, чтобы ознакомиться с информацией")
 
@@ -1327,7 +1327,7 @@ elif inp_species == 'продавец':
 
         prices = json.load(open(f'{name}/model_2_code_experience_y_{name}.json'))
         dfx = pd.DataFrame([int(x) for x in prices.values()],index = [x for x  in prices.keys()],columns = ['Стоимость навыка'])
-        fig = px.histogram(dfx,x = dfx['Стоимость навыка'],y = dfx.index,  width=2000, height=2000,labels={'x':'Стоимость навыка', 'y':'Навык'})
+        fig = px.histogram(dfx,x = dfx['Стоимость навыка'],y = dfx.index,  width=800, height=800,labels={'x':'Стоимость навыка', 'y':'Навык'})
         st.plotly_chart(fig, use_container_width=False)
         st.write("обязательно разверните график, нажав на значок стрелок, чтобы ознакомиться с информацией")
 
@@ -1562,7 +1562,7 @@ elif inp_species == 'слесарь КИПиА':
 
         prices = json.load(open(f'{name}/model_0_code_experience_y_{name}.json'))
         dfx = pd.DataFrame([int(x) for x in prices.values()],index = [x for x  in prices.keys()],columns = ['Стоимость навыка'])
-        fig = px.histogram(dfx,x = dfx['Стоимость навыка'],y = dfx.index,  width=2000, height=2000,labels={'x':'Стоимость навыка', 'y':'Навык'})
+        fig = px.histogram(dfx,x = dfx['Стоимость навыка'],y = dfx.index,  width=800, height=800,labels={'x':'Стоимость навыка', 'y':'Навык'})
         st.plotly_chart(fig, use_container_width=False)
         st.write("обязательно разверните график, нажав на значок стрелок, чтобы ознакомиться с информацией")
         fig1 = px.pie(dfx,values = dfx['Стоимость навыка'],names = dfx.index,  width=1300, height=1300,title = 'Отношение стоимости признаков')
@@ -1582,7 +1582,7 @@ elif inp_species == 'слесарь КИПиА':
 
         prices = json.load(open(f'{name}/model_1_code_experience_y_{name}.json'))
         dfx = pd.DataFrame([int(x) for x in prices.values()],index = [x for x  in prices.keys()],columns = ['Стоимость навыка'])
-        fig = px.histogram(dfx,x = dfx['Стоимость навыка'],y = dfx.index,  width=2000, height=2000,labels={'x':'Стоимость навыка', 'y':'Навык'})
+        fig = px.histogram(dfx,x = dfx['Стоимость навыка'],y = dfx.index,  width=800, height=800,labels={'x':'Стоимость навыка', 'y':'Навык'})
         st.plotly_chart(fig, use_container_width=False)
         st.write("обязательно разверните график, нажав на значок стрелок, чтобы ознакомиться с информацией")
 
@@ -1602,7 +1602,7 @@ elif inp_species == 'слесарь КИПиА':
 
         prices = json.load(open(f'{name}/model_2_code_experience_y_{name}.json'))
         dfx = pd.DataFrame([int(x) for x in prices.values()],index = [x for x  in prices.keys()],columns = ['Стоимость навыка'])
-        fig = px.histogram(dfx,x = dfx['Стоимость навыка'],y = dfx.index,  width=2000, height=2000,labels={'x':'Стоимость навыка', 'y':'Навык'})
+        fig = px.histogram(dfx,x = dfx['Стоимость навыка'],y = dfx.index,  width=800, height=800,labels={'x':'Стоимость навыка', 'y':'Навык'})
         st.plotly_chart(fig, use_container_width=False)
         st.write("обязательно разверните график, нажав на значок стрелок, чтобы ознакомиться с информацией")
 
@@ -1621,7 +1621,7 @@ elif inp_species == 'слесарь КИПиА':
 
         prices = json.load(open(f'{name}/model_0_code_experience_n_{name}.json'))
         dfx = pd.DataFrame([int(x) for x in prices.values()],index = [x for x  in prices.keys()],columns = ['Стоимость навыка'])
-        fig = px.histogram(dfx,x = dfx['Стоимость навыка'],y = dfx.index,  width=2000, height=2000,labels={'x':'Стоимость навыка', 'y':'Навык'})
+        fig = px.histogram(dfx,x = dfx['Стоимость навыка'],y = dfx.index,  width=800, height=800,labels={'x':'Стоимость навыка', 'y':'Навык'})
         st.plotly_chart(fig, use_container_width=False)
         st.write("обязательно разверните график, нажав на значок стрелок, чтобы ознакомиться с информацией")
 
@@ -1640,7 +1640,7 @@ elif inp_species == 'слесарь КИПиА':
 
         prices = json.load(open(f'{name}/model_1_code_experience_n_{name}.json'))
         dfx = pd.DataFrame([int(x) for x in prices.values()],index = [x for x  in prices.keys()],columns = ['Стоимость навыка'])
-        fig = px.histogram(dfx,x = dfx['Стоимость навыка'],y = dfx.index,  width=2000, height=2000,labels={'x':'Стоимость навыка', 'y':'Навык'})
+        fig = px.histogram(dfx,x = dfx['Стоимость навыка'],y = dfx.index,  width=800, height=800,labels={'x':'Стоимость навыка', 'y':'Навык'})
         st.plotly_chart(fig, use_container_width=False)
         st.write("обязательно разверните график, нажав на значок стрелок, чтобы ознакомиться с информацией")
 
@@ -1659,7 +1659,7 @@ elif inp_species == 'слесарь КИПиА':
 
         prices = json.load(open(f'{name}/model_2_code_experience_n_{name}.json'))
         dfx = pd.DataFrame([int(x) for x in prices.values()],index = [x for x  in prices.keys()],columns = ['Стоимость навыка'])
-        fig = px.histogram(dfx,x = dfx['Стоимость навыка'],y = dfx.index,  width=2000, height=2000,labels={'x':'Стоимость навыка', 'y':'Навык'})
+        fig = px.histogram(dfx,x = dfx['Стоимость навыка'],y = dfx.index,  width=800, height=800,labels={'x':'Стоимость навыка', 'y':'Навык'})
         st.plotly_chart(fig, use_container_width=False)
         st.write("обязательно разверните график, нажав на значок стрелок, чтобы ознакомиться с информацией")
 
@@ -1893,7 +1893,7 @@ elif inp_species == 'слесарь-ремонтник':
 
         prices = json.load(open(f'{name}/model_0_code_experience_y_{name}.json'))
         dfx = pd.DataFrame([int(x) for x in prices.values()],index = [x for x  in prices.keys()],columns = ['Стоимость навыка'])
-        fig = px.histogram(dfx,x = dfx['Стоимость навыка'],y = dfx.index,  width=2000, height=2000,labels={'x':'Стоимость навыка', 'y':'Навык'})
+        fig = px.histogram(dfx,x = dfx['Стоимость навыка'],y = dfx.index,  width=800, height=800,labels={'x':'Стоимость навыка', 'y':'Навык'})
         st.plotly_chart(fig, use_container_width=False)
         st.write("обязательно разверните график, нажав на значок стрелок, чтобы ознакомиться с информацией")
         fig1 = px.pie(dfx,values = dfx['Стоимость навыка'],names = dfx.index,  width=1300, height=1300,title = 'Отношение стоимости признаков')
@@ -1913,7 +1913,7 @@ elif inp_species == 'слесарь-ремонтник':
 
         prices = json.load(open(f'{name}/model_1_code_experience_y_{name}.json'))
         dfx = pd.DataFrame([int(x) for x in prices.values()],index = [x for x  in prices.keys()],columns = ['Стоимость навыка'])
-        fig = px.histogram(dfx,x = dfx['Стоимость навыка'],y = dfx.index,  width=2000, height=2000,labels={'x':'Стоимость навыка', 'y':'Навык'})
+        fig = px.histogram(dfx,x = dfx['Стоимость навыка'],y = dfx.index,  width=800, height=800,labels={'x':'Стоимость навыка', 'y':'Навык'})
         st.plotly_chart(fig, use_container_width=False)
         st.write("обязательно разверните график, нажав на значок стрелок, чтобы ознакомиться с информацией")
 
@@ -1933,7 +1933,7 @@ elif inp_species == 'слесарь-ремонтник':
 
         prices = json.load(open(f'{name}/model_2_code_experience_y_{name}.json'))
         dfx = pd.DataFrame([int(x) for x in prices.values()],index = [x for x  in prices.keys()],columns = ['Стоимость навыка'])
-        fig = px.histogram(dfx,x = dfx['Стоимость навыка'],y = dfx.index,  width=2000, height=2000,labels={'x':'Стоимость навыка', 'y':'Навык'})
+        fig = px.histogram(dfx,x = dfx['Стоимость навыка'],y = dfx.index,  width=800, height=800,labels={'x':'Стоимость навыка', 'y':'Навык'})
         st.plotly_chart(fig, use_container_width=False)
         st.write("обязательно разверните график, нажав на значок стрелок, чтобы ознакомиться с информацией")
 
@@ -1952,7 +1952,7 @@ elif inp_species == 'слесарь-ремонтник':
 
         prices = json.load(open(f'{name}/model_0_code_experience_n_{name}.json'))
         dfx = pd.DataFrame([int(x) for x in prices.values()],index = [x for x  in prices.keys()],columns = ['Стоимость навыка'])
-        fig = px.histogram(dfx,x = dfx['Стоимость навыка'],y = dfx.index,  width=2000, height=2000,labels={'x':'Стоимость навыка', 'y':'Навык'})
+        fig = px.histogram(dfx,x = dfx['Стоимость навыка'],y = dfx.index,  width=800, height=800,labels={'x':'Стоимость навыка', 'y':'Навык'})
         st.plotly_chart(fig, use_container_width=False)
         st.write("обязательно разверните график, нажав на значок стрелок, чтобы ознакомиться с информацией")
 
@@ -1971,7 +1971,7 @@ elif inp_species == 'слесарь-ремонтник':
 
         prices = json.load(open(f'{name}/model_1_code_experience_n_{name}.json'))
         dfx = pd.DataFrame([int(x) for x in prices.values()],index = [x for x  in prices.keys()],columns = ['Стоимость навыка'])
-        fig = px.histogram(dfx,x = dfx['Стоимость навыка'],y = dfx.index,  width=2000, height=2000,labels={'x':'Стоимость навыка', 'y':'Навык'})
+        fig = px.histogram(dfx,x = dfx['Стоимость навыка'],y = dfx.index,  width=800, height=800,labels={'x':'Стоимость навыка', 'y':'Навык'})
         st.plotly_chart(fig, use_container_width=False)
         st.write("обязательно разверните график, нажав на значок стрелок, чтобы ознакомиться с информацией")
 
@@ -1990,7 +1990,7 @@ elif inp_species == 'слесарь-ремонтник':
 
         prices = json.load(open(f'{name}/model_2_code_experience_n_{name}.json'))
         dfx = pd.DataFrame([int(x) for x in prices.values()],index = [x for x  in prices.keys()],columns = ['Стоимость навыка'])
-        fig = px.histogram(dfx,x = dfx['Стоимость навыка'],y = dfx.index,  width=2000, height=2000,labels={'x':'Стоимость навыка', 'y':'Навык'})
+        fig = px.histogram(dfx,x = dfx['Стоимость навыка'],y = dfx.index,  width=800, height=800,labels={'x':'Стоимость навыка', 'y':'Навык'})
         st.plotly_chart(fig, use_container_width=False)
         st.write("обязательно разверните график, нажав на значок стрелок, чтобы ознакомиться с информацией")
 
@@ -2224,7 +2224,7 @@ elif inp_species == 'Слесарь механосборочных работ (M
 
         prices = json.load(open(f'{name}/model_0_code_experience_y_{name}.json'))
         dfx = pd.DataFrame([int(x) for x in prices.values()],index = [x for x  in prices.keys()],columns = ['Стоимость навыка'])
-        fig = px.histogram(dfx,x = dfx['Стоимость навыка'],y = dfx.index,  width=2000, height=2000,labels={'x':'Стоимость навыка', 'y':'Навык'})
+        fig = px.histogram(dfx,x = dfx['Стоимость навыка'],y = dfx.index,  width=800, height=800,labels={'x':'Стоимость навыка', 'y':'Навык'})
         st.plotly_chart(fig, use_container_width=False)
         st.write("обязательно разверните график, нажав на значок стрелок, чтобы ознакомиться с информацией")
         fig1 = px.pie(dfx,values = dfx['Стоимость навыка'],names = dfx.index,  width=1300, height=1300,title = 'Отношение стоимости признаков')
@@ -2244,7 +2244,7 @@ elif inp_species == 'Слесарь механосборочных работ (M
 
         prices = json.load(open(f'{name}/model_1_code_experience_y_{name}.json'))
         dfx = pd.DataFrame([int(x) for x in prices.values()],index = [x for x  in prices.keys()],columns = ['Стоимость навыка'])
-        fig = px.histogram(dfx,x = dfx['Стоимость навыка'],y = dfx.index,  width=2000, height=2000,labels={'x':'Стоимость навыка', 'y':'Навык'})
+        fig = px.histogram(dfx,x = dfx['Стоимость навыка'],y = dfx.index,  width=800, height=800,labels={'x':'Стоимость навыка', 'y':'Навык'})
         st.plotly_chart(fig, use_container_width=False)
         st.write("обязательно разверните график, нажав на значок стрелок, чтобы ознакомиться с информацией")
 
@@ -2264,7 +2264,7 @@ elif inp_species == 'Слесарь механосборочных работ (M
 
         prices = json.load(open(f'{name}/model_2_code_experience_y_{name}.json'))
         dfx = pd.DataFrame([int(x) for x in prices.values()],index = [x for x  in prices.keys()],columns = ['Стоимость навыка'])
-        fig = px.histogram(dfx,x = dfx['Стоимость навыка'],y = dfx.index,  width=2000, height=2000,labels={'x':'Стоимость навыка', 'y':'Навык'})
+        fig = px.histogram(dfx,x = dfx['Стоимость навыка'],y = dfx.index,  width=800, height=800,labels={'x':'Стоимость навыка', 'y':'Навык'})
         st.plotly_chart(fig, use_container_width=False)
         st.write("обязательно разверните график, нажав на значок стрелок, чтобы ознакомиться с информацией")
 
@@ -2283,7 +2283,7 @@ elif inp_species == 'Слесарь механосборочных работ (M
 
         prices = json.load(open(f'{name}/model_0_code_experience_n_{name}.json'))
         dfx = pd.DataFrame([int(x) for x in prices.values()],index = [x for x  in prices.keys()],columns = ['Стоимость навыка'])
-        fig = px.histogram(dfx,x = dfx['Стоимость навыка'],y = dfx.index,  width=2000, height=2000,labels={'x':'Стоимость навыка', 'y':'Навык'})
+        fig = px.histogram(dfx,x = dfx['Стоимость навыка'],y = dfx.index,  width=800, height=800,labels={'x':'Стоимость навыка', 'y':'Навык'})
         st.plotly_chart(fig, use_container_width=False)
         st.write("обязательно разверните график, нажав на значок стрелок, чтобы ознакомиться с информацией")
 
@@ -2302,7 +2302,7 @@ elif inp_species == 'Слесарь механосборочных работ (M
 
         prices = json.load(open(f'{name}/model_1_code_experience_n_{name}.json'))
         dfx = pd.DataFrame([int(x) for x in prices.values()],index = [x for x  in prices.keys()],columns = ['Стоимость навыка'])
-        fig = px.histogram(dfx,x = dfx['Стоимость навыка'],y = dfx.index,  width=2000, height=2000,labels={'x':'Стоимость навыка', 'y':'Навык'})
+        fig = px.histogram(dfx,x = dfx['Стоимость навыка'],y = dfx.index,  width=800, height=800,labels={'x':'Стоимость навыка', 'y':'Навык'})
         st.plotly_chart(fig, use_container_width=False)
         st.write("обязательно разверните график, нажав на значок стрелок, чтобы ознакомиться с информацией")
 
@@ -2321,7 +2321,7 @@ elif inp_species == 'Слесарь механосборочных работ (M
 
         prices = json.load(open(f'{name}/model_2_code_experience_n_{name}.json'))
         dfx = pd.DataFrame([int(x) for x in prices.values()],index = [x for x  in prices.keys()],columns = ['Стоимость навыка'])
-        fig = px.histogram(dfx,x = dfx['Стоимость навыка'],y = dfx.index,  width=2000, height=2000,labels={'x':'Стоимость навыка', 'y':'Навык'})
+        fig = px.histogram(dfx,x = dfx['Стоимость навыка'],y = dfx.index,  width=800, height=800,labels={'x':'Стоимость навыка', 'y':'Навык'})
         st.plotly_chart(fig, use_container_width=False)
         st.write("обязательно разверните график, нажав на значок стрелок, чтобы ознакомиться с информацией")
 
@@ -2555,7 +2555,7 @@ elif inp_species == 'слесарь-инструментальщик':
 
         prices = json.load(open(f'{name}/model_0_code_experience_y_{name}.json'))
         dfx = pd.DataFrame([int(x) for x in prices.values()],index = [x for x  in prices.keys()],columns = ['Стоимость навыка'])
-        fig = px.histogram(dfx,x = dfx['Стоимость навыка'],y = dfx.index,  width=2000, height=2000,labels={'x':'Стоимость навыка', 'y':'Навык'})
+        fig = px.histogram(dfx,x = dfx['Стоимость навыка'],y = dfx.index,  width=800, height=800,labels={'x':'Стоимость навыка', 'y':'Навык'})
         st.plotly_chart(fig, use_container_width=False)
         st.write("обязательно разверните график, нажав на значок стрелок, чтобы ознакомиться с информацией")
         fig1 = px.pie(dfx,values = dfx['Стоимость навыка'],names = dfx.index,  width=1300, height=1300,title = 'Отношение стоимости признаков')
@@ -2575,7 +2575,7 @@ elif inp_species == 'слесарь-инструментальщик':
 
         prices = json.load(open(f'{name}/model_1_code_experience_y_{name}.json'))
         dfx = pd.DataFrame([int(x) for x in prices.values()],index = [x for x  in prices.keys()],columns = ['Стоимость навыка'])
-        fig = px.histogram(dfx,x = dfx['Стоимость навыка'],y = dfx.index,  width=2000, height=2000,labels={'x':'Стоимость навыка', 'y':'Навык'})
+        fig = px.histogram(dfx,x = dfx['Стоимость навыка'],y = dfx.index,  width=800, height=800,labels={'x':'Стоимость навыка', 'y':'Навык'})
         st.plotly_chart(fig, use_container_width=False)
         st.write("обязательно разверните график, нажав на значок стрелок, чтобы ознакомиться с информацией")
 
@@ -2595,7 +2595,7 @@ elif inp_species == 'слесарь-инструментальщик':
 
         prices = json.load(open(f'{name}/model_2_code_experience_y_{name}.json'))
         dfx = pd.DataFrame([int(x) for x in prices.values()],index = [x for x  in prices.keys()],columns = ['Стоимость навыка'])
-        fig = px.histogram(dfx,x = dfx['Стоимость навыка'],y = dfx.index,  width=2000, height=2000,labels={'x':'Стоимость навыка', 'y':'Навык'})
+        fig = px.histogram(dfx,x = dfx['Стоимость навыка'],y = dfx.index,  width=800, height=800,labels={'x':'Стоимость навыка', 'y':'Навык'})
         st.plotly_chart(fig, use_container_width=False)
         st.write("обязательно разверните график, нажав на значок стрелок, чтобы ознакомиться с информацией")
 
@@ -2614,7 +2614,7 @@ elif inp_species == 'слесарь-инструментальщик':
 
         prices = json.load(open(f'{name}/model_0_code_experience_n_{name}.json'))
         dfx = pd.DataFrame([int(x) for x in prices.values()],index = [x for x  in prices.keys()],columns = ['Стоимость навыка'])
-        fig = px.histogram(dfx,x = dfx['Стоимость навыка'],y = dfx.index,  width=2000, height=2000,labels={'x':'Стоимость навыка', 'y':'Навык'})
+        fig = px.histogram(dfx,x = dfx['Стоимость навыка'],y = dfx.index,  width=800, height=800,labels={'x':'Стоимость навыка', 'y':'Навык'})
         st.plotly_chart(fig, use_container_width=False)
         st.write("обязательно разверните график, нажав на значок стрелок, чтобы ознакомиться с информацией")
 
@@ -2633,7 +2633,7 @@ elif inp_species == 'слесарь-инструментальщик':
 
         prices = json.load(open(f'{name}/model_1_code_experience_n_{name}.json'))
         dfx = pd.DataFrame([int(x) for x in prices.values()],index = [x for x  in prices.keys()],columns = ['Стоимость навыка'])
-        fig = px.histogram(dfx,x = dfx['Стоимость навыка'],y = dfx.index,  width=2000, height=2000,labels={'x':'Стоимость навыка', 'y':'Навык'})
+        fig = px.histogram(dfx,x = dfx['Стоимость навыка'],y = dfx.index,  width=800, height=800,labels={'x':'Стоимость навыка', 'y':'Навык'})
         st.plotly_chart(fig, use_container_width=False)
         st.write("обязательно разверните график, нажав на значок стрелок, чтобы ознакомиться с информацией")
 
@@ -2652,7 +2652,7 @@ elif inp_species == 'слесарь-инструментальщик':
 
         prices = json.load(open(f'{name}/model_2_code_experience_n_{name}.json'))
         dfx = pd.DataFrame([int(x) for x in prices.values()],index = [x for x  in prices.keys()],columns = ['Стоимость навыка'])
-        fig = px.histogram(dfx,x = dfx['Стоимость навыка'],y = dfx.index,  width=2000, height=2000,labels={'x':'Стоимость навыка', 'y':'Навык'})
+        fig = px.histogram(dfx,x = dfx['Стоимость навыка'],y = dfx.index,  width=800, height=800,labels={'x':'Стоимость навыка', 'y':'Навык'})
         st.plotly_chart(fig, use_container_width=False)
         st.write("обязательно разверните график, нажав на значок стрелок, чтобы ознакомиться с информацией")
 
@@ -2792,7 +2792,7 @@ elif inp_species == 'бухгалтер':
 
         prices = json.load(open(f'{name}/model_0_code_experience_y_{name}.json'))
         dfx = pd.DataFrame([int(x) for x in prices.values()],index = [x for x  in prices.keys()],columns = ['Стоимость навыка'])
-        fig = px.histogram(dfx,x = dfx['Стоимость навыка'],y = dfx.index,  width=2000, height=2000,labels={'x':'Стоимость навыка', 'y':'Навык'})
+        fig = px.histogram(dfx,x = dfx['Стоимость навыка'],y = dfx.index,  width=800, height=800,labels={'x':'Стоимость навыка', 'y':'Навык'})
         st.plotly_chart(fig, use_container_width=False)
         st.write("обязательно разверните график, нажав на значок стрелок, чтобы ознакомиться с информацией")
         fig1 = px.pie(dfx,values = dfx['Стоимость навыка'],names = dfx.index,  width=1300, height=1300,title = 'Отношение стоимости признаков')
@@ -2812,7 +2812,7 @@ elif inp_species == 'бухгалтер':
 
         prices = json.load(open(f'{name}/model_1_code_experience_y_{name}.json'))
         dfx = pd.DataFrame([int(x) for x in prices.values()],index = [x for x  in prices.keys()],columns = ['Стоимость навыка'])
-        fig = px.histogram(dfx,x = dfx['Стоимость навыка'],y = dfx.index,  width=2000, height=2000,labels={'x':'Стоимость навыка', 'y':'Навык'})
+        fig = px.histogram(dfx,x = dfx['Стоимость навыка'],y = dfx.index,  width=800, height=800,labels={'x':'Стоимость навыка', 'y':'Навык'})
         st.plotly_chart(fig, use_container_width=False)
         st.write("обязательно разверните график, нажав на значок стрелок, чтобы ознакомиться с информацией")
 
@@ -2832,7 +2832,7 @@ elif inp_species == 'бухгалтер':
 
         prices = json.load(open(f'{name}/model_2_code_experience_y_{name}.json'))
         dfx = pd.DataFrame([int(x) for x in prices.values()],index = [x for x  in prices.keys()],columns = ['Стоимость навыка'])
-        fig = px.histogram(dfx,x = dfx['Стоимость навыка'],y = dfx.index,  width=2000, height=2000,labels={'x':'Стоимость навыка', 'y':'Навык'})
+        fig = px.histogram(dfx,x = dfx['Стоимость навыка'],y = dfx.index,  width=800, height=800,labels={'x':'Стоимость навыка', 'y':'Навык'})
         st.plotly_chart(fig, use_container_width=False)
         st.write("обязательно разверните график, нажав на значок стрелок, чтобы ознакомиться с информацией")
 
