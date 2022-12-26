@@ -1174,7 +1174,7 @@ elif inp_species == 'продавец':
         st.subheader("Выберите навыки для подсчета зарплаты по вакансии. Расположены в порядке убывания абсолютной значимости (см. развернутый график внизу страницы)")
     
         flag = 0
-        inputs = [model_0_code_experience_y_sorted[i] if st.checkbox(i) else 0 for \
+        inputs = [model_0_code_experience_y_sorted[i]/5 if st.checkbox(i) else 0 for \
                 i in [x for x in model_0_code_experience_y_sorted]]
     
     
@@ -1205,7 +1205,7 @@ elif inp_species == 'продавец':
         
     
         flag = 1
-        inputs = [model_1_code_experience_y_sorted[i] if st.checkbox(i) else 0 for \
+        inputs = [model_1_code_experience_y_sorted[i]/5 if st.checkbox(i) else 0 for \
                 i in [x for x in model_1_code_experience_y_sorted]]
     
     
@@ -1230,7 +1230,7 @@ elif inp_species == 'продавец':
         st.subheader("Выберите навыки для подсчета зарплаты по вакансии. Расположены в порядке убывания абсолютной значимости (см. развернутый график внизу страницы)")
 
         flag = 2
-        inputs = [model_2_code_experience_y_sorted[i]/(1.5 * inputs.count(0)) if st.checkbox(i) else 0 for \
+        inputs = [model_2_code_experience_y_sorted[i]/5 if st.checkbox(i) else 0 for \
                 i in [x for x in model_2_code_experience_y_sorted]]
     
     
