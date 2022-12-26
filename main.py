@@ -117,7 +117,7 @@ if inp_species == 'медсестра':
     model_0_code_experience_y_sorted_obl = json.load(open(f'{name}/model_0_code_experience_y_{name}_obl.json'))
     model_1_code_experience_y_sorted_obl = json.load(open(f'{name}/model_1_code_experience_y_{name}_obl_.json'))
     model_2_code_experience_y_sorted_obl = json.load(open(f'{name}/model_2_code_experience_y_{name}_obl.json'))
-   rmses = [float(x.strip()) for x in open(f'{name}/rmse_{name}.txt')]
+    rmses = [float(x.strip()) for x in open(f'{name}/rmse_{name}.txt')]
     bases = [float(x.strip()) for x in open(f'{name}/base_{name}.txt')]
 
     model_0_code_experience_y_rmse = rmses[0]
