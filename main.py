@@ -1230,7 +1230,7 @@ elif inp_species == 'продавец':
         st.subheader("Выберите навыки для подсчета зарплаты по вакансии. Расположены в порядке убывания абсолютной значимости (см. развернутый график внизу страницы)")
 
         flag = 2
-        inputs = [model_2_code_experience_y_sorted[i] if st.checkbox(i) else 0 for \
+        inputs = [model_2_code_experience_y_sorted[i]/(1.5 * inputs.count(0)) if st.checkbox(i) else 0 for \
                 i in [x for x in model_2_code_experience_y_sorted]]
     
     
@@ -1241,11 +1241,9 @@ elif inp_species == 'продавец':
 
         reg = model_2_code_experience_y_sorted_obl[option]
         inputs += [reg]
+
         prediction = bases[2] + sum(inputs)
-        if 80000 > prediction > 60000:
-            prediction /= 1.5
-        elif prediction > 80000:
-            prediction /= 2
+        
 
             
     if st.button('Рассчитать зарплату'):
