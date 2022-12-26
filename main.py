@@ -366,7 +366,7 @@ elif inp_species == 'сварщик':
                 p2 = pr +model_2_code_experience_y_rmse/2
             
             
-            st.write(f"Предполагаемая ЗП:  {'{:.2f}'.format(p1)} - {'{:.2f}'.format(p2)} рублей")
+            st.write(f"Предполагаемая ЗП:  {p1//1000 * 1000} - {p2//1000 * 1000} рублей")
     else:
         if experience == 'Без опыта':
             st.subheader(f"Базовые навыки {inp_species} Без опыта:")
@@ -451,7 +451,7 @@ elif inp_species == 'сварщик':
                 p2 = pr +model_2_code_experience_n_rmse/2
             
             
-            st.write(f"Предполагаемая ЗП:  {'{:.2f}'.format(p1)} - {'{:.2f}'.format(p2)} рублей")
+            st.write(f"Предполагаемая ЗП:  {p1//1000 * 1000} - {p2//1000 * 1000} рублей")
     # if flag == 0:
     #     st.subheader("")
     #     st.subheader("")
@@ -697,7 +697,7 @@ elif inp_species == 'слесарь':
                 p2 = pr +model_2_code_experience_y_rmse/2
             
             
-            st.write(f"Предполагаемая ЗП:  {'{:.2f}'.format(p1)} - {'{:.2f}'.format(p2)} рублей")
+            st.write(f"Предполагаемая ЗП:  {p1//1000 * 1000} - {p2//1000 * 1000} рублей")
     else:
         if experience == 'Без опыта':
             st.subheader(f"Базовые навыки {inp_species} Без опыта:")
@@ -782,7 +782,7 @@ elif inp_species == 'слесарь':
                 p2 = pr +model_2_code_experience_n_rmse/2
             
             
-            st.write(f"Предполагаемая ЗП:  {'{:.2f}'.format(p1)} - {'{:.2f}'.format(p2)} рублей")
+            st.write(f"Предполагаемая ЗП:  {p1//1000 * 1000} - {p2//1000 * 1000} рублей")
     # if flag == 0:
     #     st.subheader("")
     #     st.subheader("")
@@ -1393,7 +1393,7 @@ elif inp_species == 'слесарь КИПиА':
                 p2 = pr +model_2_code_experience_y_rmse/2
             
             
-            st.write(f"Предполагаемая ЗП:  {'{:.2f}'.format(p1)} - {'{:.2f}'.format(p2)} рублей")
+            st.write(f"Предполагаемая ЗП:  {p1//1000 * 1000} - {p2//1000 * 1000} рублей")
     else:
         if experience == 'Без опыта':
             st.subheader(f"Базовые навыки {inp_species} Без опыта:")
@@ -1478,7 +1478,7 @@ elif inp_species == 'слесарь КИПиА':
                 p2 = pr +model_2_code_experience_n_rmse/2
             
             
-            st.write(f"Предполагаемая ЗП:  {'{:.2f}'.format(p1)} - {'{:.2f}'.format(p2)} рублей")
+            st.write(f"Предполагаемая ЗП:  {p1//1000 * 1000} - {p2//1000 * 1000} рублей")
 
     # if flag == 0:
     #     st.subheader("")
@@ -1725,7 +1725,7 @@ elif inp_species == 'слесарь-ремонтник':
                 p2 = pr +model_2_code_experience_y_rmse/2
             
             
-            st.write(f"Предполагаемая ЗП:  {'{:.2f}'.format(p1)} - {'{:.2f}'.format(p2)} рублей")
+            st.write(f"Предполагаемая ЗП:  {p1//1000 * 1000} - {p2//1000 * 1000} рублей")
     else:
         if experience == 'Без опыта':
             st.subheader(f"Базовые навыки {inp_species} Без опыта:")
@@ -1810,7 +1810,7 @@ elif inp_species == 'слесарь-ремонтник':
                 p2 = pr +model_2_code_experience_n_rmse/2
             
             
-            st.write(f"Предполагаемая ЗП:  {'{:.2f}'.format(p1)} - {'{:.2f}'.format(p2)} рублей")
+            st.write(f"Предполагаемая ЗП:  {p1//1000 * 1000} - {p2//1000 * 1000} рублей")
 
     # if flag == 0:
     #     st.subheader("")
@@ -2056,7 +2056,7 @@ elif inp_species == 'Слесарь механосборочных работ (M
                 p2 = pr +model_2_code_experience_y_rmse/2
             
             
-            st.write(f"Предполагаемая ЗП:  {'{:.2f}'.format(p1)} - {'{:.2f}'.format(p2)} рублей")
+            st.write(f"Предполагаемая ЗП:  {p1//1000 * 1000} - {p2//1000 * 1000} рублей")
     else:
         if experience == 'Без опыта':
             st.subheader(f"Базовые навыки {inp_species} Без опыта:")
@@ -2141,7 +2141,7 @@ elif inp_species == 'Слесарь механосборочных работ (M
                 p2 = pr +model_2_code_experience_n_rmse/2
             
             
-            st.write(f"Предполагаемая ЗП:  {'{:.2f}'.format(p1)} - {'{:.2f}'.format(p2)} рублей")
+            st.write(f"Предполагаемая ЗП:  {p1//1000 * 1000} - {p2//1000 * 1000} рублей")
 
     # if flag == 0:
     #     st.subheader("")
@@ -2386,7 +2386,7 @@ elif inp_species == 'слесарь-инструментальщик':
                 p2 = pr +model_2_code_experience_y_rmse/2
             
             
-            st.write(f"Предполагаемая ЗП:  {'{:.2f}'.format(p1)} - {'{:.2f}'.format(p2)} рублей")
+            st.write(f"Предполагаемая ЗП:  {p1//1000 * 1000} - {p2//1000 * 1000} рублей")
     else:
         if experience == 'Без опыта':
             st.subheader(f"Базовые навыки {inp_species} Без опыта:")
@@ -2471,4 +2471,4 @@ elif inp_species == 'слесарь-инструментальщик':
                 p2 = pr +model_2_code_experience_n_rmse/2
             
             
-            st.write(f"Предполагаемая ЗП:  {'{:.2f}'.format(p1)} - {'{:.2f}'.format(p2)} рублей")
+            st.write(f"Предполагаемая ЗП:  {p1//1000 * 1000} - {p2//1000 * 1000} рублей")
