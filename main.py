@@ -339,6 +339,7 @@ elif inp_species == 'сварщик':
     data = json.load(f)
 
     vahta = 1 if st.checkbox('Вахта') else 0
+
     if vahta:
         if experience == 'Без опыта':
             st.subheader(f"Базовые навыки {inp_species} Без опыта:")
@@ -368,8 +369,7 @@ elif inp_species == 'сварщик':
                 st.write(f'{number+1}) {skill}')
 
             st.subheader("Выберите навыки для подсчета зарплаты по вакансии. Расположены в порядке убывания абсолютной значимости (см. развернутый график внизу страницы)")
-            print(model_1_code_experience_y_sorted)
-
+            
         
             flag = 1
             inputs = [model_1_code_experience_y_sorted[i] if st.checkbox(i) else 0 for \
@@ -384,6 +384,7 @@ elif inp_species == 'сварщик':
             reg = model_1_code_experience_y_sorted_obl[option]
             inputs += [reg]
             prediction = bases[2] + sum(inputs)
+            print(prediction)
 
 
         else:
