@@ -2741,7 +2741,7 @@ elif inp_species == 'бухгалтер':
         inputs = [model_0_code_experience_y_sorted[i]/5 if st.checkbox(i) else 0 for \
                 i in [x for x in model_0_code_experience_y_sorted if x not in base_skills_0]]
     
-        st.write(len(inputs))
+        
         st.subheader("Выберите регион вакансии")
         option = st.selectbox(
             'Напишите регион вакансии',
