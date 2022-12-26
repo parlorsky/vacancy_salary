@@ -2792,10 +2792,10 @@ elif inp_species == 'бухгалтер':
 
         prices = json.load(open(f'{name}/model_0_code_experience_y_{name}.json'))
         dfx = pd.DataFrame([int(x) for x in prices.values()],index = [x for x  in prices.keys()],columns = ['Стоимость навыка'])
-        fig = px.histogram(dfx,x = dfx['Стоимость навыка'],y = dfx.index,  width=4000, height=4000,labels={'x':'Стоимость навыка', 'y':'Навык'})
+        fig = px.histogram(dfx,x = dfx['Стоимость навыка'],y = dfx.index,  width=1000, height=5000,labels={'x':'Стоимость навыка', 'y':'Навык'})
         st.plotly_chart(fig, use_container_width=False)
         st.write("обязательно разверните график, нажав на значок стрелок, чтобы ознакомиться с информацией")
-        fig1 = px.pie(dfx,values = dfx['Стоимость навыка'],names = dfx.index,  width=4000, height=4000,title = 'Отношение стоимости признаков')
+        fig1 = px.pie(dfx,values = dfx['Стоимость навыка'],names = dfx.index,  width=1000, height=5000,title = 'Отношение стоимости признаков')
         st.plotly_chart(fig1, use_container_width=False)
 
 
@@ -2812,11 +2812,11 @@ elif inp_species == 'бухгалтер':
 
         prices = json.load(open(f'{name}/model_1_code_experience_y_{name}.json'))
         dfx = pd.DataFrame([int(x) for x in prices.values()],index = [x for x  in prices.keys()],columns = ['Стоимость навыка'])
-        fig = px.histogram(dfx,x = dfx['Стоимость навыка'],y = dfx.index,  width=4000, height=4000,labels={'x':'Стоимость навыка', 'y':'Навык'})
+        fig = px.histogram(dfx,x = dfx['Стоимость навыка'],y = dfx.index,  width=1000, height=5000,labels={'x':'Стоимость навыка', 'y':'Навык'})
         st.plotly_chart(fig, use_container_width=False)
         st.write("обязательно разверните график, нажав на значок стрелок, чтобы ознакомиться с информацией")
 
-        fig1 = px.pie(dfx,values = dfx['Стоимость навыка'],names = dfx.index,  width=4000, height=4000,title = 'Отношение стоимости признаков')
+        fig1 = px.pie(dfx,values = dfx['Стоимость навыка'],names = dfx.index,  width=1000, height=5000,title = 'Отношение стоимости признаков')
         st.plotly_chart(fig1, use_container_width=False)
 
     if flag == 2:
@@ -2832,10 +2832,10 @@ elif inp_species == 'бухгалтер':
 
         prices = json.load(open(f'{name}/model_2_code_experience_y_{name}.json'))
         dfx = pd.DataFrame([int(x) for x in prices.values()],index = [x for x  in prices.keys()],columns = ['Стоимость навыка'])
-        fig = px.histogram(dfx,x = dfx['Стоимость навыка'],y = dfx.index,  width=4000, height=4000,labels={'x':'Стоимость навыка', 'y':'Навык'})
+        fig = px.histogram(dfx,x = dfx['Стоимость навыка'],y = dfx.index,  width=1000, height=5000,labels={'x':'Стоимость навыка', 'y':'Навык'})
         st.plotly_chart(fig, use_container_width=False)
         st.write("обязательно разверните график, нажав на значок стрелок, чтобы ознакомиться с информацией")
 
-        fig1 = px.pie(dfx,values = dfx['Стоимость навыка'],names = dfx.index,  width=4000, height=4000,title = 'Отношение стоимости признаков')
+        fig1 = px.pie(dfx,values = dfx['Стоимость навыка'],names = dfx.index,  width=1000, height=5000,title = 'Отношение стоимости признаков')
         st.plotly_chart(fig1, use_container_width=False)
    
