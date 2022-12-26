@@ -384,7 +384,6 @@ elif inp_species == 'сварщик':
             reg = model_1_code_experience_y_sorted_obl[option]
             inputs += [reg]
             prediction = bases[2] + sum(inputs)
-            st.write(bases[2] + sum(inputs))
 
         else:
             st.subheader(f"Базовые навыки {inp_species} Более 3 лет опыта:")
