@@ -152,7 +152,7 @@ if inp_species == 'медсестра':
     
         flag = 0
         inputs = [model_0_code_experience_y_sorted[i] if st.checkbox(i) else 0 for \
-                i in [x for x in model_0_code_experience_y_sorted]]
+                i in [x for x in model_0_code_experience_y_sorted if x not in base_skills_0]]
     
     
         st.subheader("Выберите регион вакансии")
@@ -180,7 +180,7 @@ if inp_species == 'медсестра':
     
         flag = 1
         inputs = [model_1_code_experience_y_sorted[i] if st.checkbox(i) else 0 for \
-                i in [x for x in model_1_code_experience_y_sorted]]
+                i in [x for x in model_1_code_experience_y_sorted if x not in base_skills_1]]
     
     
         st.subheader("Выберите регион вакансии")
@@ -205,7 +205,7 @@ if inp_species == 'медсестра':
 
         flag = 2
         inputs = [model_2_code_experience_y_sorted[i] if st.checkbox(i) else 0 for \
-                i in [x for x in model_2_code_experience_y_sorted]]
+                i in [x for x in model_2_code_experience_y_sorted if x not in base_skills_2]]
     
     
         st.subheader("Выберите регион вакансии")
@@ -294,7 +294,7 @@ elif inp_species == 'сварщик':
         
             flag = 0
             inputs = [model_0_code_experience_y_sorted[i] if st.checkbox(i) else 0 for \
-                 i in [x for x in model_0_code_experience_y_sorted]]
+                 i in [x for x in model_0_code_experience_y_sorted if x not in base_skills_0]]
         
        
             st.subheader("Выберите регион вакансии")
@@ -317,7 +317,7 @@ elif inp_species == 'сварщик':
         
             flag = 1
             inputs = [model_1_code_experience_y_sorted[i] if st.checkbox(i) else 0 for \
-                 i in [x for x in model_1_code_experience_y_sorted]]
+                 i in [x for x in model_1_code_experience_y_sorted if x not in base_skills_1]]
         
        
             st.subheader("Выберите регион вакансии")
@@ -338,7 +338,7 @@ elif inp_species == 'сварщик':
 
             flag = 2
             inputs = [model_2_code_experience_y_sorted[i] if st.checkbox(i) else 0 for \
-                 i in [x for x in model_2_code_experience_y_sorted]]
+                 i in [x for x in model_2_code_experience_y_sorted if x not in base_skills_2]]
         
        
             st.subheader("Выберите регион вакансии")
@@ -377,7 +377,7 @@ elif inp_species == 'сварщик':
         
             flag = 3
             inputs = [model_0_code_experience_n_sorted[i] if st.checkbox(i) else 0 for \
-                 i in [x for x in model_0_code_experience_n_sorted]]
+                 i in [x for x in model_0_code_experience_n_sorted if x not in base_skills_0]]
         
        
             st.subheader("Выберите регион вакансии")
@@ -400,7 +400,7 @@ elif inp_species == 'сварщик':
         
             flag = 4
             inputs = [model_1_code_experience_n_sorted[i] if st.checkbox(i) else 0 for \
-                 i in [x for x in model_1_code_experience_n_sorted]]
+                 i in [x for x in model_1_code_experience_n_sorted if x not in base_skills_1]]
         
        
             st.subheader("Выберите регион вакансии")
@@ -422,7 +422,7 @@ elif inp_species == 'сварщик':
 
             flag = 5
             inputs = [model_2_code_experience_n_sorted[i] if st.checkbox(i) else 0 for \
-                 i in [x for x in model_2_code_experience_n_sorted]]
+                 i in [x for x in model_2_code_experience_n_sorted if x not in base_skills_2]]
         
        
             st.subheader("Выберите регион вакансии")
@@ -624,7 +624,7 @@ elif inp_species == 'слесарь':
         
             flag = 0
             inputs = [model_0_code_experience_y_sorted[i] if st.checkbox(i) else 0 for \
-                 i in [x for x in model_0_code_experience_y_sorted]]
+                 i in [x for x in model_0_code_experience_y_sorted if x not in base_skills_0]]
         
        
             st.subheader("Выберите регион вакансии")
@@ -647,7 +647,7 @@ elif inp_species == 'слесарь':
         
             flag = 1
             inputs = [model_1_code_experience_y_sorted[i] if st.checkbox(i) else 0 for \
-                 i in [x for x in model_1_code_experience_y_sorted]]
+                 i in [x for x in model_1_code_experience_y_sorted if x not in base_skills_1]]
         
        
             st.subheader("Выберите регион вакансии")
@@ -669,7 +669,7 @@ elif inp_species == 'слесарь':
 
             flag = 2
             inputs = [model_2_code_experience_y_sorted[i] if st.checkbox(i) else 0 for \
-                 i in [x for x in model_2_code_experience_y_sorted]]
+                 i in [x for x in model_2_code_experience_y_sorted if x not in base_skills_2]]
         
        
             st.subheader("Выберите регион вакансии")
@@ -708,7 +708,7 @@ elif inp_species == 'слесарь':
         
             flag = 3
             inputs = [model_0_code_experience_n_sorted[i] if st.checkbox(i) else 0 for \
-                 i in [x for x in model_0_code_experience_n_sorted]]
+                 i in [x for x in model_0_code_experience_n_sorted if x not in base_skills_0]]
         
        
             st.subheader("Выберите регион вакансии")
@@ -731,7 +731,7 @@ elif inp_species == 'слесарь':
         
             flag = 4
             inputs = [model_1_code_experience_n_sorted[i] if st.checkbox(i) else 0 for \
-                 i in [x for x in model_1_code_experience_n_sorted]]
+                 i in [x for x in model_1_code_experience_n_sorted if x not in base_skills_1]]
         
        
             st.subheader("Выберите регион вакансии")
@@ -753,7 +753,7 @@ elif inp_species == 'слесарь':
 
             flag = 5
             inputs = [model_2_code_experience_n_sorted[i] if st.checkbox(i) else 0 for \
-                 i in [x for x in model_2_code_experience_n_sorted]]
+                 i in [x for x in model_2_code_experience_n_sorted if x not in base_skills_2]]
         
        
             st.subheader("Выберите регион вакансии")
@@ -943,7 +943,7 @@ elif inp_species == 'специалист по персоналу':
     
         flag = 0
         inputs = [model_0_code_experience_y_sorted[i] if st.checkbox(i) else 0 for \
-                i in [x for x in model_0_code_experience_y_sorted]]
+                i in [x for x in model_0_code_experience_y_sorted if x not in base_skills_0]]
     
     
         st.subheader("Выберите регион вакансии")
@@ -974,7 +974,7 @@ elif inp_species == 'специалист по персоналу':
     
         flag = 1
         inputs = [model_1_code_experience_y_sorted[i] if st.checkbox(i) else 0 for \
-                i in [x for x in model_1_code_experience_y_sorted]]
+                i in [x for x in model_1_code_experience_y_sorted if x not in base_skills_1]]
     
     
         st.subheader("Выберите регион вакансии")
@@ -999,7 +999,7 @@ elif inp_species == 'специалист по персоналу':
 
         flag = 2
         inputs = [model_2_code_experience_y_sorted[i] if st.checkbox(i) else 0 for \
-                i in [x for x in model_2_code_experience_y_sorted]]
+                i in [x for x in model_2_code_experience_y_sorted if x not in base_skills_2]]
     
     
         st.subheader("Выберите регион вакансии")
@@ -1175,7 +1175,7 @@ elif inp_species == 'продавец':
     
         flag = 0
         inputs = [model_0_code_experience_y_sorted[i]/5 if st.checkbox(i) else 0 for \
-                i in [x for x in model_0_code_experience_y_sorted]]
+                i in [x for x in model_0_code_experience_y_sorted if x not in base_skills_0]]
     
     
         st.subheader("Выберите регион вакансии")
@@ -1206,7 +1206,7 @@ elif inp_species == 'продавец':
     
         flag = 1
         inputs = [model_1_code_experience_y_sorted[i]/5 if st.checkbox(i) else 0 for \
-                i in [x for x in model_1_code_experience_y_sorted]]
+                i in [x for x in model_1_code_experience_y_sorted if x not in base_skills_1]]
     
     
         st.subheader("Выберите регион вакансии")
@@ -1231,7 +1231,7 @@ elif inp_species == 'продавец':
 
         flag = 2
         inputs = [model_2_code_experience_y_sorted[i]/5 if st.checkbox(i) else 0 for \
-                i in [x for x in model_2_code_experience_y_sorted]]
+                i in [x for x in model_2_code_experience_y_sorted if x not in base_skills_2]]
     
     
         st.subheader("Выберите регион вакансии")
@@ -1320,7 +1320,7 @@ elif inp_species == 'слесарь КИПиА':
         
             flag = 0
             inputs = [model_0_code_experience_y_sorted[i] if st.checkbox(i) else 0 for \
-                 i in [x for x in model_0_code_experience_y_sorted]]
+                 i in [x for x in model_0_code_experience_y_sorted if x not in base_skills_0]]
         
        
             st.subheader("Выберите регион вакансии")
@@ -1343,7 +1343,7 @@ elif inp_species == 'слесарь КИПиА':
         
             flag = 1
             inputs = [model_1_code_experience_y_sorted[i] if st.checkbox(i) else 0 for \
-                 i in [x for x in model_1_code_experience_y_sorted]]
+                 i in [x for x in model_1_code_experience_y_sorted if x not in base_skills_1]]
         
        
             st.subheader("Выберите регион вакансии")
@@ -1365,7 +1365,7 @@ elif inp_species == 'слесарь КИПиА':
 
             flag = 2
             inputs = [model_2_code_experience_y_sorted[i] if st.checkbox(i) else 0 for \
-                 i in [x for x in model_2_code_experience_y_sorted]]
+                 i in [x for x in model_2_code_experience_y_sorted if x not in base_skills_2]]
         
        
             st.subheader("Выберите регион вакансии")
@@ -1404,7 +1404,7 @@ elif inp_species == 'слесарь КИПиА':
         
             flag = 3
             inputs = [model_0_code_experience_n_sorted[i] if st.checkbox(i) else 0 for \
-                 i in [x for x in model_0_code_experience_n_sorted]]
+                 i in [x for x in model_0_code_experience_n_sorted if x not in base_skills_0]]
         
        
             st.subheader("Выберите регион вакансии")
@@ -1427,7 +1427,7 @@ elif inp_species == 'слесарь КИПиА':
         
             flag = 4
             inputs = [model_1_code_experience_n_sorted[i] if st.checkbox(i) else 0 for \
-                 i in [x for x in model_1_code_experience_n_sorted]]
+                 i in [x for x in model_1_code_experience_n_sorted if x not in base_skills_1]]
         
        
             st.subheader("Выберите регион вакансии")
@@ -1449,7 +1449,7 @@ elif inp_species == 'слесарь КИПиА':
 
             flag = 5
             inputs = [model_2_code_experience_n_sorted[i] if st.checkbox(i) else 0 for \
-                 i in [x for x in model_2_code_experience_n_sorted]]
+                 i in [x for x in model_2_code_experience_n_sorted if x not in base_skills_2]]
         
        
             st.subheader("Выберите регион вакансии")
@@ -1652,7 +1652,7 @@ elif inp_species == 'слесарь-ремонтник':
         
             flag = 0
             inputs = [model_0_code_experience_y_sorted[i] if st.checkbox(i) else 0 for \
-                 i in [x for x in model_0_code_experience_y_sorted]]
+                 i in [x for x in model_0_code_experience_y_sorted if x not in base_skills_0]]
         
        
             st.subheader("Выберите регион вакансии")
@@ -1675,7 +1675,7 @@ elif inp_species == 'слесарь-ремонтник':
         
             flag = 1
             inputs = [model_1_code_experience_y_sorted[i] if st.checkbox(i) else 0 for \
-                 i in [x for x in model_1_code_experience_y_sorted]]
+                 i in [x for x in model_1_code_experience_y_sorted if x not in base_skills_1]]
         
        
             st.subheader("Выберите регион вакансии")
@@ -1697,7 +1697,7 @@ elif inp_species == 'слесарь-ремонтник':
 
             flag = 2
             inputs = [model_2_code_experience_y_sorted[i] if st.checkbox(i) else 0 for \
-                 i in [x for x in model_2_code_experience_y_sorted]]
+                 i in [x for x in model_2_code_experience_y_sorted if x not in base_skills_2]]
         
        
             st.subheader("Выберите регион вакансии")
@@ -1736,7 +1736,7 @@ elif inp_species == 'слесарь-ремонтник':
         
             flag = 3
             inputs = [model_0_code_experience_n_sorted[i] if st.checkbox(i) else 0 for \
-                 i in [x for x in model_0_code_experience_n_sorted]]
+                 i in [x for x in model_0_code_experience_n_sorted if x not in base_skills_0]]
         
        
             st.subheader("Выберите регион вакансии")
@@ -1759,7 +1759,7 @@ elif inp_species == 'слесарь-ремонтник':
         
             flag = 4
             inputs = [model_1_code_experience_n_sorted[i] if st.checkbox(i) else 0 for \
-                 i in [x for x in model_1_code_experience_n_sorted]]
+                 i in [x for x in model_1_code_experience_n_sorted if x not in base_skills_1]]
         
        
             st.subheader("Выберите регион вакансии")
@@ -1781,7 +1781,7 @@ elif inp_species == 'слесарь-ремонтник':
 
             flag = 5
             inputs = [model_2_code_experience_n_sorted[i] if st.checkbox(i) else 0 for \
-                 i in [x for x in model_2_code_experience_n_sorted]]
+                 i in [x for x in model_2_code_experience_n_sorted if x not in base_skills_2]]
         
        
             st.subheader("Выберите регион вакансии")
@@ -1983,7 +1983,7 @@ elif inp_species == 'Слесарь механосборочных работ (M
         
             flag = 0
             inputs = [model_0_code_experience_y_sorted[i] if st.checkbox(i) else 0 for \
-                 i in [x for x in model_0_code_experience_y_sorted]]
+                 i in [x for x in model_0_code_experience_y_sorted if x not in base_skills_0]]
         
        
             st.subheader("Выберите регион вакансии")
@@ -2006,7 +2006,7 @@ elif inp_species == 'Слесарь механосборочных работ (M
         
             flag = 1
             inputs = [model_1_code_experience_y_sorted[i] if st.checkbox(i) else 0 for \
-                 i in [x for x in model_1_code_experience_y_sorted]]
+                 i in [x for x in model_1_code_experience_y_sorted if x not in base_skills_1]]
         
        
             st.subheader("Выберите регион вакансии")
@@ -2028,7 +2028,7 @@ elif inp_species == 'Слесарь механосборочных работ (M
 
             flag = 2
             inputs = [model_2_code_experience_y_sorted[i] if st.checkbox(i) else 0 for \
-                 i in [x for x in model_2_code_experience_y_sorted]]
+                 i in [x for x in model_2_code_experience_y_sorted if x not in base_skills_2]]
         
        
             st.subheader("Выберите регион вакансии")
@@ -2067,7 +2067,7 @@ elif inp_species == 'Слесарь механосборочных работ (M
         
             flag = 3
             inputs = [model_0_code_experience_n_sorted[i] if st.checkbox(i) else 0 for \
-                 i in [x for x in model_0_code_experience_n_sorted]]
+                 i in [x for x in model_0_code_experience_n_sorted if x not in base_skills_0]]
         
        
             st.subheader("Выберите регион вакансии")
@@ -2090,7 +2090,7 @@ elif inp_species == 'Слесарь механосборочных работ (M
         
             flag = 4
             inputs = [model_1_code_experience_n_sorted[i] if st.checkbox(i) else 0 for \
-                 i in [x for x in model_1_code_experience_n_sorted]]
+                 i in [x for x in model_1_code_experience_n_sorted if x not in base_skills_1]]
         
        
             st.subheader("Выберите регион вакансии")
@@ -2112,7 +2112,7 @@ elif inp_species == 'Слесарь механосборочных работ (M
 
             flag = 5
             inputs = [model_2_code_experience_n_sorted[i] if st.checkbox(i) else 0 for \
-                 i in [x for x in model_2_code_experience_n_sorted]]
+                 i in [x for x in model_2_code_experience_n_sorted if x not in base_skills_2]]
         
        
             st.subheader("Выберите регион вакансии")
