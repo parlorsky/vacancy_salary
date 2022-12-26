@@ -1194,6 +1194,79 @@ elif inp_species == 'продавец':
             prediction /= 3
         
         
+        
+
+    elif experience == 'От 1 до 3 лет':
+        st.subheader(f"Базовые навыки {inp_species} От 1 до 3 лет:")
+        for number,skill in enumerate(base_skills_1):
+            st.write(f'{number+1}) {skill}')
+
+        st.subheader("Выберите навыки для подсчета зарплаты по вакансии. Расположены в порядке убывания абсолютной значимости (см. развернутый график внизу страницы)")
+        
+    
+        flag = 1
+        inputs = [model_1_code_experience_y_sorted[i] if st.checkbox(i) else 0 for \
+                i in [x for x in model_1_code_experience_y_sorted]]
+    
+    
+        st.subheader("Выберите регион вакансии")
+        option = st.selectbox(
+            'Напишите регион вакансии',
+            ([x for x in list(model_1_code_experience_y_sorted_obl.keys())]))
+
+        reg = model_1_code_experience_y_sorted_obl[option]
+        inputs += [reg]
+        prediction = bases[1] + sum(inputs)
+        if 75000 > prediction > 50000:
+            prediction /= 2
+        elif prediction > 75000:
+            prediction /= 2.5
+
+    else:
+        st.subheader(f"Базовые навыки {inp_species} Более 3 лет опыта:")
+        for number,skill in enumerate(base_skills_2):
+            st.write(f'{number+1}) {skill}')
+
+        st.subheader("Выберите навыки для подсчета зарплаты по вакансии. Расположены в порядке убывания абсолютной значимости (см. развернутый график внизу страницы)")
+
+        flag = 2
+        inputs = [model_2_code_experience_y_sorted[i] if st.checkbox(i) else 0 for \
+                i in [x for x in model_2_code_experience_y_sorted]]
+    
+    
+        st.subheader("Выберите регион вакансии")
+        option = st.selectbox(
+            'Напишите регион вакансии',
+            ([x for x in list(model_2_code_experience_y_sorted_obl.keys())]))
+
+        reg = model_2_code_experience_y_sorted_obl[option]
+        inputs += [reg]
+        prediction = bases[2] + sum(inputs)
+        if 80000 > prediction > 60000:
+            prediction /= 1.3
+        elif prediction > 80000:
+            prediction /= 1.7
+
+            
+    if st.button('Рассчитать зарплату'):
+        pr = abs(prediction)
+        if flag == 0:
+            p1 = pr - model_0_code_experience_y_rmse/2
+            p2 = pr +model_0_code_experience_y_rmse/2
+        
+        if flag == 1:
+            p1 = pr - model_1_code_experience_y_rmse/2
+            p2 = pr +model_1_code_experience_y_rmse/2
+        
+        if flag == 2:
+            p1 = pr - model_2_code_experience_y_rmse/2
+            p2 = pr +model_2_code_experience_y_rmse/2
+        
+        
+        st.write(f"Предполагаемая ЗП:  {'{:.2f}'.format(p1)} - {'{:.2f}'.format(p2)} рублей")
+    
+        
+        
 elif inp_species == 'слесарь КИПиА':
     name = 'slesar_KIPiA'
     model_0_code_experience_y_sorted = json.load(open(f'{name}/model_0_code_experience_y_{name}.json'))
