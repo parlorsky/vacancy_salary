@@ -2057,7 +2057,9 @@ elif inp_species == 'Слесарь механосборочных работ (M
     model_1_code_experience_n_sorted_obl = list(json.load(open(f'{name}/model_1_code_experience_n_{name}_obl.json')).keys())
     model_2_code_experience_n_sorted_obl = list(json.load(open(f'{name}/model_2_code_experience_n_{name}_obl.json')).keys())
     
-    rmses = [int(x.strip()) for x in open(f'rmse_{name}.txt')]
+    rmses = [float(x.strip()) for x in open(f'{name}/rmse_{name}.txt')]
+    bases = [float(x.strip()) for x in open(f'{name}/base_{name}.txt')]
+
     model_0_code_experience_y_rmse = rmses[0]
     model_0_code_experience_n_rmse = rmses[1]
     model_1_code_experience_y_rmse = rmses[2]
