@@ -986,9 +986,9 @@ elif inp_species == 'специалист по персоналу':
         inputs += [reg]
         prediction = bases[1] + sum(inputs)
         if 75000 > prediction > 60000:
-            prediction /= 1.5
+            prediction /= 1.4
         elif prediction > 75000:
-            prediction /= 2
+            prediction /= 1.7
 
     else:
         st.subheader(f"Базовые навыки {inp_species} Более 3 лет опыта:")
@@ -1011,9 +1011,9 @@ elif inp_species == 'специалист по персоналу':
         inputs += [reg]
         prediction = bases[2] + sum(inputs)
         if 80000 > prediction > 60000:
-            prediction /= 1.5
+            prediction /= 1.3
         elif prediction > 80000:
-            prediction /= 2
+            prediction /= 1.5
 
             
     if st.button('Рассчитать зарплату'):
