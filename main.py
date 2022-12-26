@@ -2049,42 +2049,29 @@ elif inp_species == 'Слесарь механосборочных работ (M
     model_0_code_experience_n_sorted = list(json.load(open(f'{name}/model_0_code_experience_n_{name}.json')).keys())
     model_1_code_experience_n_sorted = list(json.load(open(f'{name}/model_1_code_experience_n_{name}.json')).keys())
     model_2_code_experience_n_sorted = list(json.load(open(f'{name}/model_2_code_experience_n_{name}.json')).keys())
+
+    model_0_code_experience_y_sorted_obl = list(json.load(open(f'{name}/model_0_code_experience_y_{name}_obl.json')).keys())
+    model_1_code_experience_y_sorted_obl = list(json.load(open(f'{name}/model_1_code_experience_y_{name}_obl.json')).keys())
+    model_2_code_experience_y_sorted_obl = list(json.load(open(f'{name}/model_2_code_experience_y_{name}_obl.json')).keys())
+    model_0_code_experience_n_sorted_obl = list(json.load(open(f'{name}/model_0_code_experience_n_{name}_obl.json')).keys())
+    model_1_code_experience_n_sorted_obl = list(json.load(open(f'{name}/model_1_code_experience_n_{name}_obl.json')).keys())
+    model_2_code_experience_n_sorted_obl = list(json.load(open(f'{name}/model_2_code_experience_n_{name}_obl.json')).keys())
     
-    model_0_code_experience_y_rmse = 14765.691546449118
-    model_1_code_experience_y_rmse = 10290.943150745916
-    model_2_code_experience_y_rmse = 10056.971376882393
-    model_0_code_experience_n_rmse = 9467.087891215146
-    model_1_code_experience_n_rmse = 14258.498395938801
-    model_2_code_experience_n_rmse = 13214.124641742088
+    rmses = [int(x.strip()) for x in open(f'rmse_{name}.txt')]
+    model_0_code_experience_y_rmse = rmses[0]
+    model_0_code_experience_n_rmse = rmses[1]
+    model_1_code_experience_y_rmse = rmses[2]
+    model_1_code_experience_n_rmse = rmses[3]
+    model_2_code_experience_y_rmse = rmses[3]
+    model_2_code_experience_n_rmse = rmses[4]
 
     base_skills_0 = [x.strip() for x in open(f'{name}/base_skills_0_{name}.txt', 'r') if len(x) > 3]
     base_skills_1 = [x.strip() for x in open(f'{name}/base_skills_1_{name}.txt', 'r') if len(x) > 3]
     base_skills_2 = [x.strip() for x in open(f'{name}/base_skills_2_{name}.txt', 'r') if len(x) > 3]
-    
-    model_0_code_experience_y = CatBoostRegressor()
-    model_0_code_experience_y.load_model(f'{name}/model_0_code_experience_y_{name}')
-    model_1_code_experience_y = CatBoostRegressor()
-    model_1_code_experience_y.load_model(f'{name}/model_1_code_experience_y_{name}')
-    model_2_code_experience_y = CatBoostRegressor()
-    model_2_code_experience_y.load_model(f'{name}/model_2_code_experience_y_{name}')
-    model_0_code_experience_n = CatBoostRegressor()
-    model_0_code_experience_n.load_model(f'{name}/model_0_code_experience_n_{name}')
-    model_1_code_experience_n = CatBoostRegressor()
-    model_1_code_experience_n.load_model(f'{name}/model_1_code_experience_n_{name}')
-    model_2_code_experience_n = CatBoostRegressor()
-    model_2_code_experience_n.load_model(f'{name}/model_2_code_experience_n_{name}')
 
     m_order = [x.strip() for x in open(f'{name}/order_{name}.txt')]
-    model_0_code_experience_y_sorted_mask = [model_0_code_experience_y_sorted.index(m_order[i]) for i in range(len(m_order))]
-    model_1_code_experience_y_sorted_mask = [model_1_code_experience_y_sorted.index(m_order[i]) for i in range(len(m_order))]
-    model_2_code_experience_y_sorted_mask = [model_2_code_experience_y_sorted.index(m_order[i]) for i in range(len(m_order))]
-    model_0_code_experience_n_sorted_mask = [model_0_code_experience_n_sorted.index(m_order[i]) for i in range(len(m_order))]
-    model_1_code_experience_n_sorted_mask = [model_1_code_experience_n_sorted.index(m_order[i]) for i in range(len(m_order))]
-    model_2_code_experience_n_sorted_mask = [model_2_code_experience_n_sorted.index(m_order[i]) for i in range(len(m_order))]
-
     
     st.header(f"Оценка стоимости навыков {inp_species}")
-    # data = pd.read_csv("fish.csv")
 
     st.subheader("Выберите опыт работы")
     left_column1, right_column1 = st.columns(2)
@@ -2106,22 +2093,20 @@ elif inp_species == 'Слесарь механосборочных работ (M
             st.subheader("Выберите навыки для подсчета зарплаты по вакансии. Расположены в порядке убывания абсолютной значимости (см. развернутый график внизу страницы)")
         
             flag = 0
-            inputs = [1 if i in base_skills_0 else 1 if st.checkbox(i) else 0 for \
-                 i in [x for x in model_0_code_experience_y_sorted if x != 'v3_region_index']]
+            inputs = [model_0_code_experience_y_sorted[i] if st.checkbox(i) else 0 for \
+                 i in [x for x in model_0_code_experience_y_sorted.keys()]]
         
        
-            
-
             st.subheader("Выберите регион вакансии")
             option = st.selectbox(
                 'Напишите регион вакансии',
-                ([x for x in list(data.keys()) if x in rus_regs]))
+                ([x for x in list(model_0_code_experience_y_sorted_obl.keys())]))
 
 
-            reg = data[str(option)]
+            reg = model_0_code_experience_y_sorted_obl[option]
             inputs.insert(model_0_code_experience_y_sorted.index('v3_region_index'),reg)
             inputs = np.array(inputs)[model_0_code_experience_y_sorted_mask]
-            prediction = model_0_code_experience_y.predict(inputs)
+            prediction = sum(inputs)
             
 
         elif experience == 'От 1 до 3 лет':
