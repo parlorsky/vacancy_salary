@@ -8,7 +8,7 @@ import streamlit as st
 #     from catboost import CatBoostRegressor
 import numpy as np
 import json
-import plotly.312express as px
+import plotly.express as px
 import pandas as pd
 
 
