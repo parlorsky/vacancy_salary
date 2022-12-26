@@ -2043,19 +2043,19 @@ elif inp_species == 'слесарь-ремонтник':
 
 elif inp_species == 'Слесарь механосборочных работ (MCP)':
     name = 'slesar_mech'
-    model_0_code_experience_y_sorted = list(json.load(open(f'{name}/model_0_code_experience_y_{name}.json')).keys())
-    model_1_code_experience_y_sorted = list(json.load(open(f'{name}/model_1_code_experience_y_{name}.json')).keys())
-    model_2_code_experience_y_sorted = list(json.load(open(f'{name}/model_2_code_experience_y_{name}.json')).keys())
-    model_0_code_experience_n_sorted = list(json.load(open(f'{name}/model_0_code_experience_n_{name}.json')).keys())
-    model_1_code_experience_n_sorted = list(json.load(open(f'{name}/model_1_code_experience_n_{name}.json')).keys())
-    model_2_code_experience_n_sorted = list(json.load(open(f'{name}/model_2_code_experience_n_{name}.json')).keys())
+    model_0_code_experience_y_sorted = json.load(open(f'{name}/model_0_code_experience_y_{name}.json'))
+    model_1_code_experience_y_sorted = json.load(open(f'{name}/model_1_code_experience_y_{name}.json'))
+    model_2_code_experience_y_sorted = json.load(open(f'{name}/model_2_code_experience_y_{name}.json'))
+    model_0_code_experience_n_sorted = json.load(open(f'{name}/model_0_code_experience_n_{name}.json'))
+    model_1_code_experience_n_sorted = json.load(open(f'{name}/model_1_code_experience_n_{name}.json'))
+    model_2_code_experience_n_sorted = json.load(open(f'{name}/model_2_code_experience_n_{name}.json'))
 
-    model_0_code_experience_y_sorted_obl = list(json.load(open(f'{name}/model_0_code_experience_y_{name}_obl.json')).keys())
-    model_1_code_experience_y_sorted_obl = list(json.load(open(f'{name}/model_1_code_experience_y_{name}_obl.json')).keys())
-    model_2_code_experience_y_sorted_obl = list(json.load(open(f'{name}/model_2_code_experience_y_{name}_obl.json')).keys())
-    model_0_code_experience_n_sorted_obl = list(json.load(open(f'{name}/model_0_code_experience_n_{name}_obl.json')).keys())
-    model_1_code_experience_n_sorted_obl = list(json.load(open(f'{name}/model_1_code_experience_n_{name}_obl.json')).keys())
-    model_2_code_experience_n_sorted_obl = list(json.load(open(f'{name}/model_2_code_experience_n_{name}_obl.json')).keys())
+    model_0_code_experience_y_sorted_obl = json.load(open(f'{name}/model_0_code_experience_y_{name}_obl.json'))
+    model_1_code_experience_y_sorted_obl = json.load(open(f'{name}/model_1_code_experience_y_{name}_obl.json'))
+    model_2_code_experience_y_sorted_obl = json.load(open(f'{name}/model_2_code_experience_y_{name}_obl.json'))
+    model_0_code_experience_n_sorted_obl = json.load(open(f'{name}/model_0_code_experience_n_{name}_obl.json'))
+    model_1_code_experience_n_sorted_obl = json.load(open(f'{name}/model_1_code_experience_n_{name}_obl.json'))
+    model_2_code_experience_n_sorted_obl = json.load(open(f'{name}/model_2_code_experience_n_{name}_obl.json'))
     
     rmses = [float(x.strip()) for x in open(f'{name}/rmse_{name}.txt')]
     bases = [float(x.strip()) for x in open(f'{name}/base_{name}.txt')]
@@ -2096,7 +2096,7 @@ elif inp_species == 'Слесарь механосборочных работ (M
         
             flag = 0
             inputs = [model_0_code_experience_y_sorted[i] if st.checkbox(i) else 0 for \
-                 i in [x for x in model_0_code_experience_y_sorted.keys()]]
+                 i in [x for x in model_0_code_experience_y_sorted]]
         
        
             st.subheader("Выберите регион вакансии")
