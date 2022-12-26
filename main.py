@@ -264,7 +264,7 @@ elif inp_species == 'сварщик':
     model_2_code_experience_y_rmse = rmses[4]
     model_2_code_experience_n_rmse = rmses[5]
 
-    base_skills_0 = [x.strip() for x in open(f'{name}/base_skills_0_{name}.txt', 'r') if len(x) > 3]
+    base_skills_0 = []
     base_skills_1 = [x.strip() for x in open(f'{name}/base_skills_1_{name}.txt', 'r') if len(x) > 3]
     base_skills_2 = [x.strip() for x in open(f'{name}/base_skills_2_{name}.txt', 'r') if len(x) > 3]
 
