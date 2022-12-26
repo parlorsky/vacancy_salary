@@ -1218,9 +1218,9 @@ elif inp_species == 'продавец':
         inputs += [reg]
         prediction = bases[1] + sum(inputs)
         if 75000 > prediction > 50000:
-            prediction /= 1.3
+            prediction /= 1.25
         elif prediction > 75000:
-            prediction /= 1.6
+            prediction /= 1.5
 
     else:
         st.subheader(f"Базовые навыки {inp_species} Более 3 лет опыта:")
