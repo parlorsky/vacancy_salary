@@ -106,7 +106,7 @@ left_column, right_column = st.columns(2)
 with left_column:
     inp_species = st.radio(
         'Наименование вакансии',
-        np.unique(['медсестра','сварщик','слесарь','специалист по персоналу','слесарь КИПиА','слесарь-ремонтник','Слесарь механосборочных работ (MCP)','продавец']))
+        np.unique(['медсестра','слесарь-инструментальщик','сварщик','слесарь','специалист по персоналу','слесарь КИПиА','слесарь-ремонтник','Слесарь механосборочных работ (MCP)','продавец']))
 
 if inp_species == 'медсестра':
     name = 'medsestra'
@@ -2257,4 +2257,218 @@ elif inp_species == 'Слесарь механосборочных работ (M
     #     st.write("обязательно разверните график, нажав на значок стрелок, чтобы ознакомиться с информацией")
 
     #     fig1 = px.pie(dfx,values = dfx['Стоимость навыка'],names = dfx.index,  width=1300, height=1300,title = 'Отношение стоимости признаков')
-    #     st.plotly_chart(fig1, use_container_width=False)
+    #     st.plotly_chart(fig1, use_container_width=False)ъ
+elif inp_species == 'Слесарь-инструментальщик':
+    name = 'slesar_instr'
+    model_0_code_experience_y_sorted = json.load(open(f'{name}/model_0_code_experience_y_{name}.json'))
+    model_1_code_experience_y_sorted = json.load(open(f'{name}/model_1_code_experience_y_{name}.json'))
+    model_2_code_experience_y_sorted = json.load(open(f'{name}/model_2_code_experience_y_{name}.json'))
+    model_0_code_experience_n_sorted = json.load(open(f'{name}/model_0_code_experience_n_{name}.json'))
+    model_1_code_experience_n_sorted = json.load(open(f'{name}/model_1_code_experience_n_{name}.json'))
+    model_2_code_experience_n_sorted = json.load(open(f'{name}/model_2_code_experience_n_{name}.json'))
+
+    model_0_code_experience_y_sorted_obl = json.load(open(f'{name}/model_0_code_experience_y_{name}_obl.json'))
+    model_1_code_experience_y_sorted_obl = json.load(open(f'{name}/model_1_code_experience_y_{name}_obl.json'))
+    model_2_code_experience_y_sorted_obl = json.load(open(f'{name}/model_2_code_experience_y_{name}_obl.json'))
+    model_0_code_experience_n_sorted_obl = json.load(open(f'{name}/model_0_code_experience_n_{name}_obl.json'))
+    model_1_code_experience_n_sorted_obl = json.load(open(f'{name}/model_1_code_experience_n_{name}_obl.json'))
+    model_2_code_experience_n_sorted_obl = json.load(open(f'{name}/model_2_code_experience_n_{name}_obl.json'))
+    
+    rmses = [float(x.strip()) for x in open(f'{name}/rmse_{name}.txt')]
+    bases = [float(x.strip()) for x in open(f'{name}/base_{name}.txt')]
+
+    model_0_code_experience_y_rmse = rmses[0]
+    model_0_code_experience_n_rmse = rmses[1]
+    model_1_code_experience_y_rmse = rmses[2]
+    model_1_code_experience_n_rmse = rmses[3]
+    model_2_code_experience_y_rmse = rmses[4]
+    model_2_code_experience_n_rmse = rmses[5]
+
+    base_skills_0 = [x.strip() for x in open(f'{name}/base_skills_0_{name}.txt', 'r') if len(x) > 3]
+    base_skills_1 = [x.strip() for x in open(f'{name}/base_skills_1_{name}.txt', 'r') if len(x) > 3]
+    base_skills_2 = [x.strip() for x in open(f'{name}/base_skills_2_{name}.txt', 'r') if len(x) > 3]
+
+    m_order = [x.strip() for x in open(f'{name}/order_{name}.txt')]
+    
+    st.header(f"Оценка стоимости навыков {inp_species}")
+
+    st.subheader("Выберите опыт работы")
+    left_column1, right_column1 = st.columns(2)
+    with left_column1:
+        experience = st.radio(
+            'опыт работы:',
+            np.unique(['Без опыта', 'От 1 до 3 лет','От 3 лет']))
+
+    f = open('regions_final.json')
+    data = json.load(f)
+
+    vahta = 1 if st.checkbox('Вахта') else 0
+    if vahta:
+        if experience == 'Без опыта':
+            st.subheader(f"Базовые навыки {inp_species} Без опыта:")
+            for number,skill in enumerate(set(base_skills_0)):
+                st.write(f'{number+1}) {skill}')
+
+            st.subheader("Выберите навыки для подсчета зарплаты по вакансии. Расположены в порядке убывания абсолютной значимости (см. развернутый график внизу страницы)")
+        
+            flag = 0
+            inputs = [model_0_code_experience_y_sorted[i] if st.checkbox(i) else 0 for \
+                 i in [x for x in model_0_code_experience_y_sorted if x not in base_skills_0]]
+        
+       
+            st.subheader("Выберите регион вакансии")
+            option = st.selectbox(
+                'Напишите регион вакансии',
+                ([x for x in list(model_0_code_experience_y_sorted_obl.keys())]))
+
+            reg = model_0_code_experience_y_sorted_obl[option]
+            inputs += [reg]
+            prediction = bases[0] + sum(inputs)
+            
+
+        elif experience == 'От 1 до 3 лет':
+            st.subheader(f"Базовые навыки {inp_species} От 1 до 3 лет:")
+            for number,skill in enumerate(set(base_skills_1)):
+                st.write(f'{number+1}) {skill}')
+
+            st.subheader("Выберите навыки для подсчета зарплаты по вакансии. Расположены в порядке убывания абсолютной значимости (см. развернутый график внизу страницы)")
+
+        
+            flag = 1
+            inputs = [model_1_code_experience_y_sorted[i] if st.checkbox(i) else 0 for \
+                 i in [x for x in model_1_code_experience_y_sorted if x not in base_skills_1]]
+        
+       
+            st.subheader("Выберите регион вакансии")
+            option = st.selectbox(
+                'Напишите регион вакансии',
+                ([x for x in list(model_1_code_experience_y_sorted_obl.keys())]))
+
+            reg = model_1_code_experience_y_sorted_obl[option]
+            inputs += [reg]
+            prediction = bases[2] + sum(inputs)
+
+
+        else:
+            st.subheader(f"Базовые навыки {inp_species} Более 3 лет опыта:")
+            for number,skill in enumerate(set(base_skills_2)):
+                st.write(f'{number+1}) {skill}')
+
+            st.subheader("Выберите навыки для подсчета зарплаты по вакансии. Расположены в порядке убывания абсолютной значимости (см. развернутый график внизу страницы)")
+
+            flag = 2
+            inputs = [model_2_code_experience_y_sorted[i] if st.checkbox(i) else 0 for \
+                 i in [x for x in model_2_code_experience_y_sorted if x not in base_skills_2]]
+        
+       
+            st.subheader("Выберите регион вакансии")
+            option = st.selectbox(
+                'Напишите регион вакансии',
+                ([x for x in list(model_2_code_experience_y_sorted_obl.keys())]))
+
+            reg = model_2_code_experience_y_sorted_obl[option]
+            inputs += [reg]
+            prediction = bases[4] + sum(inputs)
+
+                
+        if st.button('Рассчитать зарплату'):
+            pr = abs(prediction)
+            if flag == 0:
+                p1 = pr - model_0_code_experience_y_rmse/2
+                p2 = pr +model_0_code_experience_y_rmse/2
+            
+            if flag == 1:
+                p1 = pr - model_1_code_experience_y_rmse/2
+                p2 = pr +model_1_code_experience_y_rmse/2
+            
+            if flag == 2:
+                p1 = pr - model_2_code_experience_y_rmse/2
+                p2 = pr +model_2_code_experience_y_rmse/2
+            
+            
+            st.write(f"Предполагаемая ЗП:  {'{:.2f}'.format(p1)} - {'{:.2f}'.format(p2)} рублей")
+    else:
+        if experience == 'Без опыта':
+            st.subheader(f"Базовые навыки {inp_species} Без опыта:")
+            for number,skill in enumerate(set(base_skills_0)):
+                st.write(f'{number+1}) {skill}')
+
+            st.subheader("Выберите навыки для подсчета зарплаты по вакансии. Расположены в порядке убывания абсолютной значимости (см. развернутый график внизу страницы)")
+        
+            flag = 3
+            inputs = [model_0_code_experience_n_sorted[i] if st.checkbox(i) else 0 for \
+                 i in [x for x in model_0_code_experience_n_sorted if x not in base_skills_0]]
+        
+       
+            st.subheader("Выберите регион вакансии")
+            option = st.selectbox(
+                'Напишите регион вакансии',
+                ([x for x in list(model_0_code_experience_n_sorted_obl.keys())]))
+
+            reg = model_0_code_experience_n_sorted_obl[option]
+            inputs += [reg]
+            prediction = bases[1] + sum(inputs)
+        
+
+        elif experience == 'От 1 до 3 лет':
+            st.subheader(f"Базовые навыки {inp_species} От 1 до 3 лет:")
+            for number,skill in enumerate(set(base_skills_1)):
+                st.write(f'{number+1}) {skill}')
+
+            st.subheader("Выберите навыки для подсчета зарплаты по вакансии. Расположены в порядке убывания абсолютной значимости (см. развернутый график внизу страницы)")
+
+        
+            flag = 4
+            inputs = [model_1_code_experience_n_sorted[i] if st.checkbox(i) else 0 for \
+                 i in [x for x in model_1_code_experience_n_sorted if x not in base_skills_1]]
+        
+       
+            st.subheader("Выберите регион вакансии")
+            option = st.selectbox(
+                'Напишите регион вакансии',
+                ([x for x in list(model_1_code_experience_n_sorted_obl.keys())]))
+
+            reg = model_1_code_experience_n_sorted_obl[option]
+            inputs += [reg]
+            prediction = bases[3] + sum(inputs)
+
+
+        else:
+            st.subheader(f"Базовые навыки {inp_species} Более 3 лет опыта:")
+            for number,skill in enumerate(set(base_skills_2)):
+                st.write(f'{number+1}) {skill}')
+
+            st.subheader("Выберите навыки для подсчета зарплаты по вакансии. Расположены в порядке убывания абсолютной значимости (см. развернутый график внизу страницы)")
+
+            flag = 5
+            inputs = [model_2_code_experience_n_sorted[i] if st.checkbox(i) else 0 for \
+                 i in [x for x in model_2_code_experience_n_sorted if x not in base_skills_2]]
+        
+       
+            st.subheader("Выберите регион вакансии")
+            option = st.selectbox(
+                'Напишите регион вакансии',
+                ([x for x in list(model_2_code_experience_n_sorted_obl.keys())]))
+
+            reg = model_2_code_experience_n_sorted_obl[option]
+            inputs += [reg]
+            prediction = bases[5] + sum(inputs)
+
+        if st.button('Рассчитать зарплату'):
+            pr = prediction
+ 
+            
+            if flag == 3:
+                p1 = pr - model_0_code_experience_n_rmse/2
+                p2 = pr +model_0_code_experience_n_rmse/2
+            
+            if flag == 4:
+                p1 = pr - model_1_code_experience_n_rmse/2
+                p2 = pr +model_1_code_experience_n_rmse/2
+            
+            if flag == 5:
+                p1 = pr - model_2_code_experience_n_rmse/2
+                p2 = pr +model_2_code_experience_n_rmse/2
+            
+            
+            st.write(f"Предполагаемая ЗП:  {'{:.2f}'.format(p1)} - {'{:.2f}'.format(p2)} рублей")
