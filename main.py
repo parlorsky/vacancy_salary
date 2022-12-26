@@ -1187,11 +1187,11 @@ elif inp_species == 'продавец':
         inputs += [reg]
         prediction = bases[0] + sum(inputs)
         if 70000 > prediction > 50000:
-            prediction /= 1.5
+            prediction /= 1.3
         elif 80000 > prediction > 70000:
-            prediction /= 2.5
+            prediction /= 1.7
         elif prediction > 80000:
-            prediction /= 3
+            prediction /= 2.2
         
         
         
