@@ -2258,7 +2258,7 @@ elif inp_species == 'Слесарь механосборочных работ (M
 
     #     fig1 = px.pie(dfx,values = dfx['Стоимость навыка'],names = dfx.index,  width=1300, height=1300,title = 'Отношение стоимости признаков')
     #     st.plotly_chart(fig1, use_container_width=False)ъ
-elif inp_species == 'Слесарь-инструментальщик':
+elif inp_species == 'слесарь-инструментальщик':
     name = 'slesar_instr'
     model_0_code_experience_y_sorted = json.load(open(f'{name}/model_0_code_experience_y_{name}.json'))
     model_1_code_experience_y_sorted = json.load(open(f'{name}/model_1_code_experience_y_{name}.json'))
