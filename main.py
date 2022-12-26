@@ -2064,8 +2064,8 @@ elif inp_species == 'Слесарь механосборочных работ (M
     model_0_code_experience_n_rmse = rmses[1]
     model_1_code_experience_y_rmse = rmses[2]
     model_1_code_experience_n_rmse = rmses[3]
-    model_2_code_experience_y_rmse = rmses[3]
-    model_2_code_experience_n_rmse = rmses[4]
+    model_2_code_experience_y_rmse = rmses[4]
+    model_2_code_experience_n_rmse = rmses[5]
 
     base_skills_0 = [x.strip() for x in open(f'{name}/base_skills_0_{name}.txt', 'r') if len(x) > 3]
     base_skills_1 = [x.strip() for x in open(f'{name}/base_skills_1_{name}.txt', 'r') if len(x) > 3]
@@ -2118,19 +2118,18 @@ elif inp_species == 'Слесарь механосборочных работ (M
 
         
             flag = 1
-            inputs = [1 if i in base_skills_1 else 1 if st.checkbox(i) else 0 for \
-                 i in [x for x in model_1_code_experience_y_sorted if x != 'v3_region_index']]
-                
-
+            inputs = [model_1_code_experience_y_sorted[i] if st.checkbox(i) else 0 for \
+                 i in [x for x in model_1_code_experience_y_sorted]]
+        
+       
             st.subheader("Выберите регион вакансии")
             option = st.selectbox(
                 'Напишите регион вакансии',
-                ([x for x in list(data.keys()) if x in rus_regs]))
+                ([x for x in list(model_1_code_experience_y_sorted_obl.keys())]))
 
-            reg = data[str(option)]
-            inputs.insert(model_1_code_experience_y_sorted.index('v3_region_index'),reg)
-            inputs = np.array(inputs)[model_1_code_experience_y_sorted_mask]
-            prediction = model_1_code_experience_y.predict(inputs)
+            reg = model_1_code_experience_y_sorted_obl[option]
+            inputs += [reg]
+            prediction = bases[2] + sum(inputs)
 
 
         else:
@@ -2141,20 +2140,18 @@ elif inp_species == 'Слесарь механосборочных работ (M
             st.subheader("Выберите навыки для подсчета зарплаты по вакансии. Расположены в порядке убывания абсолютной значимости (см. развернутый график внизу страницы)")
 
             flag = 2
-            inputs = [1 if i in base_skills_2 else 1 if st.checkbox(i) else 0 for \
-                 i in [x for x in model_2_code_experience_y_sorted if x != 'v3_region_index']]
-            
-
+            inputs = [model_2_code_experience_y_sorted[i] if st.checkbox(i) else 0 for \
+                 i in [x for x in model_2_code_experience_y_sorted]]
+        
+       
             st.subheader("Выберите регион вакансии")
             option = st.selectbox(
                 'Напишите регион вакансии',
-                ([x for x in list(data.keys()) if x in rus_regs]))
+                ([x for x in list(model_2_code_experience_y_sorted_obl.keys())]))
 
-            reg = data[str(option)]
-            inputs.insert(model_2_code_experience_y_sorted.index('v3_region_index'),reg)
-            inputs = np.array(inputs)[model_2_code_experience_y_sorted_mask]
-           
-            prediction = model_2_code_experience_y.predict(inputs)
+            reg = model_2_code_experience_y_sorted_obl[option]
+            inputs += [reg]
+            prediction = bases[4] + sum(inputs)
 
                 
         if st.button('Рассчитать зарплату'):
@@ -2182,20 +2179,18 @@ elif inp_species == 'Слесарь механосборочных работ (M
             st.subheader("Выберите навыки для подсчета зарплаты по вакансии. Расположены в порядке убывания абсолютной значимости (см. развернутый график внизу страницы)")
         
             flag = 3
-            inputs = [1 if i in base_skills_0 else 1 if st.checkbox(i) else 0 for \
-                 i in [x for x in model_0_code_experience_n_sorted if x != 'v3_region_index']]
-           
-
+            inputs = [model_0_code_experience_n_sorted[i] if st.checkbox(i) else 0 for \
+                 i in [x for x in model_0_code_experience_n_sorted]]
+        
+       
             st.subheader("Выберите регион вакансии")
             option = st.selectbox(
                 'Напишите регион вакансии',
-                ([x for x in list(data.keys()) if x in rus_regs]))
+                ([x for x in list(model_0_code_experience_n_sorted_obl.keys())]))
 
-
-            reg = data[str(option)]
-            inputs.insert(model_0_code_experience_n_sorted.index('v3_region_index'),reg)
-            inputs = np.array(inputs)[model_0_code_experience_n_sorted_mask]
-            prediction = model_0_code_experience_n.predict(inputs)
+            reg = model_0_code_experience_n_sorted_obl[option]
+            inputs += [reg]
+            prediction = bases[1] + sum(inputs)
         
 
         elif experience == 'От 1 до 3 лет':
@@ -2207,21 +2202,18 @@ elif inp_species == 'Слесарь механосборочных работ (M
 
         
             flag = 4
-            inputs = [1 if i in base_skills_1 else 1 if st.checkbox(i) else 0 for \
-                 i in [x for x in model_1_code_experience_n_sorted if x != 'v3_region_index']]
-            
-
-            
-
+            inputs = [model_1_code_experience_n_sorted[i] if st.checkbox(i) else 0 for \
+                 i in [x for x in model_1_code_experience_n_sorted]]
+        
+       
             st.subheader("Выберите регион вакансии")
             option = st.selectbox(
                 'Напишите регион вакансии',
-                ([x for x in list(data.keys()) if x in rus_regs]))
+                ([x for x in list(model_1_code_experience_n_sorted_obl.keys())]))
 
-            reg = data[str(option)]
-            inputs.insert(model_1_code_experience_n_sorted.index('v3_region_index'),reg)
-            inputs = np.array(inputs)[model_1_code_experience_n_sorted_mask]
-            prediction = model_1_code_experience_n.predict(inputs)
+            reg = model_1_code_experience_n_sorted_obl[option]
+            inputs += [reg]
+            prediction = bases[3] + sum(inputs)
 
 
         else:
@@ -2232,29 +2224,22 @@ elif inp_species == 'Слесарь механосборочных работ (M
             st.subheader("Выберите навыки для подсчета зарплаты по вакансии. Расположены в порядке убывания абсолютной значимости (см. развернутый график внизу страницы)")
 
             flag = 5
-            inputs = [1 if i in base_skills_2 else 1 if st.checkbox(i) else 0 for \
-                 i in [x for x in model_2_code_experience_n_sorted if x != 'v3_region_index']]
-            
-
+            inputs = [model_2_code_experience_n_sorted[i] if st.checkbox(i) else 0 for \
+                 i in [x for x in model_2_code_experience_n_sorted]]
+        
+       
             st.subheader("Выберите регион вакансии")
             option = st.selectbox(
                 'Напишите регион вакансии',
-                ([x for x in list(data.keys()) if x in rus_regs]))
+                ([x for x in list(model_2_code_experience_n_sorted_obl.keys())]))
 
-            
-            reg = data[str(option)]
-            inputs.insert(model_2_code_experience_n_sorted.index('v3_region_index'),reg)
-            inputs = np.array(inputs)[model_2_code_experience_n_sorted_mask]
-            prediction = model_2_code_experience_n.predict(inputs)
-
-            if prediction < 45000:
-                prediction += 12932.31
-                
-
+            reg = model_2_code_experience_n_sorted_obl[option]
+            inputs += [reg]
+            prediction = bases[5] + sum(inputs)
 
         if st.button('Рассчитать зарплату'):
-            pr = abs(prediction)
-            if pr < 10000: pr += 13041.49832
+            pr = prediction
+ 
             
             if flag == 3:
                 p1 = pr - model_0_code_experience_n_rmse/2
