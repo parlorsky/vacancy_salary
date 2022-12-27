@@ -1058,10 +1058,6 @@ elif inp_species == 'специалист по персоналу':
         reg = model_1_code_experience_y_sorted_obl[option]
         inputs += [reg]
         prediction = bases[1] + sum(inputs)
-        if 75000 > prediction > 60000:
-            prediction /= 1.6
-        elif prediction > 75000:
-            prediction /= 2
 
     else:
         st.subheader(f"Базовые навыки {inp_species} Более 3 лет опыта:")
