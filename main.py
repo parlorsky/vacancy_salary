@@ -1046,7 +1046,7 @@ elif inp_species == 'специалист по персоналу':
         
     
         flag = 1
-        inputs = [model_1_code_experience_y_sorted[i]/1.75 if st.checkbox(i) else 0 for \
+        inputs = [model_1_code_experience_y_sorted[i]/2 if st.checkbox(i) else 0 for \
                 i in [x for x in model_1_code_experience_y_sorted if x not in base_skills_1]]
     
     
